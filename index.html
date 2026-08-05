@@ -4,10 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f7efe8">
-<meta name="app-version" content="3.2.1.0">
+<meta name="app-version" content="3.2.2.0">
 <title>每日打卡</title>
 <style>
 :root{--accent:#df7951;--accent-soft:#fff4ec;--ink:#332a28;--muted:#967d74;--line:rgba(92,69,58,.1)}
+[data-theme="dark"]{--ink:#f1e9e2;--muted:#b3a299;--line:rgba(255,255,255,.12);--accent-soft:#4a332c;--accent:#f08a5d;color-scheme:dark}
+[data-theme="dark"] body,html{background:#17120f}
+[data-theme="dark"] .app{background:radial-gradient(circle at 8% 0,rgba(126,175,153,.1),transparent 32%),radial-gradient(circle at 92% 10%,rgba(240,138,93,.12),transparent 30%),linear-gradient(160deg,#1d1714,#100c0a)}
+[data-theme="dark"] .hero,.card,.habit,.calendar-panel,.quote-box,.music-dock,.music-panel,.score-pop,.bottom-score-pop,.mode-sheet,.cal-toggle,.empty,.music,.music-open,.guide-help,.spark-btn,.quick-chip,.points-overview button{background:rgba(40,32,28,.82);border-color:rgba(255,255,255,.1)}
+[data-theme="dark"] .mode-card,.push-card,.score-day,.check,.del,.track,.quote-item,.time-item,.diary,.add input,.quote-form input{background:#241d1a;border-color:rgba(255,255,255,.12)}
+[data-theme="dark"] .drawer{background:#1c1614}
+[data-theme="dark"] .mode-more{background:rgba(255,255,255,.14)}
+[data-theme="dark"] .quote-item button,.mode-del{background:#2c241f;color:#d99a8a}
+[data-theme="dark"] .bar{background:rgba(255,255,255,.12)}
+[data-theme="dark"] .set-row{background:rgba(40,32,28,.85);border-color:rgba(255,255,255,.1)}
+[data-theme="dark"] .set-row b{color:#e9e0d8}
+[data-theme="dark"] .set-row .sm{color:#a99b92}
+[data-theme="dark"] .me-cell{background:rgba(40,32,28,.85);border-color:rgba(255,255,255,.1)}
+[data-theme="dark"] .day{color:#cdbfb6}
+[data-theme="dark"] .cal-toggle{color:#b3a299}
+[data-theme="dark"] .quote-box{color:#d9cfc7}
+[data-theme="dark"] .mode-tab{color:#9a8c83}
+[data-theme="dark"] .score b{color:#a9c47e}
+[data-theme="dark"] .score span{color:#b3a299}
 *{box-sizing:border-box}html{width:100%;max-width:100%;overflow-x:hidden;background:#f3ece5}body{margin:0;min-height:100vh;min-height:100dvh;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:#f3ece5;line-height:1.5;overflow-x:hidden;overscroll-behavior-x:none}.app{min-height:100vh;min-height:100dvh;width:100%;max-width:100%;background:radial-gradient(circle at 8% 0,rgba(126,175,153,.16),transparent 32%),radial-gradient(circle at 92% 10%,rgba(223,121,81,.14),transparent 30%),linear-gradient(160deg,#fbf7f0,#eee6dc);overflow-x:hidden}.shell{width:min(100%,552px);margin:0 auto;padding:16px 16px 108px;position:relative}.topline{min-height:30px;display:flex;align-items:center;justify-content:center;margin-bottom:4px;padding:0 72px 0 18px}.greet{font-size:13px;color:var(--muted);text-align:center}.music-dock{position:fixed;right:max(16px,calc((100vw - 552px)/2 + 16px));top:7px;z-index:22;display:flex;align-items:center;gap:3px;padding:3px;border-radius:999px;background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.9);box-shadow:0 12px 26px rgba(74,54,45,.12);backdrop-filter:blur(14px)}.music,.music-open,.music-mode,.music-group,.track,.track-sort{border:0;cursor:pointer}.music{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--muted);font-size:16px;transition:.18s;box-shadow:inset 0 0 0 1px rgba(92,69,58,.08)}.music.on{background:var(--accent);color:#fff;animation:spin 3s linear infinite}.music.loading{opacity:.55}.music-open{width:23px;height:23px;border-radius:50%;background:rgba(255,244,236,.96);color:var(--accent);font-size:13px;box-shadow:inset 0 0 0 1px rgba(223,121,81,.12)}.music-panel{position:absolute;right:0;top:40px;width:248px;max-height:min(72vh,430px);overflow:auto;padding:10px;border-radius:17px;background:rgba(255,255,255,.96);border:1px solid var(--line);box-shadow:0 18px 42px rgba(74,54,45,.18);display:none}.music-dock.open .music-panel{display:block;animation:pop .18s ease}.music-title{display:grid;grid-template-columns:auto 30px minmax(0,1fr);gap:7px;align-items:center;color:var(--muted);font-size:12px;margin:0 2px 8px}.music-title span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right}.music-mode{width:30px;height:26px;border-radius:10px;background:var(--accent-soft);color:var(--accent);font-size:12px;box-shadow:inset 0 0 0 1px rgba(223,121,81,.12)}.music-group{width:100%;height:34px;border-radius:13px;background:rgba(255,244,236,.78);color:var(--accent);display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:center;padding:0 10px;font:inherit;font-size:13px;text-align:left}.music-group b,.music-section-title b{font-size:11px;color:var(--muted);font-weight:500;text-align:right}.music-section-title{display:flex;justify-content:space-between;align-items:center;margin:9px 2px 5px;color:var(--muted);font-size:12px}.track-row{display:grid;grid-template-columns:minmax(0,1fr) 24px 24px;gap:4px;align-items:center;margin-top:6px}.track{width:100%;height:36px;border-radius:13px;background:#fff;color:var(--ink);display:grid;grid-template-columns:25px minmax(0,1fr);align-items:center;text-align:left;padding:0 9px;font:inherit}.track b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px}.track.active{background:var(--accent-soft);color:var(--accent)}.track-sort{width:24px;height:28px;border-radius:10px;background:rgba(255,255,255,.62);color:#b98778;font-size:12px}.track-sort:disabled{opacity:.28;cursor:not-allowed}.music-empty{border-radius:13px;background:rgba(255,255,255,.58);padding:10px;text-align:center;color:var(--muted);font-size:12px}.music-upload{height:36px;width:100%;border:1px dashed rgba(92,69,58,.22);border-radius:13px;background:rgba(255,255,255,.65);color:var(--muted);font:inherit;font-size:13px;margin-top:8px;cursor:pointer}.music-upload:disabled{opacity:.48;cursor:not-allowed}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pop{from{opacity:0;transform:translateY(-6px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
 .mode-tabs{height:36px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) 54px;align-items:end;margin:0 0 14px;border-bottom:1px solid var(--line)}.mode-tab{height:35px;border:0;background:transparent;color:#9b8982;font:inherit;font-size:14px;position:relative;cursor:pointer}.mode-tab.active{color:var(--ink);font-weight:750}.mode-tab.active:after{content:"";position:absolute;left:24%;right:24%;bottom:-1px;height:3px;border-radius:99px;background:var(--accent)}.mode-more{height:30px;width:38px;align-self:center;justify-self:center;border-radius:14px;background:rgba(255,255,255,.52);font-size:23px;line-height:1;color:var(--accent);box-shadow:inset 0 0 0 1px rgba(92,69,58,.07)}.mode-more.active{color:#fff;background:var(--accent)}.mode-more.active:after{display:none}.mode-sheet{margin:-4px 0 12px;padding:12px;border-radius:20px;background:rgba(255,255,255,.84);border:1px solid var(--line);box-shadow:0 14px 32px rgba(72,52,43,.09);backdrop-filter:blur(12px)}.mode-sheet-head{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);margin-bottom:9px}.mode-sheet-head b{color:var(--ink);font-size:15px}.mode-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:9px}.mode-actions button{height:34px;border:0;border-radius:13px;background:var(--accent-soft);color:var(--accent);font:inherit;font-size:13px;cursor:pointer}.mode-options{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.mode-card{border:0;border-radius:15px;background:#fff;padding:10px;text-align:left;font:inherit;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line);cursor:pointer;position:relative}.mode-card.active{box-shadow:inset 0 0 0 2px var(--accent);background:var(--accent-soft)}.mode-card.pinned:after{content:"首页";position:absolute;right:9px;top:9px;font-size:10px;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:2px 6px}.mode-card b{display:block;font-size:14px}.mode-card span{display:block;font-size:11px;color:var(--muted);margin-top:2px}.custom-mode{display:grid;grid-template-columns:1fr 54px;gap:8px;margin-top:9px}.custom-mode input{height:38px;border-radius:13px;border:1px solid #dfd1c7;background:#fff;padding:0 10px;font:inherit;outline:none}.custom-mode button{border:0;border-radius:13px;background:var(--accent);color:#fff;font:inherit;font-size:13px;cursor:pointer}
 .hero,.card,.habit,.calendar-panel,.quote-box{background:rgba(255,255,255,.78);border:1px solid var(--line);box-shadow:0 12px 30px rgba(72,52,43,.08);backdrop-filter:blur(12px)}.hero{border-radius:24px;padding:16px 17px;margin-bottom:12px;position:relative}.title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.title{margin:0;font-size:28px;line-height:1.08}.date{font-size:13px;color:var(--muted);margin-top:4px}.score-stack{display:grid;grid-template-columns:1fr 1fr;gap:6px;min-width:126px}.score{border:0;text-align:center;border-radius:16px;background:var(--accent-soft);padding:6px 8px;font:inherit;cursor:pointer}.score b{display:block;color:var(--accent);font-size:20px;line-height:1}.score span{font-size:10px;color:var(--muted);white-space:nowrap}.score-pop{position:absolute;right:17px;top:72px;width:min(260px,calc(100% - 34px));z-index:12;border-radius:18px;background:rgba(255,255,255,.96);border:1px solid var(--line);box-shadow:0 18px 42px rgba(72,52,43,.16);padding:12px}.score-pop[hidden]{display:none}.score-pop h3{margin:0 0 8px;font-size:15px}.score-line{display:flex;justify-content:space-between;gap:12px;border-radius:12px;background:var(--accent-soft);padding:8px 10px;margin-top:6px;font-size:13px}.score-line small{color:var(--muted)}.score-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.score-day{height:26px;border-radius:9px;background:#fff;display:grid;place-items:center;font-size:11px;color:var(--muted);position:relative}.score-day.hit{color:var(--accent);font-weight:800}.score-day.hit:after{content:"";position:absolute;bottom:3px;width:4px;height:4px;border-radius:50%;background:var(--accent)}.points-overview{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px}.points-overview button{height:30px;border:0;border-radius:12px;background:rgba(255,255,255,.68);color:var(--muted);font:inherit;font-size:12px;cursor:pointer}.points-overview b{color:var(--accent);margin-left:4px}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:14px}.sum{background:#fff;border-radius:14px;text-align:center;padding:8px 4px}.sum b{display:block;color:var(--accent);font-size:19px;line-height:1.1}.sum span{font-size:11px;color:var(--muted)}.bar{height:9px;border-radius:99px;background:#eadfd7;overflow:hidden;margin-top:12px}.bar span{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--accent),#e9b15e);transition:width .3s}
@@ -466,6 +485,9 @@ body.tools-open .app-avatar{display:none!important}
 </style>
 </head>
 <body>
+<script>
+(function(){try{var s=localStorage.getItem('daily-checkin-v30:theme');var m=s?JSON.parse(s).mode:null;if(!m){m=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',m);}catch(e){}})();
+</script>
 <div class="app">
   <main class="shell">
     <div class="music-dock" id="musicDock">
@@ -527,7 +549,7 @@ body.tools-open .app-avatar{display:none!important}
 <div class="toast" id="toast"></div>
 <script>
 (function(){
-var STORE='daily-checkin-v30',OLD='daily-checkin-v1',APP_VERSION='3.2.1.0',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
+var STORE='daily-checkin-v30',OLD='daily-checkin-v1',APP_VERSION='3.2.2.0',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
 var quotes=[{text:'种一棵树最好的时间是十年前，其次是现在。',icon:'🌱'},{text:'不经一番寒彻骨，怎得梅花扑鼻香。',icon:'🌸'},{text:'表扬你的坚持',icon:'🏅'},{text:'生命必须有裂缝，阳光才能照进来',icon:'🌄'},{text:'功不唐捐，玉汝于成。',icon:'✨'},{text:'道阻且长，行则将至。',icon:'🚶'},{text:'长风破浪会有时。',icon:'🌊'},{text:'今天也比昨天多了一点点。',icon:'☀️'},{text:'小小坚持，大大改变。',icon:'🌟'},{text:'自律即自由。',icon:'🕊️'},{text:'不积跬步，无以至千里。',icon:'👣'},{text:'你比想象中更强大。',icon:'💪'},{text:'把目标拆小，把坚持变成日常。',icon:'🎯'},{text:'完成一次，就多一点底气。',icon:'🔥'},{text:'认真生活的人，会被时间奖励。',icon:'⏳'},{text:'锲而不舍，金石可镂。',icon:'🪨'},{text:'天行健，君子以自强不息。',icon:'🌞'},{text:'宝剑锋从磨砺出。',icon:'🌺'},{text:'坚持不是口号，是今天这一勾。',icon:'✓'},{text:'慢慢来，比较快。',icon:'🍃'},{text:'做完这一步，世界就亮一点。',icon:'💡'},{text:'给今天一个温柔但坚定的答案。',icon:'🤲'},{text:'哪怕只完成一点，也算向前。',icon:'📍'},{text:'每一次打卡都在替未来铺路。',icon:'🛤️'},{text:'稳住，节奏比速度更重要。',icon:'🎵'},{text:'今天的小胜利值得被记住。',icon:'🏆'},{text:'一日一进，月月不同。',icon:'📈'},{text:'你正在成为更可靠的自己。',icon:'🧭'},{text:'先开始，再变好。',icon:'🚀'},{text:'春有百花秋有月，日日坚持皆风景。',icon:'🌙'}];
 var defaultHabits=[
  {id:'read',name:'阅读20分钟',emoji:'📖',modeIds:['focus','learn','create'],energy:'low',category:'learn',weekendBonus:true,history:{}},
@@ -557,6 +579,8 @@ var MIGRATIONS=[
   {from:2,to:3,up:function(s){s.framework=true;s.version=3;return s}}
 ];
 window.Bus=(function(){var map={};return{on:function(e,f){(map[e]=map[e]||[]).push(f)},off:function(e,f){if(map[e])map[e]=map[e].filter(function(x){return x!==f})},emit:function(e,d){(map[e]||[]).forEach(function(f){try{f(d)}catch(_){}})}}})();
+window.getTheme=function(){var m;try{m=localStorage.getItem(STORE+':theme')}catch(e){}try{var o=m?JSON.parse(m):null;if(o&&o.mode)return o.mode;}catch(e){}return (window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';};
+window.applyTheme=function(mode){document.documentElement.setAttribute('data-theme',mode==='dark'?'dark':'light');var tc=document.querySelector('meta[name="theme-color"]');if(tc)tc.setAttribute('content',mode==='dark'?'#17120f':'#f7efe8');try{if(window.DB){window.DB.ns('theme').set('mode',mode)}else{var c={};try{c=JSON.parse(localStorage.getItem(STORE+':theme')||'{}')}catch(e){}c.mode=mode;localStorage.setItem(STORE+':theme',JSON.stringify(c))}}catch(e){}};
 window.DB=(function(){
   var PREFIX='daily-checkin-v30';
   var GUIDE_KEY='daily-checkin-guide-3.0.0';
@@ -841,7 +865,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     <div class="me-cell" data-mod="read"><span class="wic">📖</span>阅读</div>
     <div class="me-cell" data-mod="set"><span class="wic">⚙️</span>设置</div>
   </div>
-  <div class="me-foot">每日打卡 3.2.1.0 · 数据存于本机</div>
+  <div class="me-foot">每日打卡 3.2.2.0 · 数据存于本机</div>
 </aside>
 
 <!-- 设置抽屉（头像抽屉底部「设置」进入；更新功能由原生 App 提供） -->
@@ -851,9 +875,13 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     <div class="set-row" id="setCheckUpdate"><span class="sw">🔄</span><div><b>检查更新</b><span class="sm">从更新地址下载最新页面</span></div></div>
     <div class="set-row" id="setUpdateUrl"><span class="sw">🔗</span><div><b>更新地址</b><span class="sm">粘贴国内可访问的链接</span></div></div>
     <div class="set-row" id="setRestore"><span class="sw">♻️</span><div><b>恢复内置版本</b><span class="sm">清除已下载更新，回到内置页</span></div></div>
-    <div class="set-row" id="setAbout"><span class="sw">ℹ️</span><div><b>关于</b><span class="sm">星火 · 每日打卡 3.2.1.0</span></div></div>
+    <div class="set-row" id="setAbout"><span class="sw">ℹ️</span><div><b>关于</b><span class="sm">星火 · 每日打卡 3.2.2.0</span></div></div>
     <div class="set-row" id="setGuide"><span class="sw">💡</span><div style="flex:1"><b>使用指引</b><span class="sm">首次打开与切换页面时的功能介绍</span></div><label class="switch"><input type="checkbox" id="guideToggle" checked><span class="slider"></span></label></div>
     <div class="set-row" id="setLocalUpdate"><span class="sw">📂</span><div><b>从本地文件更新</b><span class="sm">选手机里的 index.html，无需联网 / 不依赖 github</span></div></div>
+  </div>
+  <div class="set-group">外观</div>
+  <div class="set-list">
+    <div class="set-row" id="setTheme"><span class="sw">🌙</span><div style="flex:1"><b>深色模式</b><span class="sm">暗色主题，护眼更省电（首次进入跟随系统）</span></div><label class="switch"><input type="checkbox" id="themeToggle"><span class="slider"></span></label></div>
   </div>
   <div class="set-group">数据与备份</div>
   <div class="set-list">
@@ -1210,6 +1238,10 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   var gt=byId('guideToggle');
   gt.checked=window.Guide?window.Guide.enabled():true;
   gt.addEventListener('change',function(){if(window.Guide)window.Guide.setEnabled(this.checked);toast(this.checked?'已开启使用指引':'已关闭使用指引')});
+  // 深色模式开关
+  var tt=byId('themeToggle');
+  tt.checked=window.getTheme?window.getTheme()==='dark':false;
+  tt.addEventListener('change',function(){if(window.applyTheme){window.applyTheme(this.checked?'dark':'light');toast(this.checked?'已切换深色模式':'已切换浅色模式')}});
   // 从本地文件更新（不依赖 github）
   byId('setLocalUpdate').addEventListener('click',function(){
     if(window.AndroidBridge){AndroidBridge.pickLocalUpdate();}else{toast('此功能需在 App 内使用');}
