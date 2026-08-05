@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f7efe8">
-<meta name="app-version" content="3.1.0">
+<meta name="app-version" content="3.2.0.0">
 <title>每日打卡</title>
 <style>
 :root{--accent:#df7951;--accent-soft:#fff4ec;--ink:#332a28;--muted:#967d74;--line:rgba(92,69,58,.1)}
@@ -264,6 +264,10 @@ body{overscroll-behavior-y:contain;-webkit-tap-highlight-color:transparent;backg
 /* 面板标题让出左上头像位并居中 */
 .panel-head{padding-left:48px}
 .panel-head h2{flex:1;text-align:center}
+/* 抽屉头部标题居中，并为左上固定头像让位（移动端抽屉满宽时避免压住标题/输入框） */
+.drawer-head{position:relative}
+.drawer-head > div{flex:1;min-width:0;text-align:center}
+.drawer-head .close-strong{position:absolute;top:-2px;right:0}
 /* ===== 聊天界面（仿 QQ/钉钉式，全屏覆盖） ===== */
 .chat-view{position:fixed;left:0;right:0;top:0;bottom:calc(58px + env(safe-area-inset-bottom,0px));z-index:80;display:flex;flex-direction:column;background:#f6f0e9!important;overflow:hidden}
 .chat-view[hidden]{display:none!important}
@@ -510,7 +514,7 @@ body.tools-open .app-avatar{display:none!important}
 <div class="toast" id="toast"></div>
 <script>
 (function(){
-var STORE='daily-checkin-v30',OLD='daily-checkin-v1',APP_VERSION='3.1.0',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
+var STORE='daily-checkin-v30',OLD='daily-checkin-v1',APP_VERSION='3.2.0.0',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
 var quotes=[{text:'种一棵树最好的时间是十年前，其次是现在。',icon:'🌱'},{text:'不经一番寒彻骨，怎得梅花扑鼻香。',icon:'🌸'},{text:'表扬你的坚持',icon:'🏅'},{text:'生命必须有裂缝，阳光才能照进来',icon:'🌄'},{text:'功不唐捐，玉汝于成。',icon:'✨'},{text:'道阻且长，行则将至。',icon:'🚶'},{text:'长风破浪会有时。',icon:'🌊'},{text:'今天也比昨天多了一点点。',icon:'☀️'},{text:'小小坚持，大大改变。',icon:'🌟'},{text:'自律即自由。',icon:'🕊️'},{text:'不积跬步，无以至千里。',icon:'👣'},{text:'你比想象中更强大。',icon:'💪'},{text:'把目标拆小，把坚持变成日常。',icon:'🎯'},{text:'完成一次，就多一点底气。',icon:'🔥'},{text:'认真生活的人，会被时间奖励。',icon:'⏳'},{text:'锲而不舍，金石可镂。',icon:'🪨'},{text:'天行健，君子以自强不息。',icon:'🌞'},{text:'宝剑锋从磨砺出。',icon:'🌺'},{text:'坚持不是口号，是今天这一勾。',icon:'✓'},{text:'慢慢来，比较快。',icon:'🍃'},{text:'做完这一步，世界就亮一点。',icon:'💡'},{text:'给今天一个温柔但坚定的答案。',icon:'🤲'},{text:'哪怕只完成一点，也算向前。',icon:'📍'},{text:'每一次打卡都在替未来铺路。',icon:'🛤️'},{text:'稳住，节奏比速度更重要。',icon:'🎵'},{text:'今天的小胜利值得被记住。',icon:'🏆'},{text:'一日一进，月月不同。',icon:'📈'},{text:'你正在成为更可靠的自己。',icon:'🧭'},{text:'先开始，再变好。',icon:'🚀'},{text:'春有百花秋有月，日日坚持皆风景。',icon:'🌙'}];
 var defaultHabits=[
  {id:'read',name:'阅读20分钟',emoji:'📖',modeIds:['focus','learn','create'],energy:'low',category:'learn',weekendBonus:true,history:{}},
@@ -1064,6 +1068,22 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   function openMe(){meDrawer.classList.add('show');meMask.classList.add('show')}
   function closeMe(){meDrawer.classList.remove('show');meMask.classList.remove('show')}
   byId('appAvatar').addEventListener('click',openMe);
+  // 头像仅「今日」主屏且无任何覆盖层时显示；抽屉/面板/弹层打开时自动隐藏，避免压住顶部标题与输入框
+  function syncAvatar(){
+    var ids=['panel-study','panel-social','panel-leisure','panel-space'],onToday=true,i,el;
+    for(i=0;i<ids.length;i++){el=byId(ids[i]);if(el&&el.classList.contains('show')){onToday=false;break;}}
+    var overlay=(byId('calendar')&&byId('calendar').classList.contains('show'))
+      ||(byId('drawer')&&byId('drawer').classList.contains('show'))
+      ||(byId('quoteDrawer')&&byId('quoteDrawer').classList.contains('show'))
+      ||(byId('profileDrawer')&&byId('profileDrawer').classList.contains('show'))
+      ||(byId('settingsDrawer')&&byId('settingsDrawer').classList.contains('show'))
+      ||(byId('meDrawer')&&byId('meDrawer').classList.contains('show'))
+      ||document.body.classList.contains('chat-open')
+      ||document.body.classList.contains('tools-open');
+    byId('appAvatar').classList.toggle('hide',!onToday||!!overlay);
+  }
+  if(window.MutationObserver){var _avT=null;var _av=new MutationObserver(function(){if(_avT)return;_avT=setTimeout(function(){_avT=null;syncAvatar();},20);});_av.observe(document.body,{attributes:true,attributeFilter:['class','hidden'],subtree:true});}
+  syncAvatar();
   meMask.addEventListener('click',closeMe);
   meDrawer.querySelectorAll('.me-cell').forEach(function(c){c.addEventListener('click',function(){var mod=c.getAttribute('data-mod');if(mod==='set'){openSettings();return}if(mod==='tools'){closeMe();if(window.Tools)window.Tools.open();else toast('工具箱加载中，请稍候');return}toast('「'+c.querySelector('.wic').nextSibling.textContent.trim()+'」敬请期待 · 已预留')})})
   // 设置抽屉
@@ -1096,7 +1116,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   function activate(name){
     navBtns.forEach(function(b){b.classList.toggle('active',b.getAttribute('data-tab')===name)});
     Object.keys(panels).forEach(function(k){panels[k].classList.toggle('show',k===name)});
-    if(name!=='today'){closeMe()}byId('appAvatar').classList.toggle('hide',name==='space');
+    if(name!=='today'){closeMe()}syncAvatar();
     if(window.Guide && ['study','social','leisure','space'].indexOf(name)>=0)window.Guide.auto(name);
   }
   navBtns.forEach(function(b){b.addEventListener('click',function(){activate(b.getAttribute('data-tab'))})});
