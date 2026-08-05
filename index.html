@@ -4,29 +4,66 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f7efe8">
-<meta name="app-version" content="3.2.2.2">
+<meta name="app-version" content="3.2.3.0">
 <title>每日打卡</title>
 <style>
 :root{--accent:#df7951;--accent-soft:#fff4ec;--ink:#332a28;--muted:#967d74;--line:rgba(92,69,58,.1)}
-[data-theme="dark"]{--ink:#f1e9e2;--muted:#b3a299;--line:rgba(255,255,255,.12);--accent-soft:#4a332c;--accent:#f08a5d;color-scheme:dark}
+/* ===== 深色模式（协调配色：背景压暗、文字转浅且降低饱和度；由「设置-深色模式」开关控制，默认浅色） ===== */
+[data-theme="dark"]{--ink:#f1e9e2;--ink-2:#cdbfb6;--muted:#b3a299;--line:rgba(255,255,255,.12);--accent:#ec9a72;--accent-2:#caa06a;--accent-soft:rgba(236,154,114,.16);--on-accent:#2a1a12;--bg:#17120f;--card:#211a16;--text:#f1e9e2;--surface:rgba(40,32,28,.82);--surface-2:#241d1a;--surface-3:#1c1614;--shadow:0 12px 30px rgba(0,0,0,.42);color-scheme:dark}
 [data-theme="dark"] body,html{background:#17120f}
-[data-theme="dark"] .app{background:radial-gradient(circle at 8% 0,rgba(126,175,153,.1),transparent 32%),radial-gradient(circle at 92% 10%,rgba(240,138,93,.12),transparent 30%),linear-gradient(160deg,#1d1714,#100c0a)}
-[data-theme="dark"] .hero,.card,.habit,.calendar-panel,.quote-box,.music-dock,.music-panel,.score-pop,.bottom-score-pop,.mode-sheet,.cal-toggle,.empty,.music,.music-open,.guide-help,.spark-btn,.quick-chip,.points-overview button{background:rgba(40,32,28,.82);border-color:rgba(255,255,255,.1)}
-[data-theme="dark"] .mode-card,.push-card,.score-day,.check,.del,.track,.quote-item,.time-item,.diary,.add input,.quote-form input{background:#241d1a;border-color:rgba(255,255,255,.12)}
-[data-theme="dark"] .drawer{background:#1c1614}
-[data-theme="dark"] .mode-more{background:rgba(255,255,255,.14)}
-[data-theme="dark"] .quote-item button,.mode-del{background:#2c241f;color:#d99a8a}
-[data-theme="dark"] .bar{background:rgba(255,255,255,.12)}
-[data-theme="dark"] .set-row{background:rgba(40,32,28,.85);border-color:rgba(255,255,255,.1)}
+[data-theme="dark"] .app{background:radial-gradient(circle at 8% 0,rgba(126,175,153,.07),transparent 32%),radial-gradient(circle at 92% 10%,rgba(236,154,114,.1),transparent 30%),linear-gradient(160deg,#1d1714,#100c0a)}
+[data-theme="dark"] .hero,.card,.habit,.calendar-panel,.quote-box,.cardx,.feed-card,.game-card,.space-compose,.me-stat,.friend-card,.stat-card,.sum-cell,.ach-cell,.set-row,.me-cell,.push-card,.mode-card,.track,.quote-item,.time-item,.score,.points-overview button,.music-dock,.music-panel,.score-pop,.bottom-score-pop,.mode-sheet,.cal-toggle,.empty{background:var(--surface);border-color:rgba(255,255,255,.1)}
 [data-theme="dark"] .set-row b{color:#e9e0d8}
 [data-theme="dark"] .set-row .sm{color:#a99b92}
-[data-theme="dark"] .me-cell{background:rgba(40,32,28,.85);border-color:rgba(255,255,255,.1)}
+[data-theme="dark"] .set-head h2{color:#e9e0d8}
+[data-theme="dark"] .set-foot{color:#8a7c72}
+[data-theme="dark"] .quote-box{color:#d9cfc7}
+[data-theme="dark"] .diary-top{color:#cdbfb6}
 [data-theme="dark"] .day{color:#cdbfb6}
 [data-theme="dark"] .cal-toggle{color:#b3a299}
-[data-theme="dark"] .quote-box{color:#d9cfc7}
-[data-theme="dark"] .mode-tab{color:#9a8c83}
+[data-theme="dark"] .close-strong{background:#3a2a22;color:#f1e9e2}
 [data-theme="dark"] .score b{color:#a9c47e}
 [data-theme="dark"] .score span{color:#b3a299}
+[data-theme="dark"] .mode-tab{color:#9a8c83}
+[data-theme="dark"] .mode-more{background:rgba(255,255,255,.14)}
+[data-theme="dark"] .add input,.quote-form input,.diary,.composer textarea,.friend-add input{background:var(--surface-3);border-color:rgba(255,255,255,.14);color:var(--ink)}
+[data-theme="dark"] .add input::placeholder,.composer textarea::placeholder{color:#7c716a}
+[data-theme="dark"] .check{border-color:rgba(255,255,255,.2);background:var(--surface-2);color:transparent}
+[data-theme="dark"] .del{background:var(--surface-2);color:#d99a8a}
+[data-theme="dark"] .quote-item button,.mode-del{background:#2c241f;color:#d99a8a}
+[data-theme="dark"] .music{background:rgba(255,255,255,.08);color:#cdbfb6}
+[data-theme="dark"] .music-open{background:rgba(255,255,255,.1);color:var(--accent)}
+[data-theme="dark"] .score-day{background:var(--surface-2)}
+[data-theme="dark"] .drawer{background:#1c1614}
+[data-theme="dark"] .me-drawer,.set-drawer{background:linear-gradient(165deg,#241d1a,#1a1411)}
+[data-theme="dark"] .panel{background:linear-gradient(160deg,#1d1714,#100c0a)}
+[data-theme="dark"] .composer,.bk-card{background:#1c1614}
+[data-theme="dark"] .bk-card h3{color:#e9e0d8}
+[data-theme="dark"] .bk-sum{color:#c2b4ab}
+[data-theme="dark"] .bk-tip{color:#9a8c82}
+[data-theme="dark"] .bk-btn.bk-danger{background:#3a241f;color:#e08a78}
+[data-theme="dark"] .me-name{color:#f1e9e2}
+[data-theme="dark"] .feed-card .fc-text{color:#d9cfc7}
+[data-theme="dark"] .fc-likes-line{color:#e0a08c;background:rgba(236,154,114,.1)}
+[data-theme="dark"] .fc-bar{border-top-color:rgba(255,255,255,.1)}
+[data-theme="dark"] .panel .sub{color:#b3a299}
+[data-theme="dark"] .chat-head{background:var(--card)}
+[data-theme="dark"] .msg.them{background:var(--card);border-color:rgba(255,255,255,.1)}
+[data-theme="dark"] .pk-modal{background:var(--card)}
+[data-theme="dark"] .appnav{background:rgba(28,22,20,.92);border-top-color:rgba(255,255,255,.1)}
+[data-theme="dark"] .app-avatar{box-shadow:0 10px 24px rgba(0,0,0,.4)}
+[data-theme="dark"] .guide-help{background:rgba(40,32,28,.8);color:var(--accent)}
+[data-theme="dark"] .focus-ring{background:conic-gradient(var(--accent) calc(var(--p,0)*1%), rgba(255,255,255,.12) 0)}
+[data-theme="dark"] .focus-ring .inner{background:var(--surface-2)}
+[data-theme="dark"] .focus-row .reset{background:rgba(255,255,255,.1);color:var(--muted)}
+[data-theme="dark"] .focus-chips button{background:rgba(255,255,255,.1);color:var(--muted)}
+[data-theme="dark"] .rate-fill{background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+[data-theme="dark"] .heat-cell{background:rgba(255,255,255,.08)}
+[data-theme="dark"] .bar{background:rgba(255,255,255,.12)}
+[data-theme="dark"] .emoji{background:radial-gradient(circle at 36% 30%,rgba(255,255,255,.9),rgba(236,154,114,.5) 64%,rgba(236,154,114,.32))}
+[data-theme="dark"] .fr-meta{color:var(--muted)}
+[data-theme="dark"] .me-stat b{color:var(--accent)}
+[data-theme="dark"] .me-stat span{color:var(--muted)}
 .stats-scroll{padding:14px;display:grid;gap:14px;overflow:auto}
 .stat-card{background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:0 12px 30px rgba(72,52,43,.06)}
 .stat-title{font-size:14px;font-weight:700;margin-bottom:10px}
@@ -574,7 +611,7 @@ body.tools-open .app-avatar{display:none!important}
 <div class="toast" id="toast"></div>
 <script>
 (function(){
-var STORE='daily-checkin-v30',OLD='daily-checkin-v1',APP_VERSION='3.2.2.2',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
+var STORE='daily-checkin-v30',OLD='daily-checkin-v1',APP_VERSION='3.2.3.0',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
 var quotes=[{text:'种一棵树最好的时间是十年前，其次是现在。',icon:'🌱'},{text:'不经一番寒彻骨，怎得梅花扑鼻香。',icon:'🌸'},{text:'表扬你的坚持',icon:'🏅'},{text:'生命必须有裂缝，阳光才能照进来',icon:'🌄'},{text:'功不唐捐，玉汝于成。',icon:'✨'},{text:'道阻且长，行则将至。',icon:'🚶'},{text:'长风破浪会有时。',icon:'🌊'},{text:'今天也比昨天多了一点点。',icon:'☀️'},{text:'小小坚持，大大改变。',icon:'🌟'},{text:'自律即自由。',icon:'🕊️'},{text:'不积跬步，无以至千里。',icon:'👣'},{text:'你比想象中更强大。',icon:'💪'},{text:'把目标拆小，把坚持变成日常。',icon:'🎯'},{text:'完成一次，就多一点底气。',icon:'🔥'},{text:'认真生活的人，会被时间奖励。',icon:'⏳'},{text:'锲而不舍，金石可镂。',icon:'🪨'},{text:'天行健，君子以自强不息。',icon:'🌞'},{text:'宝剑锋从磨砺出。',icon:'🌺'},{text:'坚持不是口号，是今天这一勾。',icon:'✓'},{text:'慢慢来，比较快。',icon:'🍃'},{text:'做完这一步，世界就亮一点。',icon:'💡'},{text:'给今天一个温柔但坚定的答案。',icon:'🤲'},{text:'哪怕只完成一点，也算向前。',icon:'📍'},{text:'每一次打卡都在替未来铺路。',icon:'🛤️'},{text:'稳住，节奏比速度更重要。',icon:'🎵'},{text:'今天的小胜利值得被记住。',icon:'🏆'},{text:'一日一进，月月不同。',icon:'📈'},{text:'你正在成为更可靠的自己。',icon:'🧭'},{text:'先开始，再变好。',icon:'🚀'},{text:'春有百花秋有月，日日坚持皆风景。',icon:'🌙'}];
 var defaultHabits=[
  {id:'read',name:'阅读20分钟',emoji:'📖',modeIds:['focus','learn','create'],energy:'low',category:'learn',weekendBonus:true,history:{}},
@@ -604,7 +641,7 @@ var MIGRATIONS=[
   {from:2,to:3,up:function(s){s.framework=true;s.version=3;return s}}
 ];
 window.Bus=(function(){var map={};return{on:function(e,f){(map[e]=map[e]||[]).push(f)},off:function(e,f){if(map[e])map[e]=map[e].filter(function(x){return x!==f})},emit:function(e,d){(map[e]||[]).forEach(function(f){try{f(d)}catch(_){}})}}})();
-window.getTheme=function(){var m;try{m=localStorage.getItem(STORE+':theme')}catch(e){}try{var o=m?JSON.parse(m):null;if(o&&o.mode)return o.mode;}catch(e){}return (window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';};
+window.getTheme=function(){var m;try{m=localStorage.getItem(STORE+':theme')}catch(e){}try{var o=m?JSON.parse(m):null;if(o&&o.mode)return o.mode;}catch(e){}return 'light';};
 window.applyTheme=function(mode){document.documentElement.setAttribute('data-theme',mode==='dark'?'dark':'light');var tc=document.querySelector('meta[name="theme-color"]');if(tc)tc.setAttribute('content',mode==='dark'?'#17120f':'#f7efe8');try{if(window.DB){window.DB.ns('theme').set('mode',mode)}else{var c={};try{c=JSON.parse(localStorage.getItem(STORE+':theme')||'{}')}catch(e){}c.mode=mode;localStorage.setItem(STORE+':theme',JSON.stringify(c))}}catch(e){}};
 window.DB=(function(){
   var PREFIX='daily-checkin-v30';
@@ -618,11 +655,13 @@ window.DB=(function(){
   function setState(s){rawSet(PREFIX,JSON.stringify(s))}
   function nsGet(n){try{var v=localStorage.getItem(PREFIX+':'+n);return v?JSON.parse(v):null}catch(e){return null}}
   function nsSet(n,v){rawSet(PREFIX+':'+n,JSON.stringify(v))}
+  function ns(name){return {get:function(k){var o=nsGet(name);return o?o[k]:undefined},set:function(k,v){var o=nsGet(name)||{};o[k]=v;nsSet(name,o);return v},save:function(o){nsSet(name,o);return o},raw:function(){return nsGet(name)}}}
+  function collectNs(){var o={};keys().forEach(function(k){if(k.indexOf(PREFIX+':')===0){o[k.slice(PREFIX.length+1)]=parseRaw(k)}});return o}
   function parseRaw(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
   function snapshot(){
     var ns={};
     keys().forEach(function(k){ if(k.indexOf(PREFIX+':')===0){ ns[k.slice(PREFIX.length+1)] = parseRaw(k); } });
-    return {app:'spark-checkin',schema:SCHEMA_VERSION,exportedAt:new Date().toISOString(),state:getState(),ns:ns,guide:raw(GUIDE_KEY),guideEnabled:raw(GUIDE_ENABLED_KEY)};
+    return {app:'spark-checkin',schema:SCHEMA_VERSION,exportedAt:new Date().toISOString(),state:getState(),ns:collectNs(),guide:raw(GUIDE_KEY),guideEnabled:raw(GUIDE_ENABLED_KEY)};
   }
   function applyRaw(k,v){ if(v===null||v===undefined)localStorage.removeItem(k); else rawSet(k,v); }
   function deepMerge(a,b){ if(Array.isArray(a)&&Array.isArray(b))return a.concat(b); if(a&&typeof a==='object'&&b&&typeof b==='object'){var o={};Object.keys(a).forEach(function(k){o[k]=a[k]});Object.keys(b).forEach(function(k){o[k]=(o[k]&&typeof o[k]==='object'&&b[k]&&typeof b[k]==='object')?deepMerge(o[k],b[k]):b[k]});return o} return (b===undefined?a:b) }
@@ -656,7 +695,7 @@ window.DB=(function(){
     }
     return true;
   }
-  return {PREFIX:PREFIX,keys:keys,getState:getState,setState:setState,nsGet:nsGet,nsSet:nsSet,snapshot:snapshot,restore:restore,mergeState:mergeState};
+  return {PREFIX:PREFIX,keys:keys,getState:getState,setState:setState,nsGet:nsGet,nsSet:nsSet,ns:ns,snapshot:snapshot,restore:restore,mergeState:mergeState};
 })();
 
 var state=load(),els={tabs:id('modeTabs'),modeSheet:id('modeSheet'),modeOptions:id('modeOptions'),pinMode:id('pinModeBtn'),shuffleModes:id('shuffleModesBtn'),arrangeModes:id('arrangeModesBtn'),customModeName:id('customModeName'),addCustomMode:id('addCustomMode'),greet:id('greet'),date:id('dateText'),score:id('scoreText'),modeScore:id('modeScoreText'),allScore:id('allScoreText'),effectiveScore:id('effectiveScoreText'),scorePop:id('scorePop'),bottomScorePop:id('bottomScorePop'),todayScoreBtn:id('todayScoreBtn'),modeTotalBtn:id('modeTotalBtn'),allScoreBtn:id('allScoreBtn'),effectiveScoreBtn:id('effectiveScoreBtn'),done:id('doneCount'),total:id('totalCount'),streak:id('streakCount'),month:id('monthCount'),bar:id('bar'),calToggle:id('calToggle'),calSummary:id('calSummary'),calendar:id('calendar'),push:id('pushBox'),skip:id('skipHint'),input:id('habitInput'),list:id('habitList'),quote:id('quoteBox'),quoteDrawer:id('quoteDrawer'),quoteDrawerSub:id('quoteDrawerSub'),customQuoteText:id('customQuoteText'),customQuoteIcon:id('customQuoteIcon'),addQuoteBtn:id('addQuoteBtn'),quoteCount:id('quoteCount'),quoteList:id('quoteList'),calTitle:id('calTitle'),cal:id('calGrid'),toast:id('toast'),drawer:id('drawer'),overlay:id('overlay'),drawerTitle:id('drawerTitle'),drawerSub:id('drawerSub'),diaryTop:id('diaryTop'),timeline:id('timeline'),diary:id('diaryText'),weather:id('weatherInput'),bgm:id('bgm'),music:id('musicBtn'),musicDock:id('musicDock'),musicOpen:id('musicOpen'),musicPanel:id('musicPanel'),musicNow:id('musicNow'),trackList:id('trackList'),musicUploadBtn:id('musicUploadBtn'),musicUpload:id('musicUpload')};
@@ -1312,7 +1351,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     h+='</div></div>';
     box.innerHTML=h;
   }
-  function openStats(){renderStats();byId('statsPanel').classList.add('show')}
+  function openStats(){try{renderStats()}catch(e){var b=byId('statsScroll');if(b)b.innerHTML='<div class="empty">统计加载失败</div>'}byId('statsPanel').classList.add('show')}
   function closeStats(){byId('statsPanel').classList.remove('show')}
   byId('closeStats').addEventListener('click',closeStats);
   // ===== 成就徽章（3.2.2.2，基于 F3 事件总线）=====
@@ -1349,11 +1388,11 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     ACHS.forEach(function(a){var on=!!stored[a.id];h+='<div class="ach-cell'+(on?' on':'')+'"><div class="ach-ic">'+(on?a.emoji:'🔒')+'</div><div class="ach-name">'+a.name+'</div><div class="ach-desc">'+a.desc+'</div></div>'});
     box.innerHTML=h;
   }
-  function openAch(){evalAch(false);renderAch();byId('achPanel').classList.add('show')}
+  function openAch(){try{evalAch(false)}catch(e){}try{renderAch()}catch(e){}byId('achPanel').classList.add('show')}
   function closeAch(){byId('achPanel').classList.remove('show')}
   byId('closeAch').addEventListener('click',closeAch);
-  if(window.Bus)window.Bus.on('state:save',function(){evalAch(true)});
-  evalAch(false);
+  if(window.Bus)window.Bus.on('state:save',function(){try{evalAch(true)}catch(e){}});
+  try{evalAch(false)}catch(e){}
   // 从本地文件更新（不依赖 github）
   byId('setLocalUpdate').addEventListener('click',function(){
     if(window.AndroidBridge){AndroidBridge.pickLocalUpdate();}else{toast('此功能需在 App 内使用');}
