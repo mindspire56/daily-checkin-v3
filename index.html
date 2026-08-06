@@ -2445,5 +2445,11 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   </div>
 </div>
 
+<!-- App 套壳就绪信号：仅在 Android WebView 中有效；浏览器无 AndroidBridge 时自动 no-op，无副作用 -->
+<script>
+  window.addEventListener('load', function () {
+    try { if (window.AndroidBridge && window.AndroidBridge.pageReady) window.AndroidBridge.pageReady(); } catch (e) {}
+  });
+</script>
 </body>
 </html>
