@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f7efe8">
-<meta name="app-version" content="3.5.2.0">
+<meta name="app-version" content="3.5.3.0">
 <title>每日打卡</title>
 <style>
 :root{--accent:#df7951;--accent-soft:#fff4ec;--ink:#332a28;--muted:#967d74;--line:rgba(92,69,58,.1)}
@@ -728,7 +728,7 @@ body.tools-open .app-avatar{display:none!important}
 <div class="toast" id="toast"></div>
 <script>
 (function(){
-var STORE='daily-checkin-v35',OLD='daily-checkin-v1',APP_VERSION='3.5.2.0',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
+var STORE='daily-checkin-v35',OLD='daily-checkin-v1',APP_VERSION='3.5.3.0',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
 var quotes=[{text:'种一棵树最好的时间是十年前，其次是现在。',icon:'🌱'},{text:'不经一番寒彻骨，怎得梅花扑鼻香。',icon:'🌸'},{text:'表扬你的坚持',icon:'🏅'},{text:'生命必须有裂缝，阳光才能照进来',icon:'🌄'},{text:'功不唐捐，玉汝于成。',icon:'✨'},{text:'道阻且长，行则将至。',icon:'🚶'},{text:'长风破浪会有时。',icon:'🌊'},{text:'今天也比昨天多了一点点。',icon:'☀️'},{text:'小小坚持，大大改变。',icon:'🌟'},{text:'自律即自由。',icon:'🕊️'},{text:'不积跬步，无以至千里。',icon:'👣'},{text:'你比想象中更强大。',icon:'💪'},{text:'把目标拆小，把坚持变成日常。',icon:'🎯'},{text:'完成一次，就多一点底气。',icon:'🔥'},{text:'认真生活的人，会被时间奖励。',icon:'⏳'},{text:'锲而不舍，金石可镂。',icon:'🪨'},{text:'天行健，君子以自强不息。',icon:'🌞'},{text:'宝剑锋从磨砺出。',icon:'🌺'},{text:'坚持不是口号，是今天这一勾。',icon:'✓'},{text:'慢慢来，比较快。',icon:'🍃'},{text:'做完这一步，世界就亮一点。',icon:'💡'},{text:'给今天一个温柔但坚定的答案。',icon:'🤲'},{text:'哪怕只完成一点，也算向前。',icon:'📍'},{text:'每一次打卡都在替未来铺路。',icon:'🛤️'},{text:'稳住，节奏比速度更重要。',icon:'🎵'},{text:'今天的小胜利值得被记住。',icon:'🏆'},{text:'一日一进，月月不同。',icon:'📈'},{text:'你正在成为更可靠的自己。',icon:'🧭'},{text:'先开始，再变好。',icon:'🚀'},{text:'春有百花秋有月，日日坚持皆风景。',icon:'🌙'}];
 var defaultHabits=[
  {id:'read',name:'阅读20分钟',emoji:'📖',modeIds:['focus','learn','create'],energy:'low',category:'learn',weekendBonus:true,history:{}},
@@ -1042,7 +1042,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     <div class="me-cell" data-mod="read"><span class="wic">📖</span>阅读</div>
     <div class="me-cell" data-mod="set"><span class="wic">⚙️</span>设置</div>
   </div>
-  <div class="me-foot">星火 3.5.2.0 · 数据存于本机</div>
+  <div class="me-foot">星火 3.5.3.0 · 数据存于本机</div>
 </aside>
 
 <!-- 设置抽屉（头像抽屉底部「设置」进入；更新功能由原生 App 提供） -->
@@ -1052,7 +1052,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     <div class="set-row" id="setCheckUpdate"><span class="sw">🔄</span><div><b>检查更新</b><span class="sm">从更新地址下载最新页面</span></div></div>
     <div class="set-row" id="setUpdateUrl"><span class="sw">🔗</span><div><b>更新地址</b><span class="sm">粘贴国内可访问的链接</span></div></div>
     <div class="set-row" id="setRestore"><span class="sw">♻️</span><div><b>恢复内置版本</b><span class="sm">清除已下载更新，回到内置页</span></div></div>
-    <div class="set-row" id="setAbout"><span class="sw">ℹ️</span><div><b>关于</b><span class="sm">星火 · 每日打卡 3.5.2.0</span></div></div>
+    <div class="set-row" id="setAbout"><span class="sw">ℹ️</span><div><b>关于</b><span class="sm">星火 · 每日打卡 3.5.3.0</span></div></div>
     <div class="set-row" id="setGuide"><span class="sw">💡</span><div style="flex:1"><b>使用指引</b><span class="sm">首次打开与切换页面时的功能介绍</span></div><label class="switch"><input type="checkbox" id="guideToggle" checked><span class="slider"></span></label></div>
     <div class="set-row" id="setLocalUpdate"><span class="sw">📂</span><div><b>从本地文件更新</b><span class="sm">选手机里的 index.html，无需联网 / 不依赖 github</span></div></div>
   </div>
@@ -1152,16 +1152,28 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
 <!-- 动态空间（朋友圈 / QQ空间 风格） -->
 <!-- 社交面板：好友 + 聊天 + PK -->
 
-<!-- ===== 星火 · 学习空间（3.5.2.0 重设计） ===== -->
+<!-- ===== 星火 · 学习空间（3.5.3.0 重设计） ===== -->
 <style id="sparkCss">
 .hidden{display:none !important}
-.spark-page{padding:2px 16px 24px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.spark-page{padding:2px 14px 24px;overflow-y:auto;-webkit-overflow-scrolling:touch;max-width:560px;margin:0 auto}
+@media (max-width:520px){
+  .spark-page{padding:2px 12px 24px}
+  .tool-item .ti-d{font-size:9px}
+  .tool-item{padding:11px 2px}
+  .focus-clock{font-size:48px}
+  .flash-card{min-height:170px;padding:22px 16px}
+  .flash-front{font-size:21px}
+  .reader-body{max-height:42vh}
+  .src-item b{font-size:12.5px}
+  .recite-chip{min-width:64px;flex:1 0 30%}
+  .quiz-q{font-size:18px}
+}
 .spark-card{background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:20px;padding:14px 14px 12px;margin-bottom:12px;box-shadow:0 10px 26px rgba(72,52,43,.06)}
 .spark-card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
 .spark-card-head span{font-size:15px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:6px}
 .spark-card-foot{font-size:11px;color:var(--muted);margin-top:8px;text-align:center}
 .spark-enter{height:28px;border:0;border-radius:999px;background:var(--accent-soft);color:var(--accent);font:inherit;font-size:12px;padding:0 12px;cursor:pointer}
-.tool-strip{display:flex;justify-content:space-between;gap:8px}
+.tool-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
 .tool-item{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:5px;background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:16px;padding:12px 4px;cursor:pointer;transition:transform .12s,box-shadow .12s}
 .tool-item:active{transform:scale(.96)}
 .tool-item .ti-ic{font-size:26px;line-height:1}
@@ -1171,17 +1183,21 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
 .focus-clock{font-size:56px;font-weight:800;text-align:center;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:2px;line-height:1}
 .focus-ring{width:100%;height:8px;background:rgba(0,0,0,.06);border-radius:999px;overflow:hidden;margin:12px 0 14px}
 .focus-bar{height:100%;width:0;background:linear-gradient(90deg,#ff8a4c,#ffb24c);transition:width .3s linear}
-.focus-chips{display:flex;gap:10px;margin-bottom:14px}
+.focus-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:14px}
 .focus-chip{height:34px;border:0;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid var(--line);padding:0 16px;font:inherit;font-size:13px;color:var(--ink);cursor:pointer}
 .focus-chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.focus-custom{display:inline-flex;align-items:center;gap:6px}
+.focus-custom-in{width:56px;border:1px solid var(--line);border-radius:999px;padding:6px 8px;font:inherit;font-size:13px;text-align:center;outline:none;background:#fff;color:var(--ink)}
+.focus-custom.on .focus-custom-in{border-color:var(--accent)}
+[data-theme="dark"] .focus-custom-in{background:var(--surface-3);color:var(--ink);border-color:var(--line)}
 .focus-actions{display:flex;gap:10px;width:100%;max-width:280px;margin-bottom:10px}
 .focus-actions button{flex:1;height:44px;border:0;border-radius:16px;font:inherit;font-size:15px;font-weight:700;cursor:pointer}
 .focus-actions .start{background:linear-gradient(135deg,#ff8a4c,#ffb24c);color:#fff;box-shadow:0 8px 20px rgba(255,138,76,.28)}
 .focus-actions .reset{background:rgba(255,255,255,.9);color:var(--muted);border:1px solid var(--line)}
 .focus-count{font-size:12px;color:var(--muted)}
 .focus-count b{color:var(--accent)}
-.subj-preview{display:flex;gap:10px}
-.subj-stage{flex:1;min-width:0;background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:16px;padding:12px 10px;text-align:center;cursor:pointer;transition:transform .12s}
+.subj-preview{display:flex;flex-direction:column;gap:10px}
+.subj-stage{flex:none;width:100%;box-sizing:border-box;background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:16px;padding:13px 12px;text-align:left;cursor:pointer;transition:transform .12s}
 .subj-stage:active{transform:scale(.97)}
 .subj-stage .sj-name{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:6px}
 .subj-stage .sj-grades{font-size:11px;color:var(--muted);line-height:1.5;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
@@ -1267,6 +1283,26 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
 .book-card .bc-meta{font-size:11px;color:var(--muted)}
 .book-card .bc-del{color:#c0392b;background:transparent;border:0;font-size:16px;cursor:pointer}
 [data-theme="dark"] .spark-card,[data-theme="dark"] .tool-item,[data-theme="dark"] .subj-stage,[data-theme="dark"] .recite-chip,[data-theme="dark"] .tool-full,[data-theme="dark"] .spark-back{background:var(--surface-2);color:var(--ink)}
+/* --- 3.5.3.0 工具弹层 + 新工具 --- */
+.tool-modal-mask{position:fixed;inset:0;z-index:90;background:rgba(40,30,26,.42);display:flex;align-items:center;justify-content:center;padding:18px}
+.tool-modal{width:100%;max-width:420px;max-height:84vh;overflow:auto;background:linear-gradient(160deg,#fffaf5,#fdeede);border-radius:22px;box-shadow:0 24px 60px rgba(45,35,31,.3);animation:tmPop .22s ease}
+@keyframes tmPop{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
+.tool-modal-head{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:14px 16px 8px;background:linear-gradient(160deg,#fffaf5,#fdeede)}
+.tool-modal-head b{font-size:16px;color:var(--ink)}
+.tool-modal-close{width:34px;height:34px;border:0;border-radius:50%;background:rgba(0,0,0,.06);color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
+.tool-modal-body{padding:6px 16px 18px}
+.tm-tip{font-size:12px;color:var(--muted);margin:0 0 10px;line-height:1.5}
+.tm-big{font-size:40px;font-weight:800;text-align:center;color:var(--accent);margin:14px 0}
+.tm-row{display:flex;gap:8px;align-items:center;justify-content:center;margin-bottom:12px}
+.tm-row input{width:64px;border:1px solid var(--line);border-radius:10px;padding:9px;font:inherit;text-align:center;outline:none;background:#fff;color:var(--ink)}
+.tm-row span{color:var(--muted)}
+.tm-list{margin-top:12px;display:flex;flex-direction:column;gap:6px;max-height:200px;overflow:auto}
+.tm-note{background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:12px;padding:9px 11px;font-size:13px;color:var(--ink);white-space:pre-wrap;word-break:break-word}
+.tool-modal-body textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px;font:inherit;outline:none;background:#fff;color:var(--ink);resize:vertical;box-sizing:border-box}
+.breathe-circle{width:140px;height:140px;border-radius:50%;margin:18px auto;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#ffd9b0,#ff9d5c);color:#fff;font-size:20px;font-weight:800;transition:transform 3.6s ease-in-out;box-shadow:0 12px 30px rgba(255,138,76,.3)}
+[data-theme="dark"] .tool-modal,[data-theme="dark"] .tool-modal-head{background:var(--bg-2)}
+[data-theme="dark"] .tool-modal-close{background:var(--surface-2)}
+[data-theme="dark"] .tm-note,[data-theme="dark"] .tool-modal-body textarea,[data-theme="dark"] .tm-row input{background:var(--surface-3);color:var(--ink);border-color:var(--line)}
 [data-theme="dark"] .focus-chip,[data-theme="dark"] .focus-actions .reset,[data-theme="dark"] .recite-modebar button,[data-theme="dark"] .recite-cats button{background:var(--surface-2);color:var(--ink);border-color:var(--line)}
 [data-theme="dark"] .flash-card{background:linear-gradient(160deg,#3a2c22,#2c211a)}
 [data-theme="dark"] .spark-deck,[data-theme="dark"] .spark-stat,[data-theme="dark"] .card-item,[data-theme="dark"] .quiz-opt{background:var(--surface-2);color:var(--ink)}
@@ -1276,7 +1312,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
 [data-theme="dark"] .quiz-opt.wrong{background:#4d2723;color:#f0bcb4}
 [data-theme="dark"] .reader-body{background:var(--surface-2)}
 [data-theme="dark"] .reader-bar select{background:var(--surface-3);color:var(--ink);border-color:var(--line)}
-/* --- 3.5.2.0 练习来源 / 默写 / 学科年级 --- */
+/* --- 3.5.3.0 练习来源 / 默写 / 学科年级 --- */
 .src-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .src-item{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:11px 12px;border:1.5px solid var(--line);border-radius:14px;background:var(--surface);cursor:pointer;text-align:left;transition:.16s}
 .src-item .si-ic{font-size:18px;line-height:1}
@@ -1314,7 +1350,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
 [data-theme="dark"] .src-item,[data-theme="dark"] .sp-item,[data-theme="dark"] .prac-stat .ps-i,[data-theme="dark"] .sj-gradechips button{background:var(--surface-2);color:var(--ink)}
 [data-theme="dark"] .src-item.on{background:rgba(214,122,63,.18)}
 </style>
-<!-- ===== 星火 · 学习空间（3.5.2.0） ===== -->
+<!-- ===== 星火 · 学习空间（3.5.3.0） ===== -->
 <section class="panel" id="panel-spark">
   <div class="panel-head"><h2>星火</h2><button class="back" data-close>收起</button></div>
   <div class="sub">专注当下 · 汲取能量</div>
@@ -1453,7 +1489,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   </div>
 </section>
 
-<!-- ===== 阅读模块（3.5.2.0 · 方案2：epub+txt） ===== -->
+<!-- ===== 阅读模块（3.5.3.0 · 方案2：epub+txt） ===== -->
 <section class="panel" id="panel-reading">
   <div class="panel-head"><h2>阅读</h2><button class="back" data-close>收起</button></div>
   <div class="sub">导入电子书 · 书签 / 划线 / 读书笔记</div>
@@ -1464,6 +1500,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     </div>
     <input id="bookFile" type="file" accept=".txt,.md,.epub" hidden>
     <div class="spark-decks" id="bookShelves"></div>
+    <div class="spark-decks" id="bookCats" style="margin-top:10px"></div>
     <div class="card-list" id="bookList"></div>
   </div>
   <div id="readingReader" class="hidden">
@@ -1487,6 +1524,11 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   <div class="panel-head"><h2>练习</h2><button class="back" data-close>收起</button></div>
   <div class="sub">背完测一测 · 错题自动回流火花</div>
   <div id="practiceHome">
+    <div class="cardx" id="wordEntry">
+      <h3>📘 背单词</h3>
+      <div class="mode-tip">按学段 / 年级分科背记，可加自己的生词，并与「学科 → 英语教材库」互通</div>
+      <button class="spark-btn" id="openWords">进入背单词</button>
+    </div>
     <div class="cardx">
       <h3>练习来源</h3>
       <div class="src-grid" id="practiceSources">
@@ -1517,6 +1559,36 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     </div>
     <button class="spark-btn" id="practiceStart">开始练习</button>
     <button class="spark-btn sec" id="practiceWrong">错题本（<span id="wrongCount">0</span>）</button>
+  </div>
+  <div id="practiceWords" class="hidden">
+    <button class="spark-back" id="wordsBack">‹ 返回练习</button>
+    <div class="subj-crumb">背单词 · 选年级</div>
+    <div class="spark-decks" id="wordLevels"></div>
+    <div class="spark-decks" id="wordGrades"></div>
+    <div class="spark-decks" id="wordModes" style="margin:4px 0 10px">
+      <button class="spark-deck on" data-wm="flip">翻卡</button>
+      <button class="spark-deck" data-wm="dictation">听写</button>
+    </div>
+    <div class="spark-row" style="margin-bottom:10px">
+      <button class="spark-btn sec" id="wordAdd">＋ 加生词</button>
+      <button class="spark-btn" id="wordStart">开始背</button>
+    </div>
+    <div class="card-list" id="wordList"></div>
+    <div id="wordEditor" class="hidden editor-field">
+      <label>英文单词</label><input id="wfWord" placeholder="如：beautiful">
+      <label>中文释义</label><input id="wfMean" placeholder="如：美丽的">
+      <div class="spark-row"><button class="spark-btn ghost" id="wfCancel">取消</button><button class="spark-btn" id="wfSave">保存</button></div>
+    </div>
+    <div id="wordSession" class="hidden">
+      <div class="flash-card" id="wordFlash"><div class="flash-front" id="wordFlashF"></div><div class="flash-back hidden" id="wordFlashB"></div></div>
+      <div class="spark-row" id="wordDict" style="display:none;justify-content:center;margin-bottom:8px"><button type="button" id="wordDictBtn" style="width:60px;height:60px;border-radius:50%;border:0;background:linear-gradient(150deg,var(--brand),#c2622f);color:#fff;font-size:24px">🔊</button></div>
+      <div id="wordDictBox" class="hidden"><input class="quiz-input" id="wordDictInput" placeholder="输入你听到的单词"><button class="spark-btn" id="wordDictSubmit">提交</button></div>
+      <div class="spark-row">
+        <button class="spark-btn ghost" id="wordForget">忘了</button>
+        <button class="spark-btn" id="wordKnow">记得</button>
+      </div>
+      <button class="spark-btn ghost" id="wordExit">退出</button>
+    </div>
   </div>
   <div id="practiceQuiz" class="hidden">
     <div class="spark-stat" style="margin-bottom:10px"><b id="quizProgress">0/0</b><span>进度</span></div>
@@ -2145,7 +2217,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
       });
     }
   })();
-/* ===== 星火 / 练习 / 专注 / 工具 / 学科 / 阅读 模块（3.5.2.0） ===== */
+/* ===== 星火 / 练习 / 专注 / 工具 / 学科 / 阅读 模块（3.5.3.0） ===== */
 (function(){
   if(!window.DB)return;
   // ---------- 通用 ----------
@@ -2431,7 +2503,9 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
 
   // ---------- 专注模式 ----------
   var FMIN={focus:25,short:5,long:15};
+  var customMin=30;
   var focusMode='focus',focusLeft=FMIN.focus*60,focusTimer=null,focusRunning=false,focusDur=FMIN.focus*60;
+  function focusDurFor(m){return (m==='custom')?Math.max(1,(customMin||30))*60:FMIN[m]*60;}
   function fmt(s){var m=Math.floor(s/60),ss=s%60;return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss;}
   function renderFocus(){
     var done=lsGet('focusDone',0);
@@ -2439,19 +2513,32 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     var bar=byId('focusBar');if(bar)bar.style.width=Math.round((1-focusLeft/focusDur)*100)+'%';
     ['focusDone','focusDoneHome'].forEach(function(id){var el=byId(id);if(el)el.textContent=done;});
     // 首页 chips
-    var homeChips=byId('focusChipsHome');if(homeChips){homeChips.innerHTML='';[{k:'focus',l:'25 分钟'},{k:'short',l:'5 分钟'},{k:'long',l:'15 分钟'}].forEach(function(x){var b=document.createElement('button');b.className='focus-chip'+(focusMode===x.k?' on':'');b.textContent=x.l;b.setAttribute('data-fm',x.k);b.addEventListener('click',function(){setFocusMode(x.k);});homeChips.appendChild(b);});}
+    var homeChips=byId('focusChipsHome');
+    buildChips(homeChips,[{k:'focus',l:'25 分钟'},{k:'short',l:'5 分钟'},{k:'long',l:'15 分钟'}]);
     // 全屏 chips
-    var fullChips=byId('focusChips');if(fullChips){fullChips.innerHTML='';[{k:'focus',l:'专注 25'},{k:'short',l:'短休 5'},{k:'long',l:'长休 15'}].forEach(function(x){var b=document.createElement('button');b.className='focus-chip'+(focusMode===x.k?' on':'');b.textContent=x.l;b.setAttribute('data-fm',x.k);b.addEventListener('click',function(){setFocusMode(x.k);});fullChips.appendChild(b);});}
+    var fullChips=byId('focusChips');
+    buildChips(fullChips,[{k:'focus',l:'专注 25'},{k:'short',l:'短休 5'},{k:'long',l:'长休 15'}]);
     // 按钮文字
     var txt=focusRunning?'暂停':'开始';
     var hstart=byId('focusStartHome');if(hstart)hstart.textContent=txt;
     var fstart=byId('focusStart');if(fstart)fstart.textContent=txt;
   }
-  function setFocusMode(m){focusMode=m;focusDur=FMIN[m]*60;focusLeft=focusDur;stopFocus(false);renderFocus();}
+  function buildChips(container,labels){
+    if(!container)return;
+    container.innerHTML='';
+    labels.forEach(function(x){var b=document.createElement('button');b.className='focus-chip'+(focusMode===x.k?' on':'');b.textContent=x.l;b.setAttribute('data-fm',x.k);b.addEventListener('click',function(){setFocusMode(x.k);});container.appendChild(b);});
+    var ci=document.createElement('div');ci.className='focus-custom'+(focusMode==='custom'?' on':'');
+    ci.innerHTML='<button class="focus-chip" data-fm="custom">自定义</button><input class="focus-custom-in" type="number" min="1" max="180" value="'+customMin+'" placeholder="分">';
+    ci.querySelector('[data-fm="custom"]').addEventListener('click',function(){customMin=Math.max(1,Math.min(180,parseInt(ci.querySelector('.focus-custom-in').value,10)||30));setFocusMode('custom');});
+    ci.querySelector('.focus-custom-in').addEventListener('change',function(){customMin=Math.max(1,Math.min(180,parseInt(this.value,10)||30));if(focusMode==='custom')setFocusMode('custom');});
+    ci.querySelector('.focus-custom-in').addEventListener('click',function(e){e.stopPropagation();});
+    container.appendChild(ci);
+  }
+  function setFocusMode(m){focusMode=m;focusDur=focusDurFor(m);focusLeft=focusDur;stopFocus(false);renderFocus();}
   function focusTick(){focusLeft--;if(focusLeft<=0){focusLeft=0;renderFocus();stopFocus(true);return;}renderFocus();}
   function startFocus(){if(focusRunning)return;focusRunning=true;renderFocus();focusTimer=setInterval(focusTick,1000);}
   function pauseFocus(){focusRunning=false;if(focusTimer){clearInterval(focusTimer);focusTimer=null;}renderFocus();}
-  function stopFocus(done){focusRunning=false;if(focusTimer){clearInterval(focusTimer);focusTimer=null;}if(done&&focusMode==='focus'){var n=lsGet('focusDone',0)+1;lsSet('focusDone',n);toast('专注完成，已记录 ✅');}renderFocus();}
+  function stopFocus(done){focusRunning=false;if(focusTimer){clearInterval(focusTimer);focusTimer=null;}if(done&&(focusMode==='focus'||focusMode==='custom')){var n=lsGet('focusDone',0)+1;lsSet('focusDone',n);toast('专注完成，已记录 ✅');}renderFocus();}
   function resetFocus(){stopFocus(false);focusMode='focus';focusDur=FMIN.focus*60;focusLeft=focusDur;renderFocus();}
 
   // ---------- 工具 ----------
@@ -2479,11 +2566,73 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     {ic:'⏳',t:'计时器',d:'倒计时',fn:function(){if(window.Tools)window.Tools.open('timer');else toast('工具箱加载中');}},
     {ic:'🧮',t:'计算器',d:'便捷计算',fn:function(){if(window.Tools)window.Tools.open('calc');else toast('工具箱加载中');}},
     {ic:'📐',t:'单位换算',d:'常用换算',fn:function(){if(window.Tools)window.Tools.open('unit');else toast('工具箱加载中');}},
-    {ic:'⚗️',t:'周期表',d:'元素速查',fn:function(){if(window.Tools)window.Tools.open('table');else toast('工具箱加载中');}}
+    {ic:'⚗️',t:'周期表',d:'元素速查',fn:function(){if(window.Tools)window.Tools.open('table');else toast('工具箱加载中');}},
+    {ic:'🎲',t:'骰子/随机',d:'掷数抽号',fn:function(){openToolModal('骰子 / 随机数',buildDice);}},
+    {ic:'🔀',t:'随机抽人',d:'名单抽签',fn:function(){openToolModal('随机抽人',buildPicker);}},
+    {ic:'📝',t:'速记便签',d:'随手记',fn:function(){openToolModal('速记便签',buildNote);}},
+    {ic:'💡',t:'闪卡速记',d:'随机复习',fn:function(){openToolModal('闪卡速记',buildFlash);}},
+    {ic:'🔤',t:'单词卡',d:'随时背词',fn:function(){openToolModal('单词卡',buildWord);}},
+    {ic:'🫧',t:'呼吸放松',d:'专注呼吸',fn:function(){openToolModal('呼吸放松',buildBreathe);}}
   ];
   function renderTools(){
     var home=byId('sparkToolHome');if(home){home.innerHTML='';TOOLS.forEach(function(t){var d=document.createElement('div');d.className='tool-item';d.innerHTML='<div class="ti-ic"></div><div class="ti-t"></div><div class="ti-d"></div>';d.querySelector('.ti-ic').textContent=t.ic;d.querySelector('.ti-t').textContent=t.t;d.querySelector('.ti-d').textContent=t.d;d.addEventListener('click',t.fn);home.appendChild(d);});}
     var full=byId('sparkToolGrid');if(full){full.innerHTML='';TOOLS.concat([{ic:'🎧',t:'白噪音',d:'专注背景音',fn:toggleNoise},{ic:'🔆',t:'屏幕常亮',d:'不熄屏',fn:toggleWake}]).forEach(function(t){var d=document.createElement('div');d.className='tool-full';d.innerHTML='<div class="tf-ic"></div><div class="tf-t"></div><div class="tf-d"></div>';d.querySelector('.tf-ic').textContent=t.ic;d.querySelector('.tf-t').textContent=t.t;d.querySelector('.tf-d').textContent=t.d;d.addEventListener('click',t.fn);full.appendChild(d);});}
+  }
+
+  // ---------- 工具弹层 + 自包含新工具 ----------
+  var breatheTimer=null;
+  function openToolModal(title,build){
+    var mask=byId('toolModalMask');
+    if(!mask){
+      mask=document.createElement('div');mask.id='toolModalMask';mask.className='tool-modal-mask';
+      mask.innerHTML='<div class="tool-modal"><div class="tool-modal-head"><b id="toolModalTitle"></b><button id="toolModalClose" class="tool-modal-close" aria-label="关闭">×</button></div><div class="tool-modal-body" id="toolModalBody"></div></div>';
+      document.body.appendChild(mask);
+      mask.addEventListener('click',function(e){if(e.target===mask)closeToolModal();});
+      byId('toolModalClose').addEventListener('click',closeToolModal);
+    }
+    byId('toolModalTitle').textContent=title;
+    build(byId('toolModalBody'));
+    mask.classList.remove('hidden');
+  }
+  function closeToolModal(){var m=byId('toolModalMask');if(m)m.classList.add('hidden');if(breatheTimer){clearTimeout(breatheTimer);breatheTimer=null;}}
+  function buildDice(b){
+    b.innerHTML='<div class="tm-big" id="diceOut">🎲</div><div class="tm-row"><input id="diceMin" inputmode="numeric" placeholder="最小" value="1"><span>~</span><input id="diceMax" inputmode="numeric" placeholder="最大" value="6"></div><button class="spark-btn" id="diceRoll">掷一下</button>';
+    byId('diceRoll').addEventListener('click',function(){var a=parseInt(byId('diceMin').value,10)||1,bb=parseInt(byId('diceMax').value,10)||6;if(a>bb){var t=a;a=bb;bb=t;}var r=a+Math.floor(Math.random()*(bb-a+1));byId('diceOut').textContent=r;});
+  }
+  function buildPicker(b){
+    b.innerHTML='<div class="tm-tip">每行一个名字，随机抽一个</div><textarea id="pickList" placeholder="张三\n李四\n王五"></textarea><div class="tm-big" id="pickOut">？</div><button class="spark-btn" id="pickBtn">随机抽人</button>';
+    byId('pickBtn').addEventListener('click',function(){var arr=byId('pickList').value.split(/\n/).map(function(s){return s.trim();}).filter(Boolean);if(!arr.length){toast('先输入名单');return;}byId('pickOut').textContent=arr[Math.floor(Math.random()*arr.length)];});
+  }
+  function buildNote(b){
+    var notes=DB.ns('notes').raw()||[];
+    b.innerHTML='<div class="tm-tip">随手记，自动保存到本机</div><textarea id="noteInput" placeholder="写点什么…"></textarea><button class="spark-btn" id="noteSaveBtn">保存</button><div class="tm-list" id="noteList"></div>';
+    function paint(){var l=DB.ns('notes').raw()||[];var box=byId('noteList');if(!l.length){box.innerHTML='<div class="tm-tip">还没有便签</div>';return;}box.innerHTML='';l.slice().reverse().forEach(function(n){var d=document.createElement('div');d.className='tm-note';d.textContent=n.t;box.appendChild(d);});}
+    byId('noteSaveBtn').addEventListener('click',function(){var v=byId('noteInput').value.trim();if(!v){toast('空内容');return;}var l=DB.ns('notes').raw()||[];l.push({t:v,at:now()});DB.ns('notes').save(l);byId('noteInput').value='';paint();toast('已保存');});
+    paint();
+  }
+  function buildFlash(b){
+    var all=getCards();
+    b.innerHTML='<div class="tm-tip">随机抽一张卡，点卡片翻面</div><div class="flash-card" id="flashMini" style="min-height:120px;margin-bottom:10px"><div class="flash-front" id="flashMiniF"></div><div class="flash-back hidden" id="flashMiniB"></div></div><button class="spark-btn sec" id="flashMiniNext">换一张</button>';
+    function showRandom(){if(!all.length){byId('flashMiniF').textContent='还没有卡片';byId('flashMiniB').textContent='';return;}var c=all[Math.floor(Math.random()*all.length)];byId('flashMiniF').textContent=c.front;byId('flashMiniB').textContent=c.back;byId('flashMiniB').classList.add('hidden');}
+    byId('flashMini').addEventListener('click',function(){byId('flashMiniB').classList.toggle('hidden');});
+    byId('flashMiniNext').addEventListener('click',showRandom);
+    showRandom();
+  }
+  function buildWord(b){
+    var pool=ENG_BANK.concat(getCards().filter(function(c){return c.deck==='engWord'||c.deck==='word';}).map(function(c){return {front:c.front,back:c.back};}));
+    b.innerHTML='<div class="tm-tip">点卡片翻面，🔊 朗读英文</div><div class="flash-card" id="wordMini" style="min-height:120px;margin-bottom:10px"><div class="flash-front" id="wordMiniF"></div><div class="flash-back hidden" id="wordMiniB"></div></div><div class="tm-row"><button class="spark-btn sec" id="wordSpeak">🔊 朗读</button><button class="spark-btn sec" id="wordNext">换一个</button></div>';
+    function showW(){if(!pool.length){byId('wordMiniF').textContent='无';return;}var c=pool[Math.floor(Math.random()*pool.length)];byId('wordMiniF').textContent=c.front;byId('wordMiniB').textContent=c.back;byId('wordMiniB').classList.add('hidden');}
+    byId('wordMini').addEventListener('click',function(){byId('wordMiniB').classList.toggle('hidden');});
+    byId('wordSpeak').addEventListener('click',function(){speak(byId('wordMiniF').textContent,'en-US');});
+    byId('wordNext').addEventListener('click',showW);
+    showW();
+  }
+  function buildBreathe(b){
+    b.innerHTML='<div class="tm-tip">跟着圆圈：吸气 4 秒 · 屏息 4 秒 · 呼气 4 秒</div><div class="breathe-circle" id="breatheC">吸气</div>';
+    var phases=[['吸气',4000,'scale(1.6)'],['屏息',4000,'scale(1.6)'],['呼气',4000,'scale(1)']],pi=0;
+    function step(){var p=phases[pi];var c=byId('breatheC');if(!c)return;c.textContent=p[0];c.style.transform=p[2];pi=(pi+1)%phases.length;breatheTimer=setTimeout(step,p[1]);}
+    closeToolModal._stop=function(){if(breatheTimer){clearTimeout(breatheTimer);breatheTimer=null;}};
+    step();
   }
 
   // ---------- 学科学习（独立资料区） ----------
@@ -2792,28 +2941,184 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     byId('practiceHome').classList.add('hidden');byId('practiceQuiz').classList.add('hidden');byId('practiceWrongList').classList.remove('hidden');
   }
 
+  // ---------- 背单词（独立专区：按年级分科 + 自定义生词 + 学科英语互通） ----------
+  var wordbank=DB.ns('wordbank');
+  var SEED_WORDS={
+    primary:[{w:'apple',m:'苹果'},{w:'book',m:'书'},{w:'cat',m:'猫'},{w:'dog',m:'狗'},{w:'egg',m:'蛋'},{w:'fish',m:'鱼'},{w:'red',m:'红色'},{w:'blue',m:'蓝色'},{w:'school',m:'学校'},{w:'teacher',m:'老师'},{w:'water',m:'水'},{w:'happy',m:'高兴的'},{w:'run',m:'跑'},{w:'eat',m:'吃'}],
+    middle:[{w:'ability',m:'能力'},{w:'bicycle',m:'自行车'},{w:'chemistry',m:'化学'},{w:'environment',m:'环境'},{w:'freedom',m:'自由'},{w:'geography',m:'地理'},{w:'history',m:'历史'},{w:'important',m:'重要的'},{w:'knowledge',m:'知识'},{w:'language',m:'语言'},{w:'science',m:'科学'},{w:'weather',m:'天气'}],
+    high:[{w:'achievement',m:'成就'},{w:'biology',m:'生物'},{w:'civilization',m:'文明'},{w:'democracy',m:'民主'},{w:'economics',m:'经济'},{w:'evolution',m:'进化'},{w:'frequency',m:'频率'},{w:'hypothesis',m:'假说'},{w:'phenomenon',m:'现象'},{w:'responsibility',m:'责任'},{w:'sustainable',m:'可持续的'},{w:'philosophy',m:'哲学'}]
+  };
+  var wordState={level:null,grade:null,mode:'flip',queue:[],idx:0,cur:null};
+  function getWordbank(){var o=wordbank.raw();return (o&&o.items)||[];}
+  function setWordbank(arr){wordbank.save({items:arr});}
+  function seedWordbankIfEmpty(){
+    if(wordbank.raw())return;
+    var arr=[];
+    Object.keys(SEED_WORDS).forEach(function(lv){SEED_WORDS[lv].forEach(function(x){arr.push({id:uid('w'),level:lv,grade:'all',w:x.w,m:x.m,addedBy:'seed',src:'seed',created:now()});});});
+    setWordbank(arr);
+  }
+  function renderWordLevels(){
+    var h=byId('wordLevels');if(!h)return;h.innerHTML='';
+    SUBJ_LEVELS.forEach(function(l){var b=document.createElement('button');b.className='spark-deck'+(wordState.level===l.id?' on':'');b.textContent=l.ic+' '+l.name;b.addEventListener('click',function(){wordState.level=l.id;wordState.grade=null;renderWordLevels();renderWordGrades();renderWordList();});h.appendChild(b);});
+  }
+  function renderWordGrades(){
+    var h=byId('wordGrades');if(!h)return;h.innerHTML='';
+    if(!wordState.level)return;
+    SUBJ_GRADES[wordState.level].forEach(function(g){var b=document.createElement('button');b.className='spark-deck'+(wordState.grade===g?' on':'');b.textContent=g;b.addEventListener('click',function(){wordState.grade=g;renderWordGrades();renderWordList();});h.appendChild(b);});
+  }
+  function getWordPool(){
+    if(!wordState.level||!wordState.grade)return [];
+    var lv=wordState.level,gr=wordState.grade,pool=[],wb=getWordbank();
+    wb.forEach(function(x){if(x.addedBy==='seed'&&x.level===lv)pool.push({id:x.id,w:x.w,m:x.m,src:'seed'});});
+    wb.forEach(function(x){if(x.addedBy==='user'&&x.level===lv&&(x.grade===gr||x.grade==='all'||!x.grade))pool.push({id:x.id,w:x.w,m:x.m,src:'user'});});
+    getSubj().forEach(function(s){if(s.subject==='英语'&&s.level===lv&&(s.grade===gr||!s.grade)&&s.title&&s.content)pool.push({id:s.id,w:s.title,m:s.content,src:'subj'});});
+    return pool;
+  }
+  function renderWordList(){
+    var list=byId('wordList');if(!list)return;list.innerHTML='';
+    var pool=getWordPool();
+    if(!wordState.level||!wordState.grade){list.innerHTML='<div class="spark-tip">先选学段与年级</div>';return;}
+    if(!pool.length){list.innerHTML='<div class="spark-tip">这个年级还没有单词。点「＋ 加生词」添加你不会的词，或在「学科 → 英语」里建教材库。</div>';return;}
+    pool.forEach(function(c){
+      var d=document.createElement('div');d.className='card-item';
+      d.innerHTML='<div class="ci-deck">🔤</div><div class="ci-main"><div class="ci-front"></div><div class="ci-back"></div></div>'+(c.src==='user'?'<div class="ci-act"><button class="ci-del">×</button></div>':'');
+      d.querySelector('.ci-front').textContent=c.w;
+      d.querySelector('.ci-back').textContent=c.m;
+      if(c.src==='user'){d.querySelector('.ci-del').addEventListener('click',function(e){e.stopPropagation();setWordbank(getWordbank().filter(function(x){return x.id!==c.id;}));renderWordList();toast('已删除');});}
+      list.appendChild(d);
+    });
+  }
+  function openWordEditor(){
+    if(!wordState.level||!wordState.grade){toast('先选学段与年级');return;}
+    byId('wfWord').value='';byId('wfMean').value='';byId('wordEditor').classList.remove('hidden');
+  }
+  function saveWord(){
+    var w=byId('wfWord').value.trim(),m=byId('wfMean').value.trim();
+    if(!w||!m){toast('单词和释义都要填');return;}
+    var all=getWordbank();all.push({id:uid('w'),level:wordState.level,grade:wordState.grade,w:w,m:m,addedBy:'user',src:'user',created:now()});
+    setWordbank(all);byId('wordEditor').classList.add('hidden');renderWordList();toast('已加入生词本');
+  }
+  function startWordMemo(){
+    if(!wordState.level||!wordState.grade){toast('先选学段与年级');return;}
+    var pool=getWordPool();
+    if(!pool.length){toast('这个年级还没有单词，先加点生词');return;}
+    wordState.queue=shuffle(pool);wordState.idx=0;
+    byId('wordList').classList.add('hidden');byId('wordEditor').classList.add('hidden');byId('wordSession').classList.remove('hidden');
+    wordShow();
+  }
+  function wordShow(){
+    var c=wordState.queue[wordState.idx];
+    if(!c){wordExit(true);return;}
+    wordState.cur=c;
+    byId('wordFlashF').textContent=c.w;byId('wordFlashB').textContent=c.m;byId('wordFlashB').classList.add('hidden');
+    var dict=byId('wordDict'),box=byId('wordDictBox');
+    if(wordState.mode==='dictation'){
+      byId('wordFlash').style.display='none';dict.style.display='flex';box.classList.remove('hidden');
+      byId('wordDictInput').value='';
+      setTimeout(function(){speak(c.w,'en-US');},200);
+    }else{
+      byId('wordFlash').style.display='';dict.style.display='none';box.classList.add('hidden');
+    }
+  }
+  function wordGrade(known){
+    wordState.idx++;
+    if(wordState.idx>=wordState.queue.length)wordExit(true);
+    else wordShow();
+  }
+  function wordExit(done){
+    byId('wordSession').classList.add('hidden');byId('wordList').classList.remove('hidden');
+    if(done)toast('本轮背完，继续加油 💡');
+    renderWordList();
+  }
+
   // ---------- 阅读：epub + txt ----------
   var books=DB.ns('books'), hl=DB.ns('reading');
   var SHELVES=[{id:'reading',name:'在读'},{id:'wish',name:'想读'},{id:'done',name:'读完'}];
-  var curBook=null,curChapters=[],curCh=0,curShelf='all';
+  var BOOK_CATS=[{id:'all',name:'全部'},{id:'gushi',name:'古诗'},{id:'xiandai',name:'现代诗'},{id:'lishi',name:'历史'},{id:'tianwen',name:'天文'},{id:'dili',name:'地理'},{id:'kexue',name:'科学'},{id:'yixue',name:'医学'}];
+  var CAT_NAME={gushi:'古诗',xiandai:'现代诗',lishi:'历史',tianwen:'天文',dili:'地理',kexue:'科学',yixue:'医学'};
+  var curBook=null,curChapters=[],curCh=0,curShelf='all',curCat='all';
+  var SEED_BOOKS=[
+    {id:'seed-gushi',title:'古诗精选',category:'gushi',cover:'📜',shelf:'reading',shelfName:'在读',chapters:[
+      {title:'静夜思 · 李白',text:'床前明月光，疑是地上霜。\n举头望明月，低头思故乡。'},
+      {title:'春晓 · 孟浩然',text:'春眠不觉晓，处处闻啼鸟。\n夜来风雨声，花落知多少。'},
+      {title:'登鹳雀楼 · 王之涣',text:'白日依山尽，黄河入海流。\n欲穷千里目，更上一层楼。'},
+      {title:'相思 · 王维',text:'红豆生南国，春来发几枝。\n愿君多采撷，此物最相思。'},
+      {title:'悯农 · 李绅',text:'锄禾日当午，汗滴禾下土。\n谁知盘中餐，粒粒皆辛苦。'},
+      {title:'望庐山瀑布 · 李白',text:'日照香炉生紫烟，遥看瀑布挂前川。\n飞流直下三千尺，疑是银河落九天。'},
+      {title:'绝句 · 杜甫',text:'两个黄鹂鸣翠柳，一行白鹭上青天。\n窗含西岭千秋雪，门泊东吴万里船。'},
+      {title:'江雪 · 柳宗元',text:'千山鸟飞绝，万径人踪灭。\n孤舟蓑笠翁，独钓寒江雪。'},
+      {title:'游子吟 · 孟郊',text:'慈母手中线，游子身上衣。\n临行密密缝，意恐迟迟归。\n谁言寸草心，报得三春晖。'},
+      {title:'早发白帝城 · 李白',text:'朝辞白帝彩云间，千里江陵一日还。\n两岸猿声啼不住，轻舟已过万重山。'},
+      {title:'枫桥夜泊 · 张继',text:'月落乌啼霜满天，江枫渔火对愁眠。\n姑苏城外寒山寺，夜半钟声到客船。'},
+      {title:'望岳 · 杜甫',text:'岱宗夫如何？齐鲁青未了。\n造化钟神秀，阴阳割昏晓。\n荡胸生曾云，决眦入归鸟。\n会当凌绝顶，一览众山小。'},
+      {title:'春夜喜雨 · 杜甫',text:'好雨知时节，当春乃发生。\n随风潜入夜，润物细无声。'},
+      {title:'赋得古原草送别 · 白居易',text:'离离原上草，一岁一枯荣。\n野火烧不尽，春风吹又生。\n远芳侵古道，晴翠接荒城。'},
+      {title:'饮湖上初晴后雨 · 苏轼',text:'水光潋滟晴方好，山色空蒙雨亦奇。\n欲把西湖比西子，淡妆浓抹总相宜。'}
+    ]},
+    {id:'seed-xiandai',title:'现代诗选',category:'xiandai',cover:'🌙',shelf:'reading',shelfName:'在读',chapters:[
+      {title:'再别康桥（节选）· 徐志摩',text:'轻轻的我走了，正如我轻轻的来；\n我轻轻的招手，作别西天的云彩。\n那河畔的金柳，是夕阳中的新娘；\n波光里的艳影，在我的心头荡漾。'},
+      {title:'面朝大海，春暖花开 · 海子',text:'从明天起，做一个幸福的人\n喂马、劈柴，周游世界。\n从明天起，关心粮食和蔬菜\n我有一所房子，面朝大海，春暖花开。'},
+      {title:'乡愁 · 余光中',text:'小时候，乡愁是一枚小小的邮票，\n我在这头，母亲在那头。\n长大后，乡愁是一张窄窄的船票，\n我在这头，新娘在那头。'},
+      {title:'雨巷（节选）· 戴望舒',text:'撑着油纸伞，独自\n彷徨在悠长、悠长又寂寥的雨巷，\n我希望逢着\n一个丁香一样地结着愁怨的姑娘。'},
+      {title:'热爱生命 · 汪国真',text:'我不去想是否能够成功，\n既然选择了远方，便只顾风雨兼程。\n我不去想未来是平坦还是泥泞，\n只要热爱生命，一切，都在意料之中。'},
+      {title:'你是人间的四月天 · 林徽因',text:'我说你是人间的四月天；\n笑响点亮了四面风，轻灵\n在春的光艳中交舞着变。\n你是爱，是暖，是希望，你是人间的四月天。'}
+    ]},
+    {id:'seed-lishi',title:'中国历史常识',category:'lishi',cover:'🏺',shelf:'reading',shelfName:'在读',chapters:[
+      {title:'一、文明的起源',text:'中华文明起源于黄河与长江流域。传说中的炎帝、黄帝被视为华夏始祖。夏朝是中国史书记载的第一个世袭制王朝，约始于公元前2070年；商朝的甲骨文是目前已知最早的成熟汉字体系；周朝确立了分封制与礼乐制度，影响深远。'},
+      {title:'二、大一统的秦汉',text:'公元前221年，秦始皇统一六国，建立中央集权的帝国，统一文字、度量衡与车轨。汉朝继承秦制并开通丝绸之路，张骞出使西域，使中原与中亚、西亚的贸易与文化交流得以贯通。'},
+      {title:'三、唐宋的繁荣',text:'唐朝国势强盛、文化开放，诗歌达到巅峰，长安是当时世界上最大的都市之一。宋朝经济与科技高度发达，活字印刷、指南针、火药等发明陆续成熟并外传，市民生活丰富。'},
+      {title:'四、明清与近现代',text:'明朝郑和下西洋规模空前；清朝前期奠定现代中国版图基础。1840年鸦片战争后，中国步入近代，历经变法、革命与抗争，终于在1949年建立新中国，开启现代建设历程。'}
+    ]},
+    {id:'seed-tianwen',title:'天文趣谈',category:'tianwen',cover:'🔭',shelf:'reading',shelfName:'在读',chapters:[
+      {title:'一、太阳与太阳系',text:'太阳是一颗中等质量的恒星，占太阳系总质量的约99.86%。八大行星按距太阳由近及远依次为水星、金星、地球、火星、木星、土星、天王星、海王星。木星体积最大，地球是唯一已知存在生命的行星。'},
+      {title:'二、恒星与银河',text:'我们肉眼看到的星星大多是遥远的恒星，靠核聚变发光。太阳所在的银河系是一个棒旋星系，约含一两千亿颗恒星，直径约十万光年。银河系之外还有无数星系，最远的可观测到上百亿光年。'},
+      {title:'三、月亮与日食月食',text:'月亮本身不发光，靠反射太阳光而亮。当月球运行到地球与太阳之间，且三者近似成一直线时，可能发生日食；当地球位于日月之间遮挡阳光，则发生月食。农历初一易见日食，十五前后易见月食。'}
+    ]},
+    {id:'seed-dili',title:'地理知识',category:'dili',cover:'🗺️',shelf:'reading',shelfName:'在读',chapters:[
+      {title:'一、七大洲四大洋',text:'地球表面约71%被海洋覆盖。七大洲为亚洲、非洲、北美洲、南美洲、南极洲、欧洲、大洋洲；四大洋为太平洋、大西洋、印度洋、北冰洋。太平洋面积最大，马里亚纳海沟是已知最深处。'},
+      {title:'二、地形与气候',text:'地形包括平原、高原、山地、丘陵与盆地。气候受纬度、海陆位置、地形与洋流共同影响。赤道附近多热带雨林气候，两极寒冷，中纬度地区四季分明。季风使东亚、南亚夏季多雨。'},
+      {title:'三、河流与水资源',text:'河流是淡水的重要载体。尼罗河、亚马逊河、长江、黄河都是世界著名大河。水资源分布极不均，节约用水、保护水源与防治污染，是现代社会的重要课题。'}
+    ]},
+    {id:'seed-kexue',title:'科学启蒙',category:'kexue',cover:'🔬',shelf:'reading',shelfName:'在读',chapters:[
+      {title:'一、物质与变化',text:'世界由物质构成，物质以固态、液态、气态存在。物理变化不改变物质本质（如冰融化），化学变化会生成新物质（如木柴燃烧）。原子是化学变化中的最小微粒，分子由原子构成。'},
+      {title:'二、力与运动',text:'力能改变物体的运动状态。牛顿三大运动定律描述了力与运动的关系：静止或匀速的物体若无外力保持原状；力等于质量乘以加速度；作用力与反作用力大小相等、方向相反。'},
+      {title:'三、生命与细胞',text:'细胞是生物体结构与功能的基本单位。植物通过光合作用把光能转化为化学能，动物则通过摄食获取能量。DNA携带遗传信息，使后代既像亲代又各具差异。'}
+    ]},
+    {id:'seed-yixue',title:'医学常识',category:'yixue',cover:'⚕️',shelf:'reading',shelfName:'在读',chapters:[
+      {title:'一、认识身体',text:'人体由运动、消化、呼吸、循环、泌尿、神经、内分泌、免疫等系统协同工作。心脏推动血液在全身循环，肺负责气体交换，大脑指挥思维与行动。了解身体是保持健康的第一步。'},
+      {title:'二、日常保健',text:'均衡饮食、规律作息、适度运动与良好心态，是健康的四大支柱。成人一般每天需7到8小时睡眠；多喝水、少油盐糖、勤洗手、接种疫苗，能有效预防许多常见病。'},
+      {title:'三、何时就医',text:'持续高热、剧烈胸痛、呼吸困难、意识不清、严重外伤等情况，应及时就医，不要自行硬扛。用药须遵医嘱，不滥用抗生素。本文仅为科普，不能替代专业医生的诊断与治疗。'}
+    ]}
+  ];
+  function seedBooksIfEmpty(){
+    if(books.raw())return;
+    var arr=SEED_BOOKS.map(function(b){return {id:b.id,title:b.title,category:b.category,cover:b.cover,shelf:b.shelf,shelfName:b.shelfName,chapters:b.chapters,progress:0,created:now(),seed:true};});
+    setBooks(arr);
+  }
   function getBooks(){var o=books.raw();return (o&&o.items)||[];}
   function setBooks(arr){books.save({items:arr});}
   function getHL(){var o=hl.raw();return (o&&o.items)||[];}
   function setHL(arr){hl.save({items:arr});}
+  function renderBookCats(){
+    var h=byId('bookCats');if(!h)return;h.innerHTML='';
+    BOOK_CATS.forEach(function(c){var b=document.createElement('button');b.className='spark-deck'+(curCat===c.id?' on':'');b.textContent=c.name;b.addEventListener('click',function(){curCat=c.id;renderBookCats();renderBookList();});h.appendChild(b);});
+  }
   function renderBookShelves(){
     var h=byId('bookShelves');h.innerHTML='';
     var allb=document.createElement('button');allb.className='spark-deck'+(curShelf==='all'?' on':'');allb.textContent='全部';allb.addEventListener('click',function(){curShelf='all';renderBookShelves();renderBookList();});h.appendChild(allb);
     SHELVES.forEach(function(s){var b=document.createElement('button');b.className='spark-deck'+(curShelf===s.id?' on':'');b.textContent=s.name;b.addEventListener('click',function(){curShelf=s.id;renderBookShelves();renderBookList();});h.appendChild(b);});
+    renderBookCats();
   }
   function renderBookList(){
     var list=byId('bookList');list.innerHTML='';
-    var bs=getBooks().filter(function(b){return curShelf==='all'||b.shelf===curShelf;});
-    if(!bs.length){list.innerHTML='<div class="spark-tip">书架空空，点「＋ 导入电子书」添加（支持 .txt / .md / .epub）</div>';return;}
+    var bs=getBooks().filter(function(b){return (curShelf==='all'||b.shelf===curShelf)&&(curCat==='all'||b.category===curCat);});
+    if(!bs.length){list.innerHTML='<div class="spark-tip">这个分类还没有书，点「＋ 导入电子书」添加（支持 .txt / .md / .epub）</div>';return;}
     bs.forEach(function(b){
       var d=document.createElement('div');d.className='book-card';
       d.innerHTML='<div class="bc-ic">📚</div><div class="bc-main"><div class="bc-title"></div><div class="bc-meta"></div></div><button class="bc-del">×</button>';
       d.querySelector('.bc-title').textContent=b.title;
-      d.querySelector('.bc-meta').textContent=(b.format||'')+' · '+(b.shelfName||'')+' · '+(b.chapters?b.chapters.length:0)+' 章';
+      var cat=(b.category&&CAT_NAME[b.category])?' · '+CAT_NAME[b.category]:'';
+      d.querySelector('.bc-meta').textContent=(b.format||'')+' · '+(b.shelfName||'')+cat+' · '+(b.chapters?b.chapters.length:0)+' 章';
       d.querySelector('.bc-main').addEventListener('click',function(){openBook(b.id);});
       d.querySelector('.bc-del').addEventListener('click',function(e){e.stopPropagation();setBooks(getBooks().filter(function(x){return x.id!==b.id;}));renderBookList();toast('已删除');});
       list.appendChild(d);
@@ -2969,6 +3274,8 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   // ---------- 初始化与事件绑定 ----------
   function initSpark(){
     seedIfEmpty();
+    seedBooksIfEmpty();
+    seedWordbankIfEmpty();
     wireSpark();wireReciteMode();
     renderSparkHome();renderFocus();renderTools();
     // 背诵
@@ -3000,6 +3307,20 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     byId('wrongBack').addEventListener('click',function(){byId('practiceWrongList').classList.add('hidden');byId('practiceHome').classList.remove('hidden');renderPracticeHome();});
     byId('practiceModes').querySelectorAll('.spark-deck').forEach(function(b){b.addEventListener('click',function(){practiceMode=b.getAttribute('data-mode');renderPracticeHome();});});
     byId('practiceSources').querySelectorAll('.src-item').forEach(function(b){b.addEventListener('click',function(){PRACTICE_SOURCE=b.getAttribute('data-src');pracCfg.set('source',PRACTICE_SOURCE);renderPracticeHome();});});
+    // 背单词专区
+    byId('openWords').addEventListener('click',function(){byId('practiceHome').classList.add('hidden');byId('practiceWords').classList.remove('hidden');if(!wordState.level){wordState.level='primary';wordState.grade=SUBJ_GRADES.primary[0];}renderWordLevels();renderWordGrades();renderWordList();});
+    byId('wordsBack').addEventListener('click',function(){byId('practiceWords').classList.add('hidden');byId('practiceHome').classList.remove('hidden');renderPracticeHome();});
+    byId('wordAdd').addEventListener('click',openWordEditor);
+    byId('wfCancel').addEventListener('click',function(){byId('wordEditor').classList.add('hidden');});
+    byId('wfSave').addEventListener('click',saveWord);
+    byId('wordStart').addEventListener('click',startWordMemo);
+    byId('wordFlash').addEventListener('click',function(){byId('wordFlashB').classList.toggle('hidden');});
+    byId('wordKnow').addEventListener('click',function(){wordGrade(true);});
+    byId('wordForget').addEventListener('click',function(){wordGrade(false);});
+    byId('wordExit').addEventListener('click',function(){wordExit(false);});
+    byId('wordDictBtn').addEventListener('click',function(){if(wordState.cur)speak(wordState.cur.w,'en-US');});
+    byId('wordDictSubmit').addEventListener('click',function(){var c=wordState.cur;if(!c)return;var v=(byId('wordDictInput').value||'').trim().toLowerCase();var ok=v===String(c.w).toLowerCase();toast(ok?'正确 ✅':'正确答案：'+c.w);wordGrade(ok);});
+    byId('wordModes').querySelectorAll('.spark-deck').forEach(function(b){b.addEventListener('click',function(){wordState.mode=b.getAttribute('data-wm');byId('wordModes').querySelectorAll('.spark-deck').forEach(function(x){x.classList.toggle('on',x===b);});});});
     // 阅读
     byId('bookImportBtn').addEventListener('click',function(){byId('bookFile').click();});
     byId('bookFile').addEventListener('change',onBookFile);
@@ -3015,6 +3336,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     // 子页面逐级返回
     window.__subBack=function(){
       try{
+        var tm=byId('toolModalMask');if(tm&&!tm.classList.contains('hidden')){closeToolModal();return true;}
         if(byId('panel-reading').classList.contains('show')){
           if(!byId('readingReader').classList.contains('hidden')){
             byId('readingReader').classList.add('hidden');byId('readingHome').classList.remove('hidden');renderBookList();return true;
@@ -3022,6 +3344,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
           return false;
         }
         if(byId('panel-practice').classList.contains('show')){
+          if(!byId('practiceWords').classList.contains('hidden')){byId('practiceWords').classList.add('hidden');byId('practiceHome').classList.remove('hidden');renderPracticeHome();return true;}
           if(!byId('practiceWrongList').classList.contains('hidden')){byId('practiceWrongList').classList.add('hidden');byId('practiceHome').classList.remove('hidden');renderPracticeHome();return true;}
           if(!byId('practiceQuiz').classList.contains('hidden')){byId('practiceQuiz').classList.add('hidden');byId('practiceHome').classList.remove('hidden');quiz=null;return true;}
           return false;
@@ -3048,7 +3371,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     if(window.MutationObserver){
       byId('panel-spark')._sp=new MutationObserver(function(){if(byId('panel-spark').classList.contains('show')){renderSparkHome();renderFocus();renderTools();renderReciteHome();renderPracticeHome();}});
       byId('panel-spark')._sp.observe(byId('panel-spark'),{attributes:true,attributeFilter:['class']});
-      byId('panel-practice')._pp=new MutationObserver(function(){if(byId('panel-practice').classList.contains('show'))renderPracticeHome();});
+      byId('panel-practice')._pp=new MutationObserver(function(){if(byId('panel-practice').classList.contains('show')){renderPracticeHome();if(!byId('practiceWords').classList.contains('hidden'))renderWordList();}});
       byId('panel-practice')._pp.observe(byId('panel-practice'),{attributes:true,attributeFilter:['class']});
       byId('panel-reading')._rd=new MutationObserver(function(){if(byId('panel-reading').classList.contains('show')){renderBookShelves();renderBookList();}});
       byId('panel-reading')._rd.observe(byId('panel-reading'),{attributes:true,attributeFilter:['class']});
