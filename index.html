@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f7efe8">
-<meta name="app-version" content="3.5.1.0">
+<meta name="app-version" content="3.5.2.0">
 <title>每日打卡</title>
 <style>
 :root{--accent:#df7951;--accent-soft:#fff4ec;--ink:#332a28;--muted:#967d74;--line:rgba(92,69,58,.1)}
@@ -190,7 +190,7 @@
 .mode-tabs{height:36px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) 54px;align-items:end;margin:0 0 14px;border-bottom:1px solid var(--line)}.mode-tab{height:35px;border:0;background:transparent;color:#9b8982;font:inherit;font-size:14px;position:relative;cursor:pointer}.mode-tab.active{color:var(--ink);font-weight:750}.mode-tab.active:after{content:"";position:absolute;left:24%;right:24%;bottom:-1px;height:3px;border-radius:99px;background:var(--accent)}.mode-more{height:30px;width:38px;align-self:center;justify-self:center;border-radius:14px;background:rgba(255,255,255,.52);font-size:23px;line-height:1;color:var(--accent);box-shadow:inset 0 0 0 1px rgba(92,69,58,.07)}.mode-more.active{color:#fff;background:var(--accent)}.mode-more.active:after{display:none}.mode-sheet{margin:-4px 0 12px;padding:12px;border-radius:20px;background:rgba(255,255,255,.84);border:1px solid var(--line);box-shadow:0 14px 32px rgba(72,52,43,.09);backdrop-filter:blur(12px)}.mode-sheet-head{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);margin-bottom:9px}.mode-sheet-head b{color:var(--ink);font-size:15px}.mode-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:9px}.mode-actions button{height:34px;border:0;border-radius:13px;background:var(--accent-soft);color:var(--accent);font:inherit;font-size:13px;cursor:pointer}.mode-options{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.mode-card{border:0;border-radius:15px;background:#fff;padding:10px;text-align:left;font:inherit;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line);cursor:pointer;position:relative}.mode-card.active{box-shadow:inset 0 0 0 2px var(--accent);background:var(--accent-soft)}.mode-card.pinned:after{content:"首页";position:absolute;right:9px;top:9px;font-size:10px;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:2px 6px}.mode-card b{display:block;font-size:14px}.mode-card span{display:block;font-size:11px;color:var(--muted);margin-top:2px}.custom-mode{display:grid;grid-template-columns:1fr 54px;gap:8px;margin-top:9px}.custom-mode input{height:38px;border-radius:13px;border:1px solid #dfd1c7;background:#fff;padding:0 10px;font:inherit;outline:none}.custom-mode button{border:0;border-radius:13px;background:var(--accent);color:#fff;font:inherit;font-size:13px;cursor:pointer}
 .hero,.card,.habit,.calendar-panel,.quote-box{background:rgba(255,255,255,.78);border:1px solid var(--line);box-shadow:0 12px 30px rgba(72,52,43,.08);backdrop-filter:blur(12px)}.hero{border-radius:24px;padding:16px 17px;margin-bottom:12px;position:relative}.title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.title{margin:0;font-size:28px;line-height:1.08}.date{font-size:13px;color:var(--muted);margin-top:4px}.score-stack{display:grid;grid-template-columns:1fr 1fr;gap:6px;min-width:126px}.score{border:0;text-align:center;border-radius:16px;background:var(--accent-soft);padding:6px 8px;font:inherit;cursor:pointer}.score b{display:block;color:var(--accent);font-size:20px;line-height:1}.score span{font-size:10px;color:var(--muted);white-space:nowrap}.score-pop{position:absolute;right:17px;top:72px;width:min(260px,calc(100% - 34px));z-index:12;border-radius:18px;background:rgba(255,255,255,.96);border:1px solid var(--line);box-shadow:0 18px 42px rgba(72,52,43,.16);padding:12px}.score-pop[hidden]{display:none}.score-pop h3{margin:0 0 8px;font-size:15px}.score-line{display:flex;justify-content:space-between;gap:12px;border-radius:12px;background:var(--accent-soft);padding:8px 10px;margin-top:6px;font-size:13px}.score-line small{color:var(--muted)}.score-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.score-day{height:26px;border-radius:9px;background:#fff;display:grid;place-items:center;font-size:11px;color:var(--muted);position:relative}.score-day.hit{color:var(--accent);font-weight:800}.score-day.hit:after{content:"";position:absolute;bottom:3px;width:4px;height:4px;border-radius:50%;background:var(--accent)}.points-overview{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px}.points-overview button{height:30px;border:0;border-radius:12px;background:rgba(255,255,255,.68);color:var(--muted);font:inherit;font-size:12px;cursor:pointer}.points-overview b{color:var(--accent);margin-left:4px}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:14px}.sum{background:#fff;border-radius:14px;text-align:center;padding:8px 4px}.sum b{display:block;color:var(--accent);font-size:19px;line-height:1.1}.sum span{font-size:11px;color:var(--muted)}.bar{height:9px;border-radius:99px;background:#eadfd7;overflow:hidden;margin-top:12px}.bar span{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--accent),#e9b15e);transition:width .3s}
 .cal-toggle{height:42px;width:100%;border:0;border-radius:16px;background:rgba(255,255,255,.82);box-shadow:0 8px 20px rgba(72,52,43,.06);display:flex;align-items:center;justify-content:center;gap:9px;color:#836b62;font:inherit;margin-bottom:10px;cursor:pointer}.cal-toggle b{color:var(--accent)}.calendar-panel{border-radius:22px;padding:15px;margin-bottom:12px;display:none}.calendar-panel.show{display:block}.cal-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.cal-title{font-weight:800}.icon{width:38px;height:38px;border:0;border-radius:50%;background:var(--accent-soft);color:var(--accent);font:inherit;font-size:18px;cursor:pointer}.week,.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.week{text-align:center;color:var(--muted);font-size:12px;margin-bottom:5px}.day{height:34px;border:0;background:transparent;color:#463936;display:grid;place-items:center;font:inherit;font-size:13px;position:relative;cursor:pointer}.day.today{font-weight:800;color:var(--accent)}.day.hit:after,.day.rest:after{content:"";position:absolute;bottom:4px;width:5px;height:5px;border-radius:50%;background:var(--accent)}.day.rest:after{background:#7eaf99}
-.push{border-radius:18px;padding:9px 10px;margin-bottom:8px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}.section-head h2{font-size:15px;margin:0}.small{font-size:12px;color:var(--muted)}.push-card{display:grid;grid-template-columns:36px minmax(0,1fr) 34px 56px;gap:6px;align-items:center;border-radius:15px;background:#fff;padding:8px}.emoji{width:44px;height:44px;border-radius:15px;background:radial-gradient(circle at 36% 30%,rgba(255,255,255,.96),rgba(255,244,236,.72) 64%,rgba(255,232,214,.5));display:grid;place-items:center;font-size:24px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.75),0 8px 18px rgba(72,52,43,.08);text-shadow:0 2px 8px rgba(223,121,81,.16)}.push-card .emoji{width:36px;height:36px;border-radius:13px;font-size:20px}.push-name{font-weight:800;font-size:14px}.push-meta{font-size:11px;color:var(--muted);margin-top:0}.push-name,.push-meta{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mini-btn{height:34px;min-width:34px;border:0;border-radius:13px;background:var(--accent-soft);color:var(--accent);font:inherit;font-size:13px;cursor:pointer}.mini-btn.primary{min-width:56px;background:var(--accent);color:#fff;padding:0 8px}.mini-btn:disabled{opacity:.42;cursor:not-allowed}
+.push{border-radius:18px;padding:9px 10px;margin-bottom:8px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}.section-head h2{font-size:15px;margin:0}.small{font-size:12px;color:var(--muted)}#skipHint{display:flex;align-items:center;gap:4px;white-space:nowrap;color:#b8a69d;font-size:11px}.skip-ic{font-size:10px;opacity:.7;color:#c4a48e}.push-card{display:grid;grid-template-columns:36px minmax(0,1fr) 34px 56px;gap:6px;align-items:center;border-radius:15px;background:#fff;padding:8px}.emoji{width:44px;height:44px;border-radius:15px;background:radial-gradient(circle at 36% 30%,rgba(255,255,255,.96),rgba(255,244,236,.72) 64%,rgba(255,232,214,.5));display:grid;place-items:center;font-size:24px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.75),0 8px 18px rgba(72,52,43,.08);text-shadow:0 2px 8px rgba(223,121,81,.16)}.push-card .emoji{width:36px;height:36px;border-radius:13px;font-size:20px}.push-name{font-weight:800;font-size:14px}.push-meta{font-size:11px;color:var(--muted);margin-top:0}.push-name,.push-meta{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mini-btn{height:34px;min-width:34px;border:0;border-radius:13px;background:var(--accent-soft);color:var(--accent);font:inherit;font-size:13px;cursor:pointer}.mini-btn.primary{min-width:56px;background:var(--accent);color:#fff;padding:0 8px}.mini-btn:disabled{opacity:.42;cursor:not-allowed}
 .list{display:grid;gap:9px;margin:10px 0}.habit{border-radius:18px;padding:11px;display:grid;grid-template-columns:40px 1fr auto auto;gap:9px;align-items:center}.habit .emoji{width:40px;height:40px;border-radius:13px;font-size:22px}.name{font-size:15px;font-weight:760}.meta{font-size:12px;color:var(--muted)}.habit.done{opacity:.62}.habit.done .name{text-decoration:line-through}.check{width:38px;height:38px;border-radius:50%;border:2px solid #ded0c7;background:#fff;color:transparent;font-size:17px;cursor:pointer}.check.done{background:var(--accent);border-color:var(--accent);color:#fff}.del{width:30px;height:30px;border:0;border-radius:50%;background:#fff;color:#b98778;font-size:17px;cursor:pointer}.empty{border-radius:18px;background:rgba(255,255,255,.72);padding:24px 16px;text-align:center;color:var(--muted)}.add{display:grid;grid-template-columns:1fr 48px;gap:9px;margin:13px 0 10px}.add input{height:48px;border-radius:16px;border:1px solid #dfd1c7;background:#fff;padding:0 14px;font:inherit;outline:none;color:var(--ink)}.add input:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(223,121,81,.12)}.add .btn{border:0;border-radius:16px;background:var(--accent);color:#fff;font-size:24px;cursor:pointer}
 .quote-box{min-height:78px;border-radius:18px;padding:17px 42px 17px 24px;border-left:5px solid var(--accent);font-size:15px;font-weight:650;color:#5f4c46;margin-bottom:12px;text-align:center;display:grid;place-items:center;position:relative}.quote-line{display:inline;max-width:26em;line-height:1.65;text-wrap:balance;word-break:normal;overflow-wrap:break-word}.quote-box.long .quote-line{max-width:24em;font-size:14.5px;line-height:1.6}.quote-box.xlong .quote-line{max-width:23em;font-size:14px;line-height:1.58}.quote-icon{display:inline-block;font-size:18px;line-height:1;margin-left:6px;vertical-align:-2px;white-space:nowrap}.quote-tool{position:absolute;right:-1px;top:-1px;bottom:-1px;width:31px;border:0;border-radius:0 18px 18px 0;background:var(--accent);color:#fff;font-size:17px;cursor:pointer;box-shadow:inset 1px 0 0 rgba(255,255,255,.28)}.overlay{position:fixed;inset:0;background:rgba(0,0,0,.32);opacity:0;pointer-events:none;transition:opacity .3s;z-index:30}.overlay.show{opacity:1;pointer-events:auto}.drawer{position:fixed;top:0;right:0;width:min(100%,320px);max-width:100%;height:100vh;height:100dvh;background:#fffaf5;z-index:31;transform:translateX(100%);transition:transform .3s ease,visibility 0s linear .3s;box-shadow:-18px 0 40px rgba(45,35,31,.2);padding:18px;display:flex;flex-direction:column;gap:12px;overflow:hidden;visibility:hidden}.drawer.show{transform:translateX(0);visibility:visible}.drawer-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.drawer h2{margin:0;font-size:21px}.close-strong{background:#5f4c46;color:#fff;box-shadow:0 8px 18px rgba(72,52,43,.18)}.diary-top{border-radius:17px;background:var(--accent-soft);padding:12px;color:#6f5a52}.timeline{display:grid;gap:8px;max-height:190px;overflow:auto}.time-item{border-radius:14px;background:#fff;padding:9px 10px;font-size:13px;border:1px solid var(--line)}.diary{min-height:150px;resize:vertical;border:1px solid #dfd1c7;border-radius:16px;background:#fff;padding:12px;font:inherit;outline:none}.weather{height:38px;border:1px solid #dfd1c7;border-radius:14px;background:#fff;padding:0 12px;font:inherit}.quote-form{display:grid;grid-template-columns:1fr 52px;gap:8px}.quote-form input{height:40px;border:1px solid #dfd1c7;border-radius:14px;background:#fff;padding:0 12px;font:inherit;outline:none}.quote-form .quote-emoji{padding:0;text-align:center}.quote-form button{border:0;border-radius:14px;background:var(--accent);color:#fff;font:inherit;cursor:pointer}.quote-count{font-size:12px;color:var(--muted)}.quote-list{display:grid;gap:8px;overflow:auto}.quote-item{display:grid;grid-template-columns:1fr 28px;gap:8px;align-items:center;border-radius:14px;background:#fff;border:1px solid var(--line);padding:9px 8px 9px 11px;font-size:13px}.quote-item button{width:28px;height:28px;border:0;border-radius:50%;background:#f7efea;color:#b98778;font-size:16px;cursor:pointer}.toast{position:fixed;left:50%;bottom:24px;z-index:45;transform:translate(-50%,80px);opacity:0;background:#332a28;color:#fff;padding:10px 16px;border-radius:14px;font-size:14px;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}.confetti{position:fixed;inset:0;pointer-events:none;z-index:44;overflow:hidden}.confetti i{position:absolute;top:-12px;width:7px;height:10px;border-radius:2px;background:var(--accent);animation:fall 1.8s linear forwards}@keyframes fall{to{transform:translateY(105vh) rotate(580deg);opacity:0}}
 @media(min-width:760px){.shell{padding-top:26px}.music-dock{top:12px}.app{display:flex;justify-content:center}.drawer{width:320px}}@media(max-width:420px){.shell{padding-left:13px;padding-right:13px}.music-dock{right:13px}.title{font-size:25px}.summary{gap:6px}.habit{grid-template-columns:40px 1fr auto}.del{grid-column:4}.drawer{width:100%}}
@@ -325,8 +325,9 @@ body{overscroll-behavior-y:contain;-webkit-tap-highlight-color:transparent;backg
 .appnav .nav-btn.active .ic{transform:translateY(-1px) scale(1.06)}
 .appnav .nav-btn.active:after{content:"";position:absolute;top:7px;width:24px;height:3px;border-radius:99px;background:var(--accent)}
 .appnav .nav-fab{flex:0 0 auto;width:58px;display:grid;place-items:center}
-.appnav .nav-fab button{width:50px;height:50px;border-radius:50%;border:0;background:linear-gradient(135deg,#df7951,#e9b15e);color:#fff;font-size:28px;line-height:1;cursor:pointer;box-shadow:0 10px 22px rgba(223,121,81,.4);margin-top:-22px;transition:transform .15s}
-.appnav .nav-fab button:active{transform:scale(.92) rotate(90deg)}
+.appnav .nav-fab button{width:50px;height:50px;border-radius:50%;border:0;background:linear-gradient(135deg,#df7951,#e9b15e);color:#fff;font-size:24px;line-height:1;cursor:pointer;box-shadow:0 10px 22px rgba(223,121,81,.4);margin-top:-22px;transition:transform .15s,box-shadow .15s}
+.appnav .nav-fab button.active{box-shadow:0 0 0 3px rgba(223,121,81,.22),0 10px 22px rgba(223,121,81,.45)}
+.appnav .nav-fab button:active{transform:scale(.92)}
 
 /* 内容面板（学习 / 社交 / 休闲） */
 .panel{position:fixed;inset:0;z-index:44;display:none;flex-direction:column;background:linear-gradient(160deg,#fbf7f0,#eee6dc);padding:calc(env(safe-area-inset-top,0px) + 14px) 16px calc(96px + env(safe-area-inset-bottom,0px));overflow:auto}
@@ -727,7 +728,7 @@ body.tools-open .app-avatar{display:none!important}
 <div class="toast" id="toast"></div>
 <script>
 (function(){
-var STORE='daily-checkin-v35',OLD='daily-checkin-v1',APP_VERSION='3.5.1.0',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
+var STORE='daily-checkin-v35',OLD='daily-checkin-v1',APP_VERSION='3.5.2.0',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
 var quotes=[{text:'种一棵树最好的时间是十年前，其次是现在。',icon:'🌱'},{text:'不经一番寒彻骨，怎得梅花扑鼻香。',icon:'🌸'},{text:'表扬你的坚持',icon:'🏅'},{text:'生命必须有裂缝，阳光才能照进来',icon:'🌄'},{text:'功不唐捐，玉汝于成。',icon:'✨'},{text:'道阻且长，行则将至。',icon:'🚶'},{text:'长风破浪会有时。',icon:'🌊'},{text:'今天也比昨天多了一点点。',icon:'☀️'},{text:'小小坚持，大大改变。',icon:'🌟'},{text:'自律即自由。',icon:'🕊️'},{text:'不积跬步，无以至千里。',icon:'👣'},{text:'你比想象中更强大。',icon:'💪'},{text:'把目标拆小，把坚持变成日常。',icon:'🎯'},{text:'完成一次，就多一点底气。',icon:'🔥'},{text:'认真生活的人，会被时间奖励。',icon:'⏳'},{text:'锲而不舍，金石可镂。',icon:'🪨'},{text:'天行健，君子以自强不息。',icon:'🌞'},{text:'宝剑锋从磨砺出。',icon:'🌺'},{text:'坚持不是口号，是今天这一勾。',icon:'✓'},{text:'慢慢来，比较快。',icon:'🍃'},{text:'做完这一步，世界就亮一点。',icon:'💡'},{text:'给今天一个温柔但坚定的答案。',icon:'🤲'},{text:'哪怕只完成一点，也算向前。',icon:'📍'},{text:'每一次打卡都在替未来铺路。',icon:'🛤️'},{text:'稳住，节奏比速度更重要。',icon:'🎵'},{text:'今天的小胜利值得被记住。',icon:'🏆'},{text:'一日一进，月月不同。',icon:'📈'},{text:'你正在成为更可靠的自己。',icon:'🧭'},{text:'先开始，再变好。',icon:'🚀'},{text:'春有百花秋有月，日日坚持皆风景。',icon:'🌙'}];
 var defaultHabits=[
  {id:'read',name:'阅读20分钟',emoji:'📖',modeIds:['focus','learn','create'],energy:'low',category:'learn',weekendBonus:true,history:{}},
@@ -901,7 +902,7 @@ function timeIcon(d){var h=d.getHours();return h>=18||h<6?'🌙':'☀️'}functi
 function streak(hist){var c=0,d=new Date();while(hist[key(d)]||isRest(key(d))){c++;d.setDate(d.getDate()-1)}return c}function isRest(k){return Object.keys(state.skipLog[k]||{}).some(function(m){return state.skipLog[k][m].rest})}
 function ensurePush(){var tk=today(),mid=state.activeMode,hs=availablePool(),cur=state.settings.currentPush[tk+'|'+mid];if(cur&&hs.some(function(h){return h.id===cur}))return;if(hs.length)state.settings.currentPush[tk+'|'+mid]=hs[Math.floor(Math.random()*hs.length)].id}
 function availablePool(){var sk=skipFor(today(),state.activeMode),tasks=todayTaskIds();return modeHabits().filter(function(h){return sk.ids.indexOf(h.id)<0&&tasks.indexOf(h.id)<0})}function currentPush(){var idv=state.settings.currentPush[today()+'|'+state.activeMode];return state.habits.find(function(h){return h.id===idv})}
-function renderPush(){var sk=skipFor(today(),state.activeMode),h=currentPush();els.skip.textContent='换一个 '+sk.count+'/10';if(sk.rest){els.push.innerHTML='<div class="empty">今日已无可用习惯，休息一天</div>';return}if(!h){els.push.innerHTML='<div class="empty">当前模式没有可推荐任务，可以手动添加</div>';return}els.push.innerHTML='<div class="push-card"><div class="emoji">'+h.emoji+'</div><div><div class="push-name">'+esc(h.name)+'</div><div class="push-meta">'+(h.energy==='high'?'高能量':'低能量')+' · '+esc(h.category)+'</div></div><button class="mini-btn" id="swapBtn" '+(sk.count>=10?'disabled':'')+'>↻</button><button class="mini-btn primary" id="joinBtn">加入</button></div>'}
+function renderPush(){var sk=skipFor(today(),state.activeMode),h=currentPush();els.skip.innerHTML='<span class="skip-ic">&#10022;</span><span class="skip-tx">换一个 '+sk.count+'/10</span>';if(sk.rest){els.push.innerHTML='<div class="empty">今日已无可用习惯，休息一天</div>';return}if(!h){els.push.innerHTML='<div class="empty">当前模式没有可推荐任务，可以手动添加</div>';return}els.push.innerHTML='<div class="push-card"><div class="emoji">'+h.emoji+'</div><div><div class="push-name">'+esc(h.name)+'</div><div class="push-meta">'+(h.energy==='high'?'高能量':'低能量')+' · '+esc(h.category)+'</div></div><button class="mini-btn" id="swapBtn" '+(sk.count>=10?'disabled':'')+'>↻</button><button class="mini-btn primary" id="joinBtn">加入</button></div>'}
 function dayKey(offset){var d=new Date();d.setDate(d.getDate()+offset);return key(d)}
 function renderList(){var tk=today(),tasks=todayTasks();if(!tasks.length){els.list.innerHTML='<div class="empty">今日任务还是空的，先加入一个推荐吧</div>';return}els.list.innerHTML=tasks.map(function(h){var done=completedInMode(h,tk,state.activeMode);return'<article class="habit '+(done?'done':'')+'" data-id="'+h.id+'"><div class="emoji">'+h.emoji+'</div><div><div class="name">'+esc(h.name)+'</div><div class="meta">'+(h.energy==='high'?'高能量':'低能量')+' · '+streak(h.history||{})+'天连续</div></div><button class="check '+(done?'done':'')+'" data-a="toggle">✓</button><button class="del" data-a="remove">×</button></article>'}).join('')}
 function renderQuote(){var qs=allQuotes(),q=qs[state.settings.quoteIndex%qs.length],len=q.text.length;els.quote.classList.toggle('long',len>18);els.quote.classList.toggle('xlong',len>24);els.quote.innerHTML='<button class="quote-side quote-prev" data-quote-step="-1" title="上一条自定义鼓励">‹</button><span class="quote-line">'+esc(q.text)+'<span class="quote-icon">'+esc(q.icon||'✨')+'</span></span><button class="quote-tool" id="quoteTool" title="编辑鼓励语"></button><button class="quote-side quote-next" data-quote-step="1" title="下一条自定义鼓励">›</button>'}
@@ -1041,7 +1042,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     <div class="me-cell" data-mod="read"><span class="wic">📖</span>阅读</div>
     <div class="me-cell" data-mod="set"><span class="wic">⚙️</span>设置</div>
   </div>
-  <div class="me-foot">星火 3.5.1.0 · 数据存于本机</div>
+  <div class="me-foot">星火 3.5.2.0 · 数据存于本机</div>
 </aside>
 
 <!-- 设置抽屉（头像抽屉底部「设置」进入；更新功能由原生 App 提供） -->
@@ -1051,7 +1052,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     <div class="set-row" id="setCheckUpdate"><span class="sw">🔄</span><div><b>检查更新</b><span class="sm">从更新地址下载最新页面</span></div></div>
     <div class="set-row" id="setUpdateUrl"><span class="sw">🔗</span><div><b>更新地址</b><span class="sm">粘贴国内可访问的链接</span></div></div>
     <div class="set-row" id="setRestore"><span class="sw">♻️</span><div><b>恢复内置版本</b><span class="sm">清除已下载更新，回到内置页</span></div></div>
-    <div class="set-row" id="setAbout"><span class="sw">ℹ️</span><div><b>关于</b><span class="sm">星火 · 每日打卡 3.5.1.0</span></div></div>
+    <div class="set-row" id="setAbout"><span class="sw">ℹ️</span><div><b>关于</b><span class="sm">星火 · 每日打卡 3.5.2.0</span></div></div>
     <div class="set-row" id="setGuide"><span class="sw">💡</span><div style="flex:1"><b>使用指引</b><span class="sm">首次打开与切换页面时的功能介绍</span></div><label class="switch"><input type="checkbox" id="guideToggle" checked><span class="slider"></span></label></div>
     <div class="set-row" id="setLocalUpdate"><span class="sw">📂</span><div><b>从本地文件更新</b><span class="sm">选手机里的 index.html，无需联网 / 不依赖 github</span></div></div>
   </div>
@@ -1151,11 +1152,68 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
 <!-- 动态空间（朋友圈 / QQ空间 风格） -->
 <!-- 社交面板：好友 + 聊天 + PK -->
 
-<!-- ===== 星火 · 学习模式（3.5.1.0 重构） ===== -->
+<!-- ===== 星火 · 学习空间（3.5.2.0 重设计） ===== -->
 <style id="sparkCss">
+.hidden{display:none !important}
+.spark-page{padding:2px 16px 24px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.spark-card{background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:20px;padding:14px 14px 12px;margin-bottom:12px;box-shadow:0 10px 26px rgba(72,52,43,.06)}
+.spark-card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.spark-card-head span{font-size:15px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:6px}
+.spark-card-foot{font-size:11px;color:var(--muted);margin-top:8px;text-align:center}
+.spark-enter{height:28px;border:0;border-radius:999px;background:var(--accent-soft);color:var(--accent);font:inherit;font-size:12px;padding:0 12px;cursor:pointer}
+.tool-strip{display:flex;justify-content:space-between;gap:8px}
+.tool-item{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:5px;background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:16px;padding:12px 4px;cursor:pointer;transition:transform .12s,box-shadow .12s}
+.tool-item:active{transform:scale(.96)}
+.tool-item .ti-ic{font-size:26px;line-height:1}
+.tool-item .ti-t{font-size:12px;font-weight:700;color:var(--ink);white-space:nowrap}
+.tool-item .ti-d{font-size:10px;color:var(--muted);white-space:nowrap}
+.focus-preview{display:flex;flex-direction:column;align-items:center;padding:4px 0 2px}
+.focus-clock{font-size:56px;font-weight:800;text-align:center;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:2px;line-height:1}
+.focus-ring{width:100%;height:8px;background:rgba(0,0,0,.06);border-radius:999px;overflow:hidden;margin:12px 0 14px}
+.focus-bar{height:100%;width:0;background:linear-gradient(90deg,#ff8a4c,#ffb24c);transition:width .3s linear}
+.focus-chips{display:flex;gap:10px;margin-bottom:14px}
+.focus-chip{height:34px;border:0;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid var(--line);padding:0 16px;font:inherit;font-size:13px;color:var(--ink);cursor:pointer}
+.focus-chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.focus-actions{display:flex;gap:10px;width:100%;max-width:280px;margin-bottom:10px}
+.focus-actions button{flex:1;height:44px;border:0;border-radius:16px;font:inherit;font-size:15px;font-weight:700;cursor:pointer}
+.focus-actions .start{background:linear-gradient(135deg,#ff8a4c,#ffb24c);color:#fff;box-shadow:0 8px 20px rgba(255,138,76,.28)}
+.focus-actions .reset{background:rgba(255,255,255,.9);color:var(--muted);border:1px solid var(--line)}
+.focus-count{font-size:12px;color:var(--muted)}
+.focus-count b{color:var(--accent)}
+.subj-preview{display:flex;gap:10px}
+.subj-stage{flex:1;min-width:0;background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:16px;padding:12px 10px;text-align:center;cursor:pointer;transition:transform .12s}
+.subj-stage:active{transform:scale(.97)}
+.subj-stage .sj-name{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.subj-stage .sj-grades{font-size:11px;color:var(--muted);line-height:1.5;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.recite-preview{display:flex;flex-wrap:wrap;gap:8px}
+.recite-chip{flex:1 0 auto;min-width:76px;display:flex;align-items:center;justify-content:center;gap:5px;height:34px;border:0;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid var(--line);padding:0 12px;font:inherit;font-size:12px;color:var(--ink);cursor:pointer;transition:transform .12s}
+.recite-chip:active{transform:scale(.96)}
+.recite-chip .rc-ic{font-size:15px}
+.spark-back{position:sticky;top:0;z-index:6;width:auto;min-height:44px;border:0;border-radius:14px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--ink);font:inherit;font-size:14px;font-weight:600;padding:0 16px 0 10px;margin:-4px 0 10px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none;box-shadow:0 2px 10px rgba(120,80,50,.08)}
+.spark-back:active{transform:scale(.96);background:var(--accent-soft)}
+.spark-back .bb{font-size:24px;line-height:1;color:var(--accent);font-weight:400}
+.spark-page button,.src-item,.sp-item,.subj-stage,.sj-gradechips button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#sparkFocus .focus-clock{margin-top:10px}
+.tool-grid-full{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tool-full{background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:16px;padding:16px 12px;text-align:center;cursor:pointer}
+.tool-full .tf-ic{font-size:30px}
+.tool-full .tf-t{font-size:14px;font-weight:700;margin-top:6px}
+.tool-full .tf-d{font-size:11px;color:var(--muted);margin-top:2px}
+.subj-flow{display:flex;flex-direction:column;gap:10px}
+.subj-flow .spark-decks{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+.subj-flow .spark-deck{flex:0 0 auto;display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font:inherit;font-size:13px;cursor:pointer;color:var(--ink)}
+.subj-flow .spark-deck.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.subj-space-head{display:flex;align-items:center;justify-content:space-between;margin:8px 0}
+.subj-space-head b{font-size:16px;color:var(--ink)}
+.subj-kp-hint{font-size:12px;color:var(--muted);margin:4px 0 10px}
+.recite-modebar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.recite-modebar button{flex:1 0 auto;min-width:90px;height:36px;border:0;border-radius:999px;background:rgba(255,255,255,.82);border:1px solid var(--line);font:inherit;font-size:13px;color:var(--ink);cursor:pointer}
+.recite-modebar button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.recite-cats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.recite-cats button{height:32px;border:0;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid var(--line);padding:0 12px;font:inherit;font-size:12px;color:var(--ink);cursor:pointer}
+.recite-cats button.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
 .spark-decks{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
 .spark-deck{flex:0 0 auto;display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:999px;padding:7px 12px;font:inherit;font-size:13px;cursor:pointer;color:var(--ink)}
-.spark-deck .di{font-size:15px}
 .spark-deck.on{background:var(--accent);color:#fff;border-color:var(--accent)}
 .spark-stats{display:flex;gap:10px;margin-bottom:12px}
 .spark-stat{flex:1;background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center}
@@ -1192,40 +1250,6 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
 .quiz-opt.wrong{background:#f7d8d4;border-color:#c0392b;color:#8a1f17}
 .quiz-input{width:100%;border:1px solid var(--line);border-radius:14px;padding:12px;font:inherit;outline:none;margin-bottom:10px;background:#fff;color:var(--ink)}
 .quiz-score{text-align:center;font-size:18px;color:var(--ink);margin:20px 0}
-.hidden{display:none !important}
-[data-theme="dark"] .flash-card{background:linear-gradient(160deg,#3a2c22,#2c211a)}
-[data-theme="dark"] .spark-deck,[data-theme="dark"] .spark-stat,[data-theme="dark"] .card-item,[data-theme="dark"] .quiz-opt{background:var(--surface-2);color:var(--ink)}
-[data-theme="dark"] .spark-btn.sec{background:var(--surface-2)}
-[data-theme="dark"] .editor-field input,[data-theme="dark"] .editor-field textarea,[data-theme="dark"] .editor-field select,[data-theme="dark"] .quiz-input{background:var(--surface-3);color:var(--ink);border-color:var(--line)}
-[data-theme="dark"] .quiz-opt.right{background:#274d27;color:#bfe9bf}
-[data-theme="dark"] .quiz-opt.wrong{background:#4d2723;color:#f0bcb4}
-.nav-spark{color:var(--accent);font-weight:700}
-/* 星火 hub 四区入口 */
-.spark-zones{display:flex;flex-direction:column;gap:10px;margin-top:6px}
-.spark-zone{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:16px;padding:14px;cursor:pointer;color:var(--ink)}
-.spark-zone:active{transform:scale(.99)}
-.sz-ic{font-size:26px;flex:0 0 auto}
-.sz-tx{flex:1;min-width:0}
-.sz-t{font-size:16px;font-weight:700}
-.sz-d{font-size:12px;color:var(--muted);margin-top:2px}
-.spark-back{margin-bottom:12px;text-align:left}
-/* 专注模式 */
-.focus-clock{font-size:54px;font-weight:800;text-align:center;color:var(--accent);margin:18px 0 8px;font-variant-numeric:tabular-nums;letter-spacing:2px}
-.focus-ring{height:8px;background:rgba(0,0,0,.06);border-radius:999px;overflow:hidden;margin:10px 0 16px}
-.focus-bar{height:100%;width:0;background:linear-gradient(90deg,#ff8a4c,#ffb24c);transition:width .3s linear}
-.focus-count{text-align:center;color:var(--muted);font-size:13px;margin-top:14px}
-.focus-count b{color:var(--accent)}
-/* 工具网格 */
-.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
-.tool-card{background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:16px;padding:16px 12px;text-align:center;cursor:pointer;color:var(--ink)}
-.tool-card .tc-ic{font-size:28px}
-.tool-card .tc-t{font-size:14px;font-weight:700;margin-top:6px}
-.tool-card .tc-d{font-size:11px;color:var(--muted);margin-top:2px}
-/* 学科学习 */
-.subj-space-head{display:flex;align-items:center;justify-content:space-between;margin:8px 0}
-.subj-space-head b{font-size:16px;color:var(--ink)}
-.subj-back{margin-bottom:10px}
-/* 阅读 */
 .reader-top{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);margin-bottom:8px}
 .reader-top b{color:var(--ink);font-size:14px}
 .reader-toc{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
@@ -1242,70 +1266,131 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
 .book-card .bc-title{font-weight:700;font-size:14px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .book-card .bc-meta{font-size:11px;color:var(--muted)}
 .book-card .bc-del{color:#c0392b;background:transparent;border:0;font-size:16px;cursor:pointer}
-[data-theme="dark"] .spark-zone,[data-theme="dark"] .tool-card,[data-theme="dark"] .book-card,[data-theme="dark"] .reader-toc button,[data-theme="dark"] .reader-acts button{background:var(--surface-2);color:var(--ink)}
+[data-theme="dark"] .spark-card,[data-theme="dark"] .tool-item,[data-theme="dark"] .subj-stage,[data-theme="dark"] .recite-chip,[data-theme="dark"] .tool-full,[data-theme="dark"] .spark-back{background:var(--surface-2);color:var(--ink)}
+[data-theme="dark"] .focus-chip,[data-theme="dark"] .focus-actions .reset,[data-theme="dark"] .recite-modebar button,[data-theme="dark"] .recite-cats button{background:var(--surface-2);color:var(--ink);border-color:var(--line)}
+[data-theme="dark"] .flash-card{background:linear-gradient(160deg,#3a2c22,#2c211a)}
+[data-theme="dark"] .spark-deck,[data-theme="dark"] .spark-stat,[data-theme="dark"] .card-item,[data-theme="dark"] .quiz-opt{background:var(--surface-2);color:var(--ink)}
+[data-theme="dark"] .spark-btn.sec{background:var(--surface-2)}
+[data-theme="dark"] .editor-field input,[data-theme="dark"] .editor-field textarea,[data-theme="dark"] .editor-field select,[data-theme="dark"] .quiz-input{background:var(--surface-3);color:var(--ink);border-color:var(--line)}
+[data-theme="dark"] .quiz-opt.right{background:#274d27;color:#bfe9bf}
+[data-theme="dark"] .quiz-opt.wrong{background:#4d2723;color:#f0bcb4}
 [data-theme="dark"] .reader-body{background:var(--surface-2)}
 [data-theme="dark"] .reader-bar select{background:var(--surface-3);color:var(--ink);border-color:var(--line)}
+/* --- 3.5.2.0 练习来源 / 默写 / 学科年级 --- */
+.src-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.src-item{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:11px 12px;border:1.5px solid var(--line);border-radius:14px;background:var(--surface);cursor:pointer;text-align:left;transition:.16s}
+.src-item .si-ic{font-size:18px;line-height:1}
+.src-item b{font-size:13px;color:var(--ink);font-weight:700}
+.src-item i{position:absolute;right:10px;top:10px;font-style:normal;font-size:11px;color:var(--muted);background:var(--surface-2);border-radius:8px;padding:1px 6px}
+.src-item.on{border-color:var(--brand);background:linear-gradient(150deg,rgba(214,122,63,.13),rgba(214,122,63,.04))}
+.src-item.on b{color:var(--brand)}
+.src-item:active{transform:scale(.97)}
+.self-pick{margin-top:10px;border-top:1px dashed var(--line);padding-top:9px}
+.self-pick .sp-tip{font-size:11px;color:var(--muted);margin-bottom:7px}
+.sp-list{display:flex;flex-direction:column;gap:6px;max-height:210px;overflow:auto}
+.sp-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:11px;background:var(--surface-2);cursor:pointer;font-size:13px;color:var(--ink)}
+.sp-item .sp-box{width:17px;height:17px;flex:0 0 17px;border-radius:5px;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;background:transparent}
+.sp-item.on .sp-box{background:var(--brand);border-color:var(--brand)}
+.sp-item .sp-n{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sp-item .sp-c{font-size:11px;color:var(--muted)}
+.mode-tip{margin-top:7px;font-size:11px;color:var(--muted);line-height:1.5}
+.prac-stat{display:flex;gap:8px}
+.prac-stat .ps-i{flex:1;text-align:center;padding:8px 4px;border-radius:12px;background:var(--surface-2)}
+.prac-stat .ps-i b{display:block;font-size:17px;color:var(--brand);font-weight:800}
+.prac-stat .ps-i span{font-size:11px;color:var(--muted)}
+.dict-play{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 0 6px}
+.dict-play button{width:64px;height:64px;border-radius:50%;border:0;background:linear-gradient(150deg,var(--brand),#c2622f);color:#fff;font-size:26px;cursor:pointer;box-shadow:0 6px 16px rgba(214,122,63,.32)}
+.dict-play button:active{transform:scale(.93)}
+.dict-play .dp-tip{font-size:12px;color:var(--muted)}
+.dict-play .dp-hint{font-size:11px;color:var(--muted);opacity:.8}
+.subj-stage{cursor:pointer}
+.sj-gradechips{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.sj-gradechips button{border:1px solid var(--line);background:var(--surface-2);color:var(--ink);border-radius:9px;padding:4px 9px;font-size:12px;cursor:pointer}
+.sj-gradechips button:active{transform:scale(.94)}
+.sj-gradechips button.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.subj-crumb{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-bottom:9px}
+.subj-crumb b{color:var(--brand)}
+.recite-lead{font-size:12px;color:var(--muted);margin:0 0 9px;padding:7px 11px;border-radius:11px;background:var(--accent-soft);line-height:1.5}
+[data-theme="dark"] .src-item,[data-theme="dark"] .sp-item,[data-theme="dark"] .prac-stat .ps-i,[data-theme="dark"] .sj-gradechips button{background:var(--surface-2);color:var(--ink)}
+[data-theme="dark"] .src-item.on{background:rgba(214,122,63,.18)}
 </style>
-<!-- ===== 星火 · 学习模式二合一（3.5.1.0） ===== -->
+<!-- ===== 星火 · 学习空间（3.5.2.0） ===== -->
 <section class="panel" id="panel-spark">
   <div class="panel-head"><h2>星火</h2><button class="back" data-close>收起</button></div>
-  <div class="sub">学习模式二合一 · 专注 / 工具 / 学科 / 背诵</div>
+  <div class="sub">专注当下 · 汲取能量</div>
 
-  <!-- 星火首页：四区入口 -->
-  <div id="sparkHome">
-    <div class="spark-zones">
-      <div class="spark-zone" data-zone="focus"><span class="sz-ic">⏱️</span><div class="sz-tx"><div class="sz-t">专注模式</div><div class="sz-d">番茄钟 · 沉浸式专注</div></div></div>
-      <div class="spark-zone" data-zone="tools"><span class="sz-ic">🧰</span><div class="sz-tx"><div class="sz-t">工具栏</div><div class="sz-d">计算器 / 白噪音 / 可扩展</div></div></div>
-      <div class="spark-zone" data-zone="subject"><span class="sz-ic">📚</span><div class="sz-tx"><div class="sz-t">学科学习</div><div class="sz-d">小初高 · 学科 · 年级空间</div></div></div>
-      <div class="spark-zone" data-zone="recite"><span class="sz-ic">✨</span><div class="sz-tx"><div class="sz-t">背诵</div><div class="sz-d">自定义 / 抽查 / 随机推荐</div></div></div>
+  <!-- 星火首页：四卡一览 -->
+  <div id="sparkHome" class="spark-page">
+    <!-- 多功能工具箱 -->
+    <div class="spark-card">
+      <div class="spark-card-head"><span>🧰 多功能工具箱</span></div>
+      <div class="tool-strip" id="sparkToolHome"></div>
+      <div class="spark-card-foot">与「我的 → 工具箱」状态实时同步</div>
+    </div>
+    <!-- 专注模式 -->
+    <div class="spark-card">
+      <div class="spark-card-head"><span>⏱️ 专注模式</span><button class="spark-enter" data-to="focus">全屏</button></div>
+      <div class="focus-preview">
+        <div class="focus-clock" id="focusClockHome">25:00</div>
+        <div class="focus-chips" id="focusChipsHome"></div>
+        <div class="focus-actions"><button class="start" id="focusStartHome">开始专注</button><button class="reset" id="focusResetHome">重置</button></div>
+        <div class="focus-count">今日已完成 <b id="focusDoneHome">0</b> 个专注</div>
+      </div>
+    </div>
+    <!-- 学科学习 -->
+    <div class="spark-card">
+      <div class="spark-card-head"><span>📚 学科学习</span></div>
+      <div class="subj-preview" id="subjPreview"></div>
+    </div>
+    <!-- 背诵 -->
+    <div class="spark-card">
+      <div class="spark-card-head"><span>✨ 背诵</span><button class="spark-enter" data-to="recite">进入</button></div>
+      <div class="recite-preview" id="recitePreview"></div>
     </div>
   </div>
 
-  <!-- 专注模式 -->
-  <div id="sparkFocus" class="hidden">
-    <button class="spark-btn ghost spark-back" data-back="home">‹ 返回星火</button>
+  <!-- 专注全屏 -->
+  <div id="sparkFocus" class="hidden spark-page">
+    <button class="spark-back" data-back="home"><span class="bb">‹</span>返回星火</button>
     <div class="focus-clock" id="focusClock">25:00</div>
-    <div class="focus-modes">
-      <button class="spark-deck on" data-fm="focus">专注 25</button>
-      <button class="spark-deck" data-fm="short">短休 5</button>
-      <button class="spark-deck" data-fm="long">长休 15</button>
-    </div>
     <div class="focus-ring"><div class="focus-bar" id="focusBar"></div></div>
-    <div class="spark-row">
-      <button class="spark-btn" id="focusStart">开始</button>
-      <button class="spark-btn sec" id="focusReset">重置</button>
-    </div>
+    <div class="focus-chips" id="focusChips"></div>
+    <div class="focus-actions"><button class="start" id="focusStart">开始专注</button><button class="reset" id="focusReset">重置</button></div>
     <div class="focus-count">今日已完成 <b id="focusDone">0</b> 个专注</div>
   </div>
 
-  <!-- 工具栏 -->
-  <div id="sparkTools" class="hidden">
-    <button class="spark-btn ghost spark-back" data-back="home">‹ 返回星火</button>
-    <div class="tool-grid" id="sparkToolGrid"></div>
-    <div class="spark-tip">工具可扩展：在「我的」→工具箱 或此处持续新增</div>
+  <!-- 工具全屏 -->
+  <div id="sparkTools" class="hidden spark-page">
+    <button class="spark-back" data-back="home"><span class="bb">‹</span>返回星火</button>
+    <div class="tool-grid-full" id="sparkToolGrid"></div>
   </div>
 
   <!-- 学科学习 -->
-  <div id="sparkSubject" class="hidden">
-    <button class="spark-btn ghost spark-back" data-back="home">‹ 返回星火</button>
-    <div id="subjL1" class="spark-decks"></div>
-    <div id="subjL2" class="spark-decks hidden"></div>
-    <div id="subjSpace" class="hidden">
-      <div class="subj-space-head"><b id="subjSpaceTitle"></b><button class="spark-btn sec" id="subjAdd" style="flex:0 0 auto;width:auto;height:34px;margin:0;padding:0 14px">＋ 资料</button></div>
-      <div class="card-list" id="subjList"></div>
+  <div id="sparkSubject" class="hidden spark-page">
+    <button class="spark-back" data-back="home"><span class="bb">‹</span>返回星火</button>
+    <div class="subj-flow">
+      <div id="subjL1" class="spark-decks"></div>
+      <div id="subjL2" class="spark-decks hidden"></div>
+      <div id="subjSpace" class="hidden">
+        <div class="subj-space-head"><b id="subjSpaceTitle"></b><button class="spark-btn sec" id="subjAdd" style="flex:0 0 auto;width:auto;height:34px;margin:0;padding:0 14px">＋ 资料</button></div>
+        <div class="subj-kp-hint">知识点预留区 · 后续版本将陆续补充各年级学科要点</div>
+        <div class="card-list" id="subjList"></div>
+      </div>
     </div>
   </div>
 
-  <!-- 背诵：三模式 -->
-  <div id="sparkRecite" class="hidden">
-    <button class="spark-btn ghost spark-back" data-back="home">‹ 返回星火</button>
-    <div class="spark-decks" id="reciteModeTabs">
-      <button class="spark-deck on" data-rmode="custom">自定义背诵</button>
-      <button class="spark-deck" data-rmode="quiz">抽查式背诵</button>
-      <button class="spark-deck" data-rmode="browse">正常背诵</button>
+  <!-- 背诵 -->
+  <div id="sparkRecite" class="hidden spark-page">
+    <button class="spark-back" data-back="home"><span class="bb">‹</span>返回星火</button>
+    <div class="recite-lead">背 · 记住它 ｜ 诵 · 读出来 —— 先选分类，再选方式</div>
+    <div class="recite-modebar" id="reciteModeTabs">
+      <button class="on" data-rmode="custom">自定义背诵</button>
+      <button data-rmode="quiz">抽查式背诵</button>
+      <button data-rmode="browse">正常背诵</button>
     </div>
+    <div class="recite-cats" id="reciteCats"></div>
 
-    <!-- 自定义背诵：管理（增删改） -->
+    <!-- 自定义背诵 -->
     <div id="reciteCustom">
       <div class="spark-decks" id="reciteDecks"></div>
       <div class="spark-stats">
@@ -1317,7 +1402,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
       <div class="card-list" id="reciteList" style="margin-top:12px"></div>
     </div>
 
-    <!-- 抽查式背诵：开始 + 会话 -->
+    <!-- 抽查式背诵 -->
     <div id="reciteQuiz" class="hidden">
       <button class="spark-btn" id="reciteStart">开始抽查</button>
       <div id="reciteSession" class="hidden" style="margin-top:12px">
@@ -1327,6 +1412,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
           <div class="flash-hint hidden" id="flashHint"></div>
           <div class="flash-ex hidden" id="flashEx"></div>
         </div>
+        <button class="spark-btn sec" id="flashSpeak">🔊 朗读一遍</button>
         <div class="spark-row">
           <button class="spark-btn ghost" id="flashForget">忘了</button>
           <button class="spark-btn" id="flashKnow">记得</button>
@@ -1335,12 +1421,15 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
       </div>
     </div>
 
-    <!-- 正常背诵：随机推荐浏览（非测验） -->
+    <!-- 正常背诵 -->
     <div id="reciteBrowse" class="hidden">
-      <div class="spark-tip">随机推荐常识 · 古诗 · 名言，轻松翻阅，不是测验</div>
       <div class="flash-card" id="browseCard">
         <div class="flash-front" id="browseFront"></div>
         <div class="flash-back" id="browseBack" style="margin-top:10px"></div>
+      </div>
+      <div class="spark-row">
+        <button class="spark-btn sec" id="browseSpeak">🔊 朗读</button>
+        <button class="spark-btn sec" id="browseSpeakSlow">🐢 慢速</button>
       </div>
       <div class="spark-row">
         <button class="spark-btn sec" id="browsePrev">上一篇</button>
@@ -1364,7 +1453,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   </div>
 </section>
 
-<!-- ===== 阅读模块（3.5.1.0 · 方案2：epub+txt） ===== -->
+<!-- ===== 阅读模块（3.5.2.0 · 方案2：epub+txt） ===== -->
 <section class="panel" id="panel-reading">
   <div class="panel-head"><h2>阅读</h2><button class="back" data-close>收起</button></div>
   <div class="sub">导入电子书 · 书签 / 划线 / 读书笔记</div>
@@ -1399,14 +1488,34 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   <div class="sub">背完测一测 · 错题自动回流火花</div>
   <div id="practiceHome">
     <div class="cardx">
-      <h3>自测方式</h3>
+      <h3>练习来源</h3>
+      <div class="src-grid" id="practiceSources">
+        <button class="src-item on" data-src="cards"><span class="si-ic">🗂️</span><b>我的卡片</b><i id="srcCntCards">0</i></button>
+        <button class="src-item" data-src="subject"><span class="si-ic">📚</span><b>学科练习</b><i id="srcCntSubj">0</i></button>
+        <button class="src-item" data-src="english"><span class="si-ic">🔤</span><b>英语单词</b><i id="srcCntEng">0</i></button>
+        <button class="src-item" data-src="self"><span class="si-ic">🎯</span><b>自选练习</b><i id="srcCntSelf">0</i></button>
+      </div>
+      <div class="self-pick hidden" id="selfPick">
+        <div class="sp-tip">学了什么就练什么 —— 勾选要纳入练习的内容</div>
+        <div class="sp-list" id="selfPickList"></div>
+      </div>
+    </div>
+    <div class="cardx">
+      <h3>练习方式</h3>
       <div class="spark-decks" id="practiceModes">
         <button class="spark-deck on" data-mode="choice">选择题</button>
         <button class="spark-deck" data-mode="fill">填空题</button>
+        <button class="spark-deck" data-mode="dictation">默写听写</button>
         <button class="spark-deck" data-mode="random">随机</button>
       </div>
+      <div class="mode-tip" id="practiceModeTip"></div>
     </div>
-    <button class="spark-btn" id="practiceStart">开始自测</button>
+    <div class="cardx prac-stat">
+      <div class="ps-i"><b id="psTotal">0</b><span>可练题量</span></div>
+      <div class="ps-i"><b id="psDone">0</b><span>今日已练</span></div>
+      <div class="ps-i"><b id="psAcc">—</b><span>今日正确率</span></div>
+    </div>
+    <button class="spark-btn" id="practiceStart">开始练习</button>
     <button class="spark-btn sec" id="practiceWrong">错题本（<span id="wrongCount">0</span>）</button>
   </div>
   <div id="practiceQuiz" class="hidden">
@@ -1434,11 +1543,11 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   <div class="game-card" data-game="tetris"><div class="gc-ic">🧱</div><div><div class="gc-t">俄罗斯方块</div><div class="gc-d">脑力健身 · 开发中</div></div></div>
 </section>
 
-<!-- 底部导览行：今日 / 阅读 / 星火 / 练习 / 休闲 -->
+<!-- 底部导览行：今日 / 阅读 / ✨星火(悬浮) / 练习 / 休闲 -->
 <nav class="appnav" id="appnav">
   <button class="nav-btn active" data-tab="today"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="13" r="4"/><path d="M12 3v2.2M4.6 7.2l1.6 1.6M19.4 7.2l-1.6 1.6M3 13h2.2M18.8 13H21"/></svg></span>今日</button>
   <button class="nav-btn" data-tab="reading"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 5C9.5 3.5 6 3.5 4 4v15c2-.5 5.5-.5 8 1 2.5-1.5 6-1.5 8-1V4c-2-.5-5.5-.5-8 1z"/><path d="M12 5v16"/></svg></span>阅读</button>
-  <button class="nav-btn nav-spark" data-tab="spark"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18 9l-4.2 1.3L12 15l-1.8-4.7L6 9l4.2-1.3z"/></svg></span>星火</button>
+  <div class="nav-fab"><button id="navSparkBtn" title="星火 · 学习空间">✨</button></div>
   <button class="nav-btn" data-tab="practice"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v4H4z"/><path d="M6 8v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/><path d="M9 12h6M9 15h6"/></svg></span>练习</button>
   <button class="nav-btn" data-tab="leisure"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9h11v5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4z"/><path d="M16 10h2a2 2 0 0 1 0 4h-2"/><path d="M8 3v2M11 3v2"/></svg></span>休闲</button>
 </nav>
@@ -1756,14 +1865,17 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   // 底部导览
   var panels={reading:byId('panel-reading'),spark:byId('panel-spark'),practice:byId('panel-practice'),leisure:byId('panel-leisure')};
   var navBtns=document.querySelectorAll('#appnav .nav-btn');
+  var navSparkBtn=byId('navSparkBtn');
   function activate(name){
     navBtns.forEach(function(b){b.classList.toggle('active',b.getAttribute('data-tab')===name)});
+    if(navSparkBtn)navSparkBtn.classList.toggle('active',name==='spark');
     Object.keys(panels).forEach(function(k){panels[k].classList.toggle('show',k===name)});
     if(name!=='today'){closeMe()}syncAvatar();
     if(window.Guide && ['reading','spark','practice','leisure'].indexOf(name)>=0)window.Guide.auto(name);
   }
   window.__activate=activate;
   navBtns.forEach(function(b){b.addEventListener('click',function(){activate(b.getAttribute('data-tab'))})});
+  if(navSparkBtn)navSparkBtn.addEventListener('click',function(){activate('spark')});
   document.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',function(){activate('today')})});
   // 头像 → 放大预览；编辑 → 个人资料
   byId('meAva').addEventListener('click',function(){
@@ -2033,7 +2145,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
       });
     }
   })();
-/* ===== 星火 / 练习 / 专注 / 工具 / 学科 / 阅读 模块（3.5.1.0） ===== */
+/* ===== 星火 / 练习 / 专注 / 工具 / 学科 / 阅读 模块（3.5.2.0） ===== */
 (function(){
   if(!window.DB)return;
   // ---------- 通用 ----------
@@ -2044,12 +2156,14 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 
   // ---------- 背诵卡库 ----------
-  var DECK_ICON={word:'🔤',text:'📖',formula:'📐',poem:'📜',qa:'❓',date:'🔢',wrong:'⚠️'};
-  var DECK_NAME={word:'单词',text:'课文',formula:'公式要点',poem:'诗词文言文',qa:'问答卡',date:'年表数字',wrong:'错题'};
-  var SEED_DECKS=['word','text','formula','poem','qa','date'];
-  var BOX_DAYS=[0,1,3,7,16]; // Leitner 间隔（天）
+  var DECK_ICON={word:'🔤',text:'📖',formula:'📐',poem:'📜',qa:'❓',date:'🔢',wrong:'⚠️',
+    textRecite:'📄',sentence:'📝',engWord:'🔤',engRead:'🗣️',ancientPoem:'🏮',modernPoem:'🌙'};
+  var DECK_NAME={word:'英语单词',text:'课文',formula:'公式要点',poem:'诗词文言文',qa:'问答卡',date:'年表数字',wrong:'错题',
+    textRecite:'课文背诵',sentence:'句子背诵',engWord:'英语单词',engRead:'英语句子朗读',ancientPoem:'古诗词朗诵',modernPoem:'现代诗朗诵'};
+  var SEED_DECKS=['word','text','formula','poem','qa','date','textRecite','sentence','engWord','engRead','ancientPoem','modernPoem'];
+  var BOX_DAYS=[0,1,3,7,16];
   var cards=DB.ns('cards'), wrong=DB.ns('wrong');
-  var reciteDeck='all', editingId=null, sessionQueue=[], sessionIdx=0, sessionWrong=0;
+  var reciteDeck='all', reciteCat='all', editingId=null, sessionQueue=[], sessionIdx=0, sessionWrong=0;
   var practiceMode='choice', quiz=null, qi=0;
 
   function getCards(){var o=cards.raw();return (o&&o.items)||[];}
@@ -2065,16 +2179,73 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   function seedIfEmpty(){
     if(cards.raw())return;
     var seed=[
+      // 英语单词
       mk('word','apple','苹果'),mk('word','ambition','雄心；抱负'),mk('word','perseverance','坚持不懈；毅力'),
       mk('word','ephemeral','短暂的；瞬息的'),mk('word','serendipity','机缘巧合；意外好运'),mk('word','lucid','清晰的；清醒的'),
+      // 公式
       mk('formula','勾股定理','a² + b² = c²'),mk('formula','牛顿第二定律','F = m·a'),
       mk('formula','圆的面积','S = π·r²'),mk('formula','一元二次方程求根公式','x = (-b ± √(b²-4ac)) / 2a'),mk('formula','欧拉恒等式','e^(iπ) + 1 = 0'),
+      // 诗词
       mk('poem','「床前明月光」下一句','疑是地上霜'),mk('poem','《论语》「学而时习之」下一句','不亦说乎'),
       mk('poem','「不积跬步」下一句','无以至千里'),mk('poem','「无边落木萧萧下」下一句','不尽长江滚滚来'),
+      // 问答
       mk('qa','光在真空中的速度约为多少？','约 30 万千米/秒（3×10⁸ m/s）'),
       mk('qa','人体正常体温约为多少？','约 36.5–37℃'),mk('qa','水在一个标准大气压下的沸点约为？','100℃'),
+      // 年表
       mk('date','中华人民共和国成立年份','1949 年'),mk('date','中国改革开放起始年份','1978 年'),mk('date','第一次世界大战爆发年份','1914 年'),
-      mk('text','《岳阳楼记》中表达作者旷达胸襟的名句','不以物喜，不以己悲'),mk('text','「先天下之忧而忧」的下一句','后天下之乐而乐')
+      // 课文
+      mk('text','《岳阳楼记》中表达作者旷达胸襟的名句','不以物喜，不以己悲'),mk('text','「先天下之忧而忧」的下一句','后天下之乐而乐'),
+      // 课文背诵
+      mk('textRecite','《静夜思》· 李白','床前明月光，疑是地上霜。\n举头望明月，低头思故乡。'),
+      mk('textRecite','《春晓》· 孟浩然','春眠不觉晓，处处闻啼鸟。\n夜来风雨声，花落知多少。'),
+      mk('textRecite','《陋室铭》· 开篇','山不在高，有仙则名。水不在深，有龙则灵。\n斯是陋室，惟吾德馨。'),
+      mk('textRecite','《爱莲说》· 名句','予独爱莲之出淤泥而不染，濯清涟而不妖，\n中通外直，不蔓不枝，香远益清，亭亭净植。'),
+      mk('textRecite','《岳阳楼记》· 结尾','先天下之忧而忧，后天下之乐而乐。\n噫！微斯人，吾谁与归？'),
+      mk('textRecite','《出师表》· 开篇','先帝创业未半而中道崩殂，今天下三分，益州疲弊，此诚危急存亡之秋也。'),
+      mk('textRecite','《桃花源记》· 开篇','晋太元中，武陵人捕鱼为业。缘溪行，忘路之远近。\n忽逢桃花林，夹岸数百步，中无杂树，芳草鲜美，落英缤纷。'),
+      mk('textRecite','《少年中国说》· 名段','少年智则国智，少年富则国富，\n少年强则国强，少年独立则国独立。'),
+      // 句子背诵
+      mk('sentence','「业精于勤」下一句','荒于嬉；行成于思，毁于随。'),
+      mk('sentence','「千里之行」下一句','始于足下。'),
+      mk('sentence','「知之者不如好之者」下一句','好之者不如乐之者。'),
+      mk('sentence','「三人行」下一句','必有我师焉。择其善者而从之，其不善者而改之。'),
+      mk('sentence','「宝剑锋从磨砺出」下一句','梅花香自苦寒来。'),
+      mk('sentence','「纸上得来终觉浅」下一句','绝知此事要躬行。'),
+      mk('sentence','「天行健」下一句','君子以自强不息。'),
+      mk('sentence','「路漫漫其修远兮」下一句','吾将上下而求索。'),
+      // 英语单词
+      mk('engWord','resilience','韧性；恢复力'),mk('engWord','gratitude','感恩；感激'),
+      mk('engWord','curiosity','好奇心'),mk('engWord','discipline','自律；纪律'),
+      mk('engWord','opportunity','机会'),mk('engWord','challenge','挑战'),
+      mk('engWord','achievement','成就'),mk('engWord','confidence','自信'),
+      mk('engWord','imagination','想象力'),mk('engWord','responsibility','责任'),
+      // 英语句子朗读
+      mk('engRead','励志句 · 有志者事竟成','Where there is a will, there is a way.'),
+      mk('engRead','励志句 · 千里之行','The journey of a thousand miles begins with a single step.'),
+      mk('engRead','励志句 · 种树最好的时间','The best time to plant a tree was twenty years ago. The second best time is now.'),
+      mk('engRead','日常句 · 自我介绍','Nice to meet you. My name is Li Hua, and I am a middle school student.'),
+      mk('engRead','日常句 · 问路','Excuse me, could you tell me how to get to the nearest subway station?'),
+      mk('engRead','哲理句 · 保持热爱','Stay hungry, stay foolish.'),
+      mk('engRead','哲理句 · 相信自己','Believe you can and you are halfway there.'),
+      mk('engRead','课文句 · 熟能生巧','Practice makes perfect, so keep going every single day.'),
+      // 古诗词朗诵
+      mk('ancientPoem','《望岳》· 杜甫（选句）','会当凌绝顶，一览众山小。'),
+      mk('ancientPoem','《登鹳雀楼》· 王之涣','白日依山尽，黄河入海流。\n欲穷千里目，更上一层楼。'),
+      mk('ancientPoem','《赋得古原草送别》· 白居易（选句）','离离原上草，一岁一枯荣。\n野火烧不尽，春风吹又生。'),
+      mk('ancientPoem','《将进酒》· 李白（选句）','君不见黄河之水天上来，奔流到海不复回。\n君不见高堂明镜悲白发，朝如青丝暮成雪。'),
+      mk('ancientPoem','《水调歌头》· 苏轼（选句）','人有悲欢离合，月有阴晴圆缺，此事古难全。\n但愿人长久，千里共婵娟。'),
+      mk('ancientPoem','《游山西村》· 陆游（选句）','山重水复疑无路，柳暗花明又一村。'),
+      mk('ancientPoem','《竹石》· 郑燮','咬定青山不放松，立根原在破岩中。\n千磨万击还坚劲，任尔东西南北风。'),
+      mk('ancientPoem','《木兰诗》· 选段','万里赴戎机，关山度若飞。\n朔气传金柝，寒光照铁衣。'),
+      // 现代诗朗诵
+      mk('modernPoem','《再别康桥》· 徐志摩（选段）','轻轻的我走了，正如我轻轻的来；\n我轻轻的招手，作别西天的云彩。'),
+      mk('modernPoem','《面朝大海，春暖花开》· 海子（选段）','从明天起，做一个幸福的人\n喂马、劈柴，周游世界。'),
+      mk('modernPoem','《乡愁》· 余光中（选段）','小时候，乡愁是一枚小小的邮票，\n我在这头，母亲在那头。'),
+      mk('modernPoem','《雨巷》· 戴望舒（选段）','撑着油纸伞，独自\n彷徨在悠长、悠长又寂寥的雨巷。'),
+      mk('modernPoem','《你是人间的四月天》· 林徽因（选段）','我说你是人间的四月天；\n笑响点亮了四面风，轻灵在春的光艳中交舞着变。'),
+      mk('modernPoem','《热爱生命》· 汪国真（选段）','我不去想是否能够成功，\n既然选择了远方，便只顾风雨兼程。'),
+      mk('modernPoem','《致橡树》· 舒婷（选段）','我必须是你近旁的一株木棉，\n作为树的形象和你站在一起。'),
+      mk('modernPoem','《相信未来》· 食指（选段）','我依然固执地铺平失望的灰烬，\n用美丽的雪花写下：相信未来。')
     ];
     setCards(seed);
   }
@@ -2088,42 +2259,91 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     else if(v==='sparkFocus')renderFocus();
     else if(v==='sparkTools')renderTools();
     else if(v==='sparkSubject')renderSubjectL1();
+    else if(v==='sparkHome'){renderSparkHome();renderFocus();renderTools();}
   }
   function wireSpark(){
-    byId('sparkHome').querySelectorAll('.spark-zone').forEach(function(z){
-      z.addEventListener('click',function(){showSparkView('spark'+cap(z.getAttribute('data-zone')));});
+    // 首页进入按钮
+    byId('sparkHome').querySelectorAll('[data-to]').forEach(function(b){
+      b.addEventListener('click',function(){showSparkView('spark'+cap(b.getAttribute('data-to')));});
     });
-    byId('sparkFocus').querySelectorAll('[data-back="home"]').forEach(function(b){b.addEventListener('click',function(){showSparkView('sparkHome');});});
-    byId('sparkTools').querySelectorAll('[data-back="home"]').forEach(function(b){b.addEventListener('click',function(){showSparkView('sparkHome');});});
-    byId('sparkSubject').querySelectorAll('[data-back="home"]').forEach(function(b){b.addEventListener('click',function(){showSparkView('sparkHome');});});
-    byId('sparkRecite').querySelectorAll('[data-back="home"]').forEach(function(b){b.addEventListener('click',function(){showSparkView('sparkHome');});});
+    // 学科预览
+    byId('subjPreview').addEventListener('click',function(e){
+      var g=e.target.closest('[data-grade]');
+      var st=e.target.closest('.subj-stage');if(!st)return;
+      var lv=st.getAttribute('data-level');
+      showSparkView('sparkSubject');
+      subjLevel=lv;subjGrade=g?g.getAttribute('data-grade'):SUBJ_GRADES[lv][0];subjSubject=null;
+      renderSubjectL1(true);renderSubjectL2();
+    });
+    // 背诵预览
+    byId('recitePreview').addEventListener('click',function(e){
+      var c=e.target.closest('.recite-chip');if(!c)return;
+      reciteCat=c.getAttribute('data-cat');showSparkView('sparkRecite');showReciteMode('custom');
+    });
+    // 返回按钮
+    ['sparkFocus','sparkTools','sparkSubject','sparkRecite'].forEach(function(id){
+      byId(id).querySelectorAll('[data-back="home"]').forEach(function(b){b.addEventListener('click',function(){showSparkView('sparkHome');});});
+    });
   }
   window.__sparkTo=showSparkView;
 
-  // ---------- 背诵：三模式 ----------
+  function renderSparkHome(){
+    // 学科预览
+    var sp=byId('subjPreview');sp.innerHTML='';
+    SUBJ_LEVELS.forEach(function(l){
+      var d=document.createElement('div');d.className='subj-stage';d.setAttribute('data-level',l.id);
+      var n=subjCount(l.id,null,null);
+      d.innerHTML='<div class="sj-name">'+l.ic+' '+l.name+(n?' <span class="sj-n">'+n+'</span>':'')+'</div><div class="sj-gradechips"></div>';
+      var box=d.querySelector('.sj-gradechips');
+      SUBJ_GRADES[l.id].forEach(function(g){
+        var b=document.createElement('button');b.type='button';b.setAttribute('data-grade',g);b.textContent=g;box.appendChild(b);
+      });
+      sp.appendChild(d);
+    });
+    // 背诵预览
+    var rp=byId('recitePreview');rp.innerHTML='';
+    [{k:'textRecite',ic:'📄',n:'课文'},{k:'sentence',ic:'📝',n:'句子'},{k:'engWord',ic:'🔤',n:'英语单词'},{k:'engRead',ic:'🗣️',n:'英语朗读'},{k:'ancientPoem',ic:'🏮',n:'古诗词'},{k:'modernPoem',ic:'🌙',n:'现代诗'}].forEach(function(c){
+      var b=document.createElement('button');b.className='recite-chip';b.setAttribute('data-cat',c.k);
+      b.innerHTML='<span class="rc-ic">'+c.ic+'</span><span>'+c.n+'</span>';rp.appendChild(b);
+    });
+  }
+
+  // ---------- 背诵：三模式 + 分类 ----------
   function showReciteMode(m){
     ['reciteCustom','reciteQuiz','reciteBrowse'].forEach(function(id){byId(id).classList.add('hidden');});
     byId('reciteEditor').classList.add('hidden');
-    byId('reciteModeTabs').querySelectorAll('.spark-deck').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-rmode')===m);});
+    byId('reciteModeTabs').querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-rmode')===m);});
     if(m==='custom'){byId('reciteCustom').classList.remove('hidden');renderReciteHome();}
     else if(m==='quiz'){byId('reciteQuiz').classList.remove('hidden');byId('reciteSession').classList.add('hidden');}
     else if(m==='browse'){byId('reciteBrowse').classList.remove('hidden');buildBrowse();showBrowse();}
   }
   function wireReciteMode(){
-    byId('reciteModeTabs').querySelectorAll('.spark-deck').forEach(function(b){b.addEventListener('click',function(){showReciteMode(b.getAttribute('data-rmode'));});});
+    byId('reciteModeTabs').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){showReciteMode(b.getAttribute('data-rmode'));});});
+    byId('reciteCats').addEventListener('click',function(e){
+      var b=e.target.closest('button');if(!b)return;
+      reciteCat=b.getAttribute('data-cat');renderReciteHome();
+    });
   }
   function renderReciteHome(){
     var all=getCards();
     byId('reciteDue').textContent=dueCards(all).length;
     byId('reciteTotal').textContent=all.length;
     byId('reciteMastered').textContent=masteredCount(all);
+    // 分类条
+    var cats=[{k:'all',ic:'🔁',n:'全部'},{k:'textRecite',ic:'📄',n:'课文'},{k:'sentence',ic:'📝',n:'句子'},{k:'engWord',ic:'🔤',n:'英语单词'},{k:'engRead',ic:'🗣️',n:'英语朗读'},{k:'ancientPoem',ic:'🏮',n:'古诗词'},{k:'modernPoem',ic:'🌙',n:'现代诗'},{k:'word',ic:'🔤',n:'单词'},{k:'text',ic:'📖',n:'课文'},{k:'formula',ic:'📐',n:'公式'},{k:'poem',ic:'📜',n:'诗词'},{k:'qa',ic:'❓',n:'问答'},{k:'date',ic:'🔢',n:'年表'}];
+    var ch=byId('reciteCats');ch.innerHTML='';
+    cats.forEach(function(c){if(c.k!=='all'&&SEED_DECKS.indexOf(c.k)<0&&deckList().indexOf(c.k)<0)return;var b=document.createElement('button');b.className=(reciteCat===c.k?'on':'');b.setAttribute('data-cat',c.k);b.textContent=c.n;ch.appendChild(b);});
+    // 牌组
     var decks=SEED_DECKS.concat(deckList().filter(function(d){return SEED_DECKS.indexOf(d)<0;}));
     var dh=byId('reciteDecks');dh.innerHTML='';
     dh.appendChild(deckBtn('all','全部',reciteDeck==='all'));
     decks.forEach(function(d){dh.appendChild(deckBtn(d,DECK_NAME[d]||d,reciteDeck===d));});
+    // 列表
     var list=byId('reciteList');list.innerHTML='';
-    var shown=reciteDeck==='all'?all:all.filter(function(c){return c.deck===reciteDeck;});
-    if(!shown.length){list.innerHTML='<div class="spark-tip">这个牌组还没有卡片，点「＋ 添加卡片」新建</div>';return;}
+    var shown=all;
+    if(reciteDeck!=='all')shown=shown.filter(function(c){return c.deck===reciteDeck;});
+    if(reciteCat!=='all')shown=shown.filter(function(c){return c.deck===reciteCat||c.type===reciteCat;});
+    if(!shown.length){list.innerHTML='<div class="spark-tip">这个分类还没有卡片，点「＋ 添加卡片」新建</div>';return;}
     shown.forEach(function(c){
       var it=document.createElement('div');it.className='card-item';
       it.innerHTML='<div class="ci-deck"></div><div class="ci-main"><div class="ci-front"></div><div class="ci-back"></div></div><div class="ci-box"></div><div class="ci-act"><button class="ci-edit">改</button><button class="ci-del">×</button></div>';
@@ -2143,7 +2363,9 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   }
   function startSession(){
     var all=getCards();
-    var pool=reciteDeck==='all'?all:all.filter(function(c){return c.deck===reciteDeck;});
+    var pool=all;
+    if(reciteDeck!=='all')pool=pool.filter(function(c){return c.deck===reciteDeck;});
+    if(reciteCat!=='all')pool=pool.filter(function(c){return c.deck===reciteCat||c.type===reciteCat;});
     var due=dueCards(pool);if(!due.length)due=pool;
     if(!due.length){toast('题库空空，先去自定义背诵加几张卡');return;}
     sessionQueue=shuffle(due);sessionIdx=0;sessionWrong=0;
@@ -2212,15 +2434,24 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   var focusMode='focus',focusLeft=FMIN.focus*60,focusTimer=null,focusRunning=false,focusDur=FMIN.focus*60;
   function fmt(s){var m=Math.floor(s/60),ss=s%60;return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss;}
   function renderFocus(){
-    byId('focusClock').textContent=fmt(focusLeft);
-    byId('focusBar').style.width=Math.round((1-focusLeft/focusDur)*100)+'%';
-    byId('focusDone').textContent=lsGet('focusDone',0);
-    byId('sparkFocus').querySelectorAll('.focus-modes .spark-deck').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-fm')===focusMode);});
+    var done=lsGet('focusDone',0);
+    ['focusClock','focusClockHome'].forEach(function(id){var el=byId(id);if(el)el.textContent=fmt(focusLeft);});
+    var bar=byId('focusBar');if(bar)bar.style.width=Math.round((1-focusLeft/focusDur)*100)+'%';
+    ['focusDone','focusDoneHome'].forEach(function(id){var el=byId(id);if(el)el.textContent=done;});
+    // 首页 chips
+    var homeChips=byId('focusChipsHome');if(homeChips){homeChips.innerHTML='';[{k:'focus',l:'25 分钟'},{k:'short',l:'5 分钟'},{k:'long',l:'15 分钟'}].forEach(function(x){var b=document.createElement('button');b.className='focus-chip'+(focusMode===x.k?' on':'');b.textContent=x.l;b.setAttribute('data-fm',x.k);b.addEventListener('click',function(){setFocusMode(x.k);});homeChips.appendChild(b);});}
+    // 全屏 chips
+    var fullChips=byId('focusChips');if(fullChips){fullChips.innerHTML='';[{k:'focus',l:'专注 25'},{k:'short',l:'短休 5'},{k:'long',l:'长休 15'}].forEach(function(x){var b=document.createElement('button');b.className='focus-chip'+(focusMode===x.k?' on':'');b.textContent=x.l;b.setAttribute('data-fm',x.k);b.addEventListener('click',function(){setFocusMode(x.k);});fullChips.appendChild(b);});}
+    // 按钮文字
+    var txt=focusRunning?'暂停':'开始';
+    var hstart=byId('focusStartHome');if(hstart)hstart.textContent=txt;
+    var fstart=byId('focusStart');if(fstart)fstart.textContent=txt;
   }
+  function setFocusMode(m){focusMode=m;focusDur=FMIN[m]*60;focusLeft=focusDur;stopFocus(false);renderFocus();}
   function focusTick(){focusLeft--;if(focusLeft<=0){focusLeft=0;renderFocus();stopFocus(true);return;}renderFocus();}
-  function startFocus(){if(focusRunning)return;focusRunning=true;byId('focusStart').textContent='暂停';focusTimer=setInterval(focusTick,1000);}
-  function pauseFocus(){focusRunning=false;byId('focusStart').textContent='继续';if(focusTimer){clearInterval(focusTimer);focusTimer=null;}}
-  function stopFocus(done){focusRunning=false;if(focusTimer){clearInterval(focusTimer);focusTimer=null;}byId('focusStart').textContent='开始';if(done&&focusMode==='focus'){var n=lsGet('focusDone',0)+1;lsSet('focusDone',n);toast('专注完成，已记录 ✅');}renderFocus();}
+  function startFocus(){if(focusRunning)return;focusRunning=true;renderFocus();focusTimer=setInterval(focusTick,1000);}
+  function pauseFocus(){focusRunning=false;if(focusTimer){clearInterval(focusTimer);focusTimer=null;}renderFocus();}
+  function stopFocus(done){focusRunning=false;if(focusTimer){clearInterval(focusTimer);focusTimer=null;}if(done&&focusMode==='focus'){var n=lsGet('focusDone',0)+1;lsSet('focusDone',n);toast('专注完成，已记录 ✅');}renderFocus();}
   function resetFocus(){stopFocus(false);focusMode='focus';focusDur=FMIN.focus*60;focusLeft=focusDur;renderFocus();}
 
   // ---------- 工具 ----------
@@ -2244,48 +2475,93 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     }catch(e){toast('屏幕常亮失败');}
   }
   var TOOLS=[
-    {ic:'🧰',t:'工具箱',d:'原有多功能工具',fn:function(){if(window.Tools)window.Tools.open();else toast('工具箱加载中');}},
+    {ic:'⏱️',t:'秒表',d:'计时',fn:function(){if(window.Tools)window.Tools.open('stopwatch');else toast('工具箱加载中');}},
+    {ic:'⏳',t:'计时器',d:'倒计时',fn:function(){if(window.Tools)window.Tools.open('timer');else toast('工具箱加载中');}},
     {ic:'🧮',t:'计算器',d:'便捷计算',fn:function(){if(window.Tools)window.Tools.open('calc');else toast('工具箱加载中');}},
-    {ic:'🎧',t:'白噪音',d:'专注背景音',fn:toggleNoise},
-    {ic:'🔆',t:'屏幕常亮',d:'阅读/专注不熄屏',fn:toggleWake}
+    {ic:'📐',t:'单位换算',d:'常用换算',fn:function(){if(window.Tools)window.Tools.open('unit');else toast('工具箱加载中');}},
+    {ic:'⚗️',t:'周期表',d:'元素速查',fn:function(){if(window.Tools)window.Tools.open('table');else toast('工具箱加载中');}}
   ];
-  function renderTools(){var g=byId('sparkToolGrid');g.innerHTML='';TOOLS.forEach(function(t){var c=document.createElement('div');c.className='tool-card';c.innerHTML='<div class="tc-ic"></div><div class="tc-t"></div><div class="tc-d"></div>';c.querySelector('.tc-ic').textContent=t.ic;c.querySelector('.tc-t').textContent=t.t;c.querySelector('.tc-d').textContent=t.d;c.addEventListener('click',t.fn);g.appendChild(c);});}
+  function renderTools(){
+    var home=byId('sparkToolHome');if(home){home.innerHTML='';TOOLS.forEach(function(t){var d=document.createElement('div');d.className='tool-item';d.innerHTML='<div class="ti-ic"></div><div class="ti-t"></div><div class="ti-d"></div>';d.querySelector('.ti-ic').textContent=t.ic;d.querySelector('.ti-t').textContent=t.t;d.querySelector('.ti-d').textContent=t.d;d.addEventListener('click',t.fn);home.appendChild(d);});}
+    var full=byId('sparkToolGrid');if(full){full.innerHTML='';TOOLS.concat([{ic:'🎧',t:'白噪音',d:'专注背景音',fn:toggleNoise},{ic:'🔆',t:'屏幕常亮',d:'不熄屏',fn:toggleWake}]).forEach(function(t){var d=document.createElement('div');d.className='tool-full';d.innerHTML='<div class="tf-ic"></div><div class="tf-t"></div><div class="tf-d"></div>';d.querySelector('.tf-ic').textContent=t.ic;d.querySelector('.tf-t').textContent=t.t;d.querySelector('.tf-d').textContent=t.d;d.addEventListener('click',t.fn);full.appendChild(d);});}
+  }
 
   // ---------- 学科学习（独立资料区） ----------
-  var SUBJ_LEVELS=[{id:'primary',name:'小学'},{id:'middle',name:'初中'},{id:'high',name:'高中'}];
-  var SUBJ_LIST=['语文','数学','英语','物理','化学','生物','历史','地理','政治','科学'];
+  var SUBJ_LEVELS=[{id:'primary',name:'小学',ic:'🏫'},{id:'middle',name:'初中',ic:'📖'},{id:'high',name:'高中',ic:'🎓'}];
+  var SUBJ_LIST_BY_LEVEL={
+    primary:['语文','数学','英语','科学','道德与法治'],
+    middle:['语文','数学','英语','物理','化学','生物','历史','地理','道德与法治'],
+    high:['语文','数学','英语','物理','化学','生物','历史','地理','政治']
+  };
+  var SUBJ_ICON={'语文':'📕','数学':'📐','英语':'🔤','物理':'🧲','化学':'⚗️','生物':'🧬','历史':'🏺','地理':'🗺️','政治':'⚖️','科学':'🔬','道德与法治':'⚖️'};
+  var SUBJ_GRADES={primary:['一年级','二年级','三年级','四年级','五年级','六年级'],middle:['初一','初二','初三'],high:['高一','高二','高三']};
   var subj=DB.ns('subjects');
-  var subjLevel=null,subjSubject=null;
+  var subjLevel=null,subjGrade=null,subjSubject=null;
   function getSubj(){var o=subj.raw();return (o&&o.items)||[];}
   function setSubj(arr){subj.save({items:arr});}
-  function renderSubjectL1(){
-    subjLevel=null;subjSubject=null;
-    byId('subjL2').classList.add('hidden');byId('subjSpace').classList.add('hidden');
-    var h=byId('subjL1');h.innerHTML='';
-    SUBJ_LEVELS.forEach(function(l){var b=document.createElement('button');b.className='spark-deck';b.textContent=l.name;b.addEventListener('click',function(){subjLevel=l.id;renderSubjectL2();});h.appendChild(b);});
+  function levelName(id){var l=SUBJ_LEVELS.filter(function(x){return x.id===id;})[0];return l?l.name:'';}
+  function subjCount(level,grade,subject){
+    return getSubj().filter(function(x){
+      if(level&&x.level!==level)return false;
+      if(grade&&x.grade!==grade)return false;
+      if(subject&&x.subject!==subject)return false;
+      return true;
+    }).length;
   }
+  // L1：三个学段卡，年级直接铺在旁边
+  function renderSubjectL1(keepSel){
+    if(!keepSel){subjGrade=null;subjSubject=null;}
+    byId('subjL2').classList.add('hidden');byId('subjSpace').classList.add('hidden');
+    var h1=byId('subjL1');h1.innerHTML='';
+    SUBJ_LEVELS.forEach(function(l){
+      var d=document.createElement('div');d.className='subj-stage';d.setAttribute('data-level',l.id);
+      var n=subjCount(l.id,null,null);
+      d.innerHTML='<div class="sj-name">'+l.ic+' '+l.name+(n?' <span class="sj-n">'+n+'</span>':'')+'</div><div class="sj-gradechips"></div>';
+      var box=d.querySelector('.sj-gradechips');
+      SUBJ_GRADES[l.id].forEach(function(g){
+        var b=document.createElement('button');b.type='button';b.textContent=g;
+        if(subjLevel===l.id&&subjGrade===g)b.className='on';
+        b.addEventListener('click',function(ev){ev.stopPropagation();subjLevel=l.id;subjGrade=g;renderSubjectL1(true);renderSubjectL2();byId('subjL2').scrollIntoView({behavior:'smooth',block:'nearest'});});
+        box.appendChild(b);
+      });
+      d.addEventListener('click',function(){subjLevel=l.id;subjGrade=SUBJ_GRADES[l.id][0];renderSubjectL1(true);renderSubjectL2();});
+      h1.appendChild(d);
+    });
+  }
+  // L2：学科分类
   function renderSubjectL2(){
     byId('subjSpace').classList.add('hidden');
-    var h=byId('subjL2');h.innerHTML='';h.classList.remove('hidden');
-    SUBJ_LIST.forEach(function(s){var b=document.createElement('button');b.className='spark-deck';b.textContent=s;b.addEventListener('click',function(){subjSubject=s;renderSubjSpace();});h.appendChild(b);});
+    var h2=byId('subjL2');h2.innerHTML='';h2.classList.remove('hidden');
+    var crumb=document.createElement('div');crumb.className='subj-crumb';
+    crumb.innerHTML='<span>已选</span><b>'+levelName(subjLevel)+' · '+subjGrade+'</b><span>· 选择学科</span>';
+    h2.appendChild(crumb);
+    var wrap=document.createElement('div');wrap.className='spark-decks';
+    (SUBJ_LIST_BY_LEVEL[subjLevel]||[]).forEach(function(s){
+      var b=document.createElement('button');b.className='spark-deck'+(subjSubject===s?' on':'');
+      var n=subjCount(subjLevel,subjGrade,s);
+      b.textContent=(SUBJ_ICON[s]||'📘')+' '+s+(n?'·'+n:'');
+      b.addEventListener('click',function(){subjSubject=s;renderSubjectL2();renderSubjSpace();});
+      wrap.appendChild(b);
+    });
+    h2.appendChild(wrap);
   }
   function renderSubjSpace(){
-    var lv=SUBJ_LEVELS.filter(function(l){return l.id===subjLevel;})[0];
-    byId('subjSpaceTitle').textContent=lv.name+' · '+subjSubject;
+    byId('subjSpaceTitle').textContent=levelName(subjLevel)+' '+subjGrade+' · '+subjSubject;
     byId('subjSpace').classList.remove('hidden');
     renderSubjList();
+    byId('subjSpace').scrollIntoView({behavior:'smooth',block:'nearest'});
   }
   function renderSubjList(){
     var list=byId('subjList');list.innerHTML='';
-    var items=getSubj().filter(function(x){return x.level===subjLevel&&x.subject===subjSubject;});
-    if(!items.length){list.innerHTML='<div class="spark-tip">这个空间还没有资料，点「＋ 资料」添加</div>';return;}
+    var items=getSubj().filter(function(x){return x.level===subjLevel&&x.grade===subjGrade&&x.subject===subjSubject;});
+    if(!items.length){list.innerHTML='<div class="spark-tip">这个空间还没有知识点，点「＋ 资料」添加。<br>添加后可在「练习 → 学科练习 / 自选练习」里直接出题。</div>';return;}
     items.forEach(function(it){
       var d=document.createElement('div');d.className='card-item';
       d.innerHTML='<div class="ci-deck">📄</div><div class="ci-main"><div class="ci-front"></div><div class="ci-back"></div></div><div class="ci-act"><button class="ci-edit">改</button><button class="ci-del">×</button></div>';
       d.querySelector('.ci-front').textContent=it.title;
       d.querySelector('.ci-back').textContent=(it.content||'').slice(0,40);
       d.querySelector('.ci-edit').addEventListener('click',function(e){e.stopPropagation();openSubjEditor(it.id);});
-      d.querySelector('.ci-del').addEventListener('click',function(e){e.stopPropagation();setSubj(getSubj().filter(function(x){return x.id!==it.id;}));renderSubjList();toast('已删除');});
+      d.querySelector('.ci-del').addEventListener('click',function(e){e.stopPropagation();setSubj(getSubj().filter(function(x){return x.id!==it.id;}));renderSubjList();renderSubjectL2();toast('已删除');});
       list.appendChild(d);
     });
   }
@@ -2293,7 +2569,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     var it=id?getSubj().filter(function(x){return x.id===id;})[0]:null;
     var old=byId('subjForm');if(old)old.remove();
     var box=document.createElement('div');box.id='subjForm';box.className='editor-field';
-    box.innerHTML='<label>标题</label><input id="sfTitle" placeholder="如：二次函数顶点公式"><label>内容</label><textarea id="sfContent" placeholder="知识点 / 笔记 / 例题"></textarea><div class="spark-row"><button class="spark-btn ghost" id="sfCancel">取消</button><button class="spark-btn" id="sfSave">保存</button></div>';
+    box.innerHTML='<label>标题（练习时作为题面）</label><input id="sfTitle" placeholder="如：二次函数顶点公式"><label>内容（练习时作为答案）</label><textarea id="sfContent" placeholder="知识点 / 笔记 / 例题"></textarea><div class="spark-row"><button class="spark-btn ghost" id="sfCancel">取消</button><button class="spark-btn" id="sfSave">保存</button></div>';
     byId('subjSpace').insertBefore(box,byId('subjList'));
     byId('sfTitle').value=it?it.title:'';byId('sfContent').value=it?it.content:'';
     byId('sfCancel').addEventListener('click',function(){box.remove();});
@@ -2302,23 +2578,151 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
       if(!title){toast('标题必填');return;}
       var all=getSubj();
       if(it){var k=findIdx(all,function(x){return x.id===id;});all[k].title=title;all[k].content=content;}
-      else{all.push({id:uid('s'),level:subjLevel,subject:subjSubject,title:title,content:content,created:now()});}
-      setSubj(all);box.remove();renderSubjList();toast('已保存');
+      else{all.push({id:uid('s'),level:subjLevel,grade:subjGrade,subject:subjSubject,title:title,content:content,created:now()});}
+      setSubj(all);box.remove();renderSubjList();renderSubjectL2();toast('已保存 · 可到练习里出题');
     });
   }
 
-  // ---------- 练习（自建测验，答错回流星火） ----------
+  // ---------- 练习（我的卡片 / 学科 / 英语单词 / 自选） ----------
+  var pracCfg=DB.ns('practiceCfg'), pracLog=DB.ns('practiceLog');
+  var PRACTICE_SOURCE=pracCfg.get('source')||'cards';
+  var selfSel=pracCfg.get('selfSel')||[];
+  var MODE_TIP={
+    choice:'四选一 · 适合初次过一遍，靠眼熟快速筛查',
+    fill:'手写输入 · 检验是否真的记住，比选择题狠一档',
+    dictation:'听发音默写 · 先听后写，单词 / 句子提升最快',
+    random:'随机混合 · 模拟真实考察，避免形成套路记忆'
+  };
+  var ENG_BANK=[
+    {front:'apple',back:'苹果'},{front:'banana',back:'香蕉'},{front:'computer',back:'电脑'},
+    {front:'beautiful',back:'美丽的'},{front:'necessary',back:'必要的'},{front:'environment',back:'环境'},
+    {front:'concentrate',back:'集中（注意力）'},{front:'algorithm',back:'算法'},{front:'knowledge',back:'知识'},
+    {front:'progress',back:'进步'},{front:'library',back:'图书馆'},{front:'experience',back:'经验；经历'},
+    {front:'important',back:'重要的'},{front:'difficult',back:'困难的'},{front:'remember',back:'记住'},
+    {front:'practice',back:'练习'},{front:'sentence',back:'句子'},{front:'vocabulary',back:'词汇'},
+    {front:'improve',back:'改善；提高'},{front:'schedule',back:'日程；安排'}
+  ];
+  function isEnglish(s){return /^[A-Za-z0-9 ,.'!?-]+$/.test(String(s||'').trim());}
+  // 背诵朗读取哪一段：英语类读正面(英文)，其余读背面(全文)
+  function reciteText(c){
+    if(!c)return '';
+    if(c.deck==='engRead'||c.deck==='engWord'||c.deck==='word')return isEnglish(c.back)?c.back:c.front;
+    return c.back||c.front;
+  }
+  function speak(text,lang,rate){
+    try{
+      if(!window.speechSynthesis){toast('当前环境不支持朗读');return false;}
+      window.speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance(String(text||''));
+      u.lang=lang||(isEnglish(text)?'en-US':'zh-CN');
+      u.rate=rate||0.88;window.speechSynthesis.speak(u);return true;
+    }catch(e){return false;}
+  }
+  window.__speak=speak;
+
+  function todayKey(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
+  function getLog(){var o=pracLog.raw()||{};if(o.day!==todayKey())return {day:todayKey(),done:0,right:0};return o;}
+  function bumpLog(right){var l=getLog();l.done++;if(right)l.right++;pracLog.save(l);}
+
+  // 自选来源的可选项
+  function selfOptions(){
+    var out=[],all=getCards(),i;
+    SEED_DECKS.forEach(function(k){
+      var n=all.filter(function(c){return c.deck===k&&c.front&&c.back;}).length;
+      if(n)out.push({key:'deck:'+k,icon:DECK_ICON[k]||'🗂️',name:DECK_NAME[k]||k,count:n});
+    });
+    var sj=getSubj(),map={};
+    sj.forEach(function(x){
+      var k=(x.level||'')+'|'+(x.grade||'')+'|'+(x.subject||'');
+      map[k]=(map[k]||0)+1;
+    });
+    Object.keys(map).forEach(function(k){
+      var p=k.split('|');
+      out.push({key:'subj:'+k,icon:SUBJ_ICON[p[2]]||'📚',name:levelName(p[0])+' '+p[1]+' · '+p[2],count:map[k]});
+    });
+    out.push({key:'eng:bank',icon:'🔤',name:'内置英语词库',count:ENG_BANK.length});
+    return out;
+  }
+  function poolFromKey(k){
+    if(k==='eng:bank')return ENG_BANK.map(function(x){return {id:uid('e'),front:x.front,back:x.back,deck:'engWord',type:'engWord'};});
+    if(k.indexOf('deck:')===0){var d=k.slice(5);return getCards().filter(function(c){return c.deck===d&&c.front&&c.back;});}
+    if(k.indexOf('subj:')===0){
+      var p=k.slice(5).split('|');
+      return getSubj().filter(function(x){return (x.level||'')===p[0]&&(x.grade||'')===p[1]&&(x.subject||'')===p[2]&&x.title&&x.content;})
+        .map(function(x){return {id:x.id,front:x.title,back:x.content,deck:'text',type:'subject'};});
+    }
+    return [];
+  }
+  function getPracticePool(){
+    if(PRACTICE_SOURCE==='english'){
+      var mine=getCards().filter(function(c){return (c.deck==='engWord'||c.deck==='word'||c.deck==='engRead')&&c.front&&c.back;});
+      return ENG_BANK.map(function(x){return {id:uid('e'),front:x.front,back:x.back,deck:'engWord',type:'engWord'};}).concat(mine);
+    }
+    if(PRACTICE_SOURCE==='subject'){
+      return getSubj().filter(function(x){return x.title&&x.content;})
+        .map(function(x){return {id:x.id,front:x.title,back:x.content,deck:'text',type:'subject'};});
+    }
+    if(PRACTICE_SOURCE==='self'){
+      var out=[],seen={};
+      selfSel.forEach(function(k){
+        poolFromKey(k).forEach(function(c){var sig=c.front+'||'+c.back;if(!seen[sig]){seen[sig]=1;out.push(c);}});
+      });
+      return out;
+    }
+    return getCards().filter(function(c){return c.front&&c.back;});
+  }
+  function renderSelfPick(){
+    var box=byId('selfPick'),list=byId('selfPickList');
+    if(PRACTICE_SOURCE!=='self'){box.classList.add('hidden');return;}
+    box.classList.remove('hidden');list.innerHTML='';
+    var opts=selfOptions();
+    if(!opts.length){list.innerHTML='<div class="spark-tip">还没有可选内容，先去「星火 → 背诵 / 学科学习」添加吧</div>';return;}
+    opts.forEach(function(o){
+      var d=document.createElement('div');d.className='sp-item'+(selfSel.indexOf(o.key)>=0?' on':'');
+      d.innerHTML='<span class="sp-box">✓</span><span class="sp-ic">'+o.icon+'</span><span class="sp-n"></span><span class="sp-c">'+o.count+' 条</span>';
+      d.querySelector('.sp-n').textContent=o.name;
+      d.addEventListener('click',function(){
+        var k=selfSel.indexOf(o.key);
+        if(k>=0)selfSel.splice(k,1);else selfSel.push(o.key);
+        pracCfg.set('selfSel',selfSel);
+        renderSelfPick();updatePracticeStat();
+      });
+      list.appendChild(d);
+    });
+  }
+  function updatePracticeStat(){
+    var pool=getPracticePool(),l=getLog();
+    byId('psTotal').textContent=pool.length;
+    byId('psDone').textContent=l.done||0;
+    byId('psAcc').textContent=l.done?Math.round((l.right/l.done)*100)+'%':'—';
+    var all=getCards();
+    byId('srcCntCards').textContent=all.filter(function(c){return c.front&&c.back;}).length;
+    byId('srcCntSubj').textContent=getSubj().filter(function(x){return x.title&&x.content;}).length;
+    byId('srcCntEng').textContent=ENG_BANK.length+all.filter(function(c){return c.deck==='engWord'||c.deck==='word'||c.deck==='engRead';}).length;
+    byId('srcCntSelf').textContent=selfSel.length?getPracticePoolFor('self').length:0;
+  }
+  function getPracticePoolFor(src){var old=PRACTICE_SOURCE;PRACTICE_SOURCE=src;var p=getPracticePool();PRACTICE_SOURCE=old;return p;}
   function renderPracticeHome(){
     var w=getWrong();byId('wrongCount').textContent=w.length;
     byId('practiceModes').querySelectorAll('.spark-deck').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-mode')===practiceMode);});
+    byId('practiceSources').querySelectorAll('.src-item').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-src')===PRACTICE_SOURCE);});
+    byId('practiceModeTip').textContent=MODE_TIP[practiceMode]||'';
+    renderSelfPick();updatePracticeStat();
   }
   function startQuiz(){
-    var all=getCards().filter(function(c){return c.front&&c.back;});
-    if(all.length<1){toast('题库空空，先去自定义背诵加几张卡吧');return;}
-    var n=Math.min(10,all.length);var picks=shuffle(all).slice(0,n);
+    var pool=getPracticePool();
+    if(pool.length<1){toast(PRACTICE_SOURCE==='self'?'先在上方勾选要练的内容':'当前题库空空，先去星火里加点内容吧');return;}
+    var n=Math.min(10,pool.length);var picks=shuffle(pool).slice(0,n);
     quiz=picks.map(function(c){
-      var mode=practiceMode==='random'?(Math.random()<0.5?'choice':'fill'):practiceMode;var q={card:c,mode:mode,answered:false,correct:false};
-      if(mode==='choice'){var opts=[c.back];var pool=shuffle(all.filter(function(x){return x.back!==c.back;}).map(function(x){return x.back;}));for(var i=0;i<3&&i<pool.length;i++)opts.push(pool[i]);q.opts=shuffle(opts);}
+      var mode=practiceMode==='random'?['choice','fill','dictation'][Math.floor(Math.random()*3)]:practiceMode;
+      if(mode==='choice'&&pool.length<3)mode='fill';
+      var q={card:c,mode:mode,answered:false,correct:false};
+      if(mode==='choice'){
+        var opts=[c.back];
+        var others=shuffle(pool.filter(function(x){return x.back!==c.back;}).map(function(x){return x.back;}));
+        for(var i=0;i<3&&i<others.length;i++)opts.push(others[i]);
+        q.opts=shuffle(opts);
+      }
       return q;
     });
     qi=0;byId('practiceHome').classList.add('hidden');byId('practiceWrongList').classList.add('hidden');byId('practiceQuiz').classList.remove('hidden');renderQuiz();
@@ -2326,7 +2730,29 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   function renderQuiz(){
     var q=quiz[qi];byId('quizProgress').textContent=(qi+1)+'/'+quiz.length;
     var body=byId('quizBody');body.innerHTML='';
-    var h=document.createElement('div');h.className='quiz-q';h.textContent=q.card.front;body.appendChild(h);
+    if(q.mode==='dictation'){
+      // 默写听写：只听不看，输入答案
+      var eng=isEnglish(q.card.front);
+      var say=eng?q.card.front:(q.card.back||q.card.front);
+      var wrap=document.createElement('div');wrap.className='dict-play';
+      wrap.innerHTML='<button type="button" title="播放">🔊</button><div class="dp-tip">'+(eng?'听英文，写出这个单词/句子':'听中文释义，写出对应内容')+'</div><div class="dp-hint">点喇叭可重复播放</div>';
+      wrap.querySelector('button').addEventListener('click',function(){speak(say);});
+      body.appendChild(wrap);
+      var di=document.createElement('input');di.className='quiz-input';di.placeholder='输入你听到的内容';body.appendChild(di);
+      var ds=document.createElement('button');ds.className='spark-btn';ds.textContent='提交';ds.style.marginBottom='0';
+      ds.addEventListener('click',function(){answerFill(q,di.value,eng?'front':'back');});
+      body.appendChild(ds);
+      var dk=document.createElement('button');dk.className='spark-btn ghost';dk.textContent='想不起来，看答案';dk.style.marginBottom='0';
+      dk.addEventListener('click',function(){if(q.answered)return;q.answered=true;q.correct=false;toast('答案：'+(eng?q.card.front:q.card.back));afterAnswer(q);});
+      body.appendChild(dk);
+      setTimeout(function(){speak(say);if(di)di.focus();},260);
+      return;
+    }
+    var hd=document.createElement('div');hd.className='quiz-q';hd.textContent=q.card.front;body.appendChild(hd);
+    if(isEnglish(q.card.front)){
+      var sp=document.createElement('button');sp.className='spark-btn ghost';sp.textContent='🔊 朗读';sp.style.marginBottom='8px';
+      sp.addEventListener('click',function(){speak(q.card.front,'en-US');});body.appendChild(sp);
+    }
     if(q.mode==='choice'){
       q.opts.forEach(function(opt){var b=document.createElement('button');b.className='quiz-opt';b.textContent=opt;b.addEventListener('click',function(){answerChoice(q,b);});body.appendChild(b);});
     }else{
@@ -2336,18 +2762,29 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     }
   }
   function answerChoice(q,btn){if(q.answered)return;q.answered=true;q.correct=(btn.textContent===q.card.back);byId('quizBody').querySelectorAll('.quiz-opt').forEach(function(b){if(b.textContent===q.card.back)b.classList.add('right');else if(b===btn)b.classList.add('wrong');});afterAnswer(q);}
-  function answerFill(q,val){if(q.answered)return;q.answered=true;var v=(val||'').trim().toLowerCase(),r=(q.card.back||'').trim().toLowerCase();q.correct=(v===r);if(!q.correct)toast('正确答案：'+q.card.back);afterAnswer(q);}
-  function afterAnswer(q){if(!q.correct)registerWrong(q.card);setTimeout(function(){qi++;if(qi>=quiz.length)endQuiz();else renderQuiz();},q.correct?500:1100);}
+  function answerFill(q,val,field){
+    if(q.answered)return;q.answered=true;
+    var target=(field==='front'?q.card.front:q.card.back)||'';
+    var v=(val||'').trim().toLowerCase().replace(/\s+/g,' ');
+    var r=String(target).trim().toLowerCase().replace(/\s+/g,' ');
+    q.correct=(v===r)||(!!v&&r.indexOf(v)===0&&v.length>=r.length-1&&r.length>6);
+    if(!q.correct)toast('正确答案：'+target);
+    afterAnswer(q);
+  }
+  function afterAnswer(q){bumpLog(q.correct);if(!q.correct)registerWrong(q.card);setTimeout(function(){qi++;if(qi>=quiz.length)endQuiz();else renderQuiz();},q.correct?520:1200);}
   function registerWrong(card){
     var w=getWrong();var ex=w.filter(function(x){return x.front===card.front&&x.back===card.back;})[0];
-    if(ex){ex.count=(ex.count||0)+1;ex.last=now();}else{w.push({id:uid(),front:card.front,back:card.back,hint:card.hint||'',example:card.example||'',deck:card.deck,type:card.type,count:1,last:now()});}
+    if(ex){ex.count=(ex.count||0)+1;ex.last=now();}else{w.push({id:uid(),front:card.front,back:card.back,hint:card.hint||'',example:card.example||'',deck:card.deck||'wrong',type:card.type||'wrong',count:1,last:now()});}
     setWrong(w);
-    // 回流星火：确保该卡在主库存在并重置复习箱
     var all=getCards();var c=findCard(card.id);
-    if(c){c.box=1;c.due=now();}else{all.push({id:card.id||uid(),deck:card.deck,type:card.type,front:card.front,back:card.back,hint:card.hint||'',example:card.example||'',box:1,due:now(),reps:0,lapses:0,created:now(),source:'wrong'});}
+    if(c){c.box=1;c.due=now();}else if(card.deck){all.push({id:card.id||uid(),deck:card.deck,type:card.type||card.deck,front:card.front,back:card.back,hint:card.hint||'',example:card.example||'',box:1,due:now(),reps:0,lapses:0,created:now(),source:'wrong'});}
     setCards(all);
   }
-  function endQuiz(){var right=quiz.filter(function(q){return q.correct;}).length;toast('自测完成：'+right+'/'+quiz.length+' 答对 · 错题已回流星火 🔥');quiz=null;byId('practiceQuiz').classList.add('hidden');byId('practiceHome').classList.remove('hidden');renderPracticeHome();}
+  function endQuiz(){
+    var right=quiz.filter(function(q){return q.correct;}).length;
+    toast('本轮完成：'+right+'/'+quiz.length+' 答对 · 错题已回流星火 🔥');
+    quiz=null;byId('practiceQuiz').classList.add('hidden');byId('practiceHome').classList.remove('hidden');renderPracticeHome();
+  }
   function openWrongList(){
     var w=getWrong();var list=byId('wrongList');list.innerHTML='';
     if(!w.length){list.innerHTML='<div class="spark-tip">还没有错题，继续保持 💪</div>';}
@@ -2533,6 +2970,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   function initSpark(){
     seedIfEmpty();
     wireSpark();wireReciteMode();
+    renderSparkHome();renderFocus();renderTools();
     // 背诵
     byId('reciteStart').addEventListener('click',startSession);
     byId('reciteAdd').addEventListener('click',function(){openEditor(null);});
@@ -2545,18 +2983,23 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     byId('browsePrev').addEventListener('click',function(){if(browseIdx>0){browseIdx--;showBrowse();}});
     byId('browseNext').addEventListener('click',function(){if(browseIdx<browsePool.length-1){browseIdx++;showBrowse();}});
     byId('browseShuffle').addEventListener('click',function(){buildBrowse();showBrowse();});
-    // 专注
+    byId('browseSpeak').addEventListener('click',function(){var c=browsePool[browseIdx];if(c)speak(reciteText(c));});
+    byId('browseSpeakSlow').addEventListener('click',function(){var c=browsePool[browseIdx];if(c)speak(reciteText(c),null,0.6);});
+    byId('flashSpeak').addEventListener('click',function(){var c=sessionQueue[sessionIdx];if(c)speak(reciteText(c));});
+    // 专注（首页 + 全屏）
+    byId('focusStartHome').addEventListener('click',function(){if(focusRunning)pauseFocus();else startFocus();});
+    byId('focusResetHome').addEventListener('click',resetFocus);
     byId('focusStart').addEventListener('click',function(){if(focusRunning)pauseFocus();else startFocus();});
     byId('focusReset').addEventListener('click',resetFocus);
-    byId('sparkFocus').querySelectorAll('.focus-modes .spark-deck').forEach(function(b){b.addEventListener('click',function(){focusMode=b.getAttribute('data-fm');focusDur=FMIN[focusMode]*60;focusLeft=focusDur;stopFocus(false);renderFocus();});});
     // 学科
     byId('subjAdd').addEventListener('click',function(){if(!subjLevel||!subjSubject){toast('先选择年级与学科');return;}openSubjEditor(null);});
     // 练习
     byId('practiceStart').addEventListener('click',startQuiz);
     byId('practiceWrong').addEventListener('click',openWrongList);
-    byId('quizExit').addEventListener('click',function(){byId('practiceQuiz').classList.add('hidden');byId('practiceHome').classList.remove('hidden');quiz=null;});
+    byId('quizExit').addEventListener('click',function(){try{window.speechSynthesis&&window.speechSynthesis.cancel();}catch(e){}byId('practiceQuiz').classList.add('hidden');byId('practiceHome').classList.remove('hidden');quiz=null;renderPracticeHome();});
     byId('wrongBack').addEventListener('click',function(){byId('practiceWrongList').classList.add('hidden');byId('practiceHome').classList.remove('hidden');renderPracticeHome();});
     byId('practiceModes').querySelectorAll('.spark-deck').forEach(function(b){b.addEventListener('click',function(){practiceMode=b.getAttribute('data-mode');renderPracticeHome();});});
+    byId('practiceSources').querySelectorAll('.src-item').forEach(function(b){b.addEventListener('click',function(){PRACTICE_SOURCE=b.getAttribute('data-src');pracCfg.set('source',PRACTICE_SOURCE);renderPracticeHome();});});
     // 阅读
     byId('bookImportBtn').addEventListener('click',function(){byId('bookFile').click();});
     byId('bookFile').addEventListener('change',onBookFile);
@@ -2569,7 +3012,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     byId('readerNote').addEventListener('click',toggleNote);
     byId('readerBookmarks').addEventListener('click',function(e){if(e.target===this)this.classList.add('hidden');});
     byId('readerBody').addEventListener('mouseup',function(){var sel=window.getSelection();if(sel&&sel.toString().trim()){/* 选中后可点划线 */}});
-    // 子页面逐级返回：供主返回栈调用
+    // 子页面逐级返回
     window.__subBack=function(){
       try{
         if(byId('panel-reading').classList.contains('show')){
@@ -2603,7 +3046,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     };
     // 面板显示即刷新
     if(window.MutationObserver){
-      byId('panel-spark')._sp=new MutationObserver(function(){if(byId('panel-spark').classList.contains('show')){renderReciteHome();renderPracticeHome();}});
+      byId('panel-spark')._sp=new MutationObserver(function(){if(byId('panel-spark').classList.contains('show')){renderSparkHome();renderFocus();renderTools();renderReciteHome();renderPracticeHome();}});
       byId('panel-spark')._sp.observe(byId('panel-spark'),{attributes:true,attributeFilter:['class']});
       byId('panel-practice')._pp=new MutationObserver(function(){if(byId('panel-practice').classList.contains('show'))renderPracticeHome();});
       byId('panel-practice')._pp.observe(byId('panel-practice'),{attributes:true,attributeFilter:['class']});
