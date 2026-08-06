@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f7efe8">
-<meta name="app-version" content="3.2.2.9">
+<meta name="app-version" content="3.5.0.0">
 <title>每日打卡</title>
 <style>
 :root{--accent:#df7951;--accent-soft:#fff4ec;--ink:#332a28;--muted:#967d74;--line:rgba(92,69,58,.1)}
@@ -727,7 +727,7 @@ body.tools-open .app-avatar{display:none!important}
 <div class="toast" id="toast"></div>
 <script>
 (function(){
-var STORE='daily-checkin-v30',OLD='daily-checkin-v1',APP_VERSION='3.2.2.9',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
+var STORE='daily-checkin-v30',OLD='daily-checkin-v1',APP_VERSION='3.5.0.0',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
 var quotes=[{text:'种一棵树最好的时间是十年前，其次是现在。',icon:'🌱'},{text:'不经一番寒彻骨，怎得梅花扑鼻香。',icon:'🌸'},{text:'表扬你的坚持',icon:'🏅'},{text:'生命必须有裂缝，阳光才能照进来',icon:'🌄'},{text:'功不唐捐，玉汝于成。',icon:'✨'},{text:'道阻且长，行则将至。',icon:'🚶'},{text:'长风破浪会有时。',icon:'🌊'},{text:'今天也比昨天多了一点点。',icon:'☀️'},{text:'小小坚持，大大改变。',icon:'🌟'},{text:'自律即自由。',icon:'🕊️'},{text:'不积跬步，无以至千里。',icon:'👣'},{text:'你比想象中更强大。',icon:'💪'},{text:'把目标拆小，把坚持变成日常。',icon:'🎯'},{text:'完成一次，就多一点底气。',icon:'🔥'},{text:'认真生活的人，会被时间奖励。',icon:'⏳'},{text:'锲而不舍，金石可镂。',icon:'🪨'},{text:'天行健，君子以自强不息。',icon:'🌞'},{text:'宝剑锋从磨砺出。',icon:'🌺'},{text:'坚持不是口号，是今天这一勾。',icon:'✓'},{text:'慢慢来，比较快。',icon:'🍃'},{text:'做完这一步，世界就亮一点。',icon:'💡'},{text:'给今天一个温柔但坚定的答案。',icon:'🤲'},{text:'哪怕只完成一点，也算向前。',icon:'📍'},{text:'每一次打卡都在替未来铺路。',icon:'🛤️'},{text:'稳住，节奏比速度更重要。',icon:'🎵'},{text:'今天的小胜利值得被记住。',icon:'🏆'},{text:'一日一进，月月不同。',icon:'📈'},{text:'你正在成为更可靠的自己。',icon:'🧭'},{text:'先开始，再变好。',icon:'🚀'},{text:'春有百花秋有月，日日坚持皆风景。',icon:'🌙'}];
 var defaultHabits=[
  {id:'read',name:'阅读20分钟',emoji:'📖',modeIds:['focus','learn','create'],energy:'low',category:'learn',weekendBonus:true,history:{}},
@@ -968,10 +968,9 @@ quotes:[{sel:'#quoteBox',text:'鼓励框可以被你改造成自己的语气。�
  calendar:[{sel:'#calToggle',text:'打卡日历是你的记录入口。完成打卡后，对应日期会留下标记。'},{sel:'#calendar',text:'展开后可以看整个月的完成痕迹。有圆点的日子，说明那天有打卡或休息记录。'},{sel:'#calGrid',text:'点某一天，会打开当天详情。那里可以看完成时间线，也可以写一点自己的日志。'}],
  diary:[{sel:'#drawer',text:'这是某一天的记录页。它像当天的小档案，保存完成次数、时间线和你的文字记录。'},{sel:'#diaryTop',text:'这里会汇总日期、完成次数和连续天数，适合快速回看。'},{sel:'.timeline',text:'完成过的任务会按时间出现在这里，打卡不是消失了，而是留下了痕迹。'},{sel:'#weatherInput',text:'这里可以记天气或心情，比如晴、疲惫、平静。'},{sel:'#diaryText',text:'这里就是个人日记。可以写今天完成了什么，也可以只写一句感受。'}],
  study:[{sel:'#focusRing',text:'专注计时：选一个时长，点开始，然后放下手机和自己待一会儿。'},{sel:'#knowText',text:'知识卡：点一下换一条小常识或鼓励，碎片时间也能充电。'}],
- social:[{sel:'#friendInput',text:'加好友：输入游戏内 ID（如 DC1002）搜索添加，不走第三方平台、不收取任何费用。'},{sel:'#friendList',text:'好友列表：点「聊天」开聊，点「PK」比拼坚持数据。点好友头像可看他的资料。'},{sel:'#chatView',text:'聊天：底部输入框打字发送，点 😊 插入表情，回车也能发；点聊天顶部头像看他资料。'}],
+ social:[{sel:'#reciteStart',text:'火花：点「开始背诵」翻转记忆卡片，记得/忘了会自动安排下次复习。'},{sel:'#reciteAdd',text:'添加卡片：单词、课文、公式、诗词、问答、年表都能建卡。'}],
  leisure:[{sel:'#panel-leisure',text:'休闲：用打卡积分投喂宠物、种树、种菜；小游戏开发中，敬请期待。'}],
- space:[{sel:'#spaceCompose',text:'动态空间：点这里发一条动态，分享鼓励或进步；也能给别人的动态点赞。'}],
- chat:[{sel:'#chatInput',text:'聊天框：输入文字，或点 😊 插入表情，回车也可发送。'},{sel:'#chatAva',text:'点这里查看好友的资料卡，了解他的坚持数据。'}],
+ practice:[{sel:'#practiceStart',text:'练习：从卡片库出题自测，答错自动回流火花复习。'},{sel:'#practiceWrong',text:'错题本：集中复习常错卡片。'}],
  profile:[{sel:'#meAva',text:'点头像或「编辑」进入个人资料：可改昵称、写一句个性签名、换头像。'}]
 };
 var currentGuide=null;
@@ -1018,7 +1017,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   <div class="me-stats">
     <div class="me-stat"><b id="meStatDays">0</b><span>连续天</span></div>
     <div class="me-stat"><b id="meStatPoints">0</b><span>积分</span></div>
-    <div class="me-stat"><b id="meStatPosts">0</b><span>动态</span></div>
+    <div class="me-stat"><b id="meStatPosts">0</b><span>卡片</span></div>
   </div>
   <div class="me-group">成长激励</div>
   <div class="me-grid">
@@ -1034,12 +1033,10 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     <div class="me-cell" data-mod="focus"><span class="wic">⏱️</span>专注模式</div>
     <div class="me-cell" data-mod="know"><span class="wic">📚</span>知识库</div>
   </div>
-  <div class="me-group">社交</div>
+  <div class="me-group">火花</div>
   <div class="me-grid">
-    <div class="me-cell" data-mod="friend"><span class="wic">👥</span>好友</div>
-    <div class="me-cell" data-mod="rank"><span class="wic">📊</span>排行榜</div>
-    <div class="me-cell" data-mod="feed"><span class="wic">🌈</span>动态</div>
-    <div class="me-cell" data-mod="msg"><span class="wic">✉️</span>微消息</div>
+    <div class="me-cell" data-mod="recite"><span class="wic">✨</span>背诵</div>
+    <div class="me-cell" data-mod="practice"><span class="wic">✍️</span>练习</div>
   </div>
   <div class="me-group">工具</div>
   <div class="me-grid">
@@ -1047,7 +1044,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     <div class="me-cell" data-mod="read"><span class="wic">📖</span>阅读</div>
     <div class="me-cell" data-mod="set"><span class="wic">⚙️</span>设置</div>
   </div>
-  <div class="me-foot">每日打卡 3.2.2.2 · 数据存于本机</div>
+  <div class="me-foot">星火 3.5.0.0 · 数据存于本机</div>
 </aside>
 
 <!-- 设置抽屉（头像抽屉底部「设置」进入；更新功能由原生 App 提供） -->
@@ -1057,7 +1054,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     <div class="set-row" id="setCheckUpdate"><span class="sw">🔄</span><div><b>检查更新</b><span class="sm">从更新地址下载最新页面</span></div></div>
     <div class="set-row" id="setUpdateUrl"><span class="sw">🔗</span><div><b>更新地址</b><span class="sm">粘贴国内可访问的链接</span></div></div>
     <div class="set-row" id="setRestore"><span class="sw">♻️</span><div><b>恢复内置版本</b><span class="sm">清除已下载更新，回到内置页</span></div></div>
-    <div class="set-row" id="setAbout"><span class="sw">ℹ️</span><div><b>关于</b><span class="sm">星火 · 每日打卡 3.2.2.2</span></div></div>
+    <div class="set-row" id="setAbout"><span class="sw">ℹ️</span><div><b>关于</b><span class="sm">星火 · 每日打卡 3.5.0.0</span></div></div>
     <div class="set-row" id="setGuide"><span class="sw">💡</span><div style="flex:1"><b>使用指引</b><span class="sm">首次打开与切换页面时的功能介绍</span></div><label class="switch"><input type="checkbox" id="guideToggle" checked><span class="slider"></span></label></div>
     <div class="set-row" id="setLocalUpdate"><span class="sw">📂</span><div><b>从本地文件更新</b><span class="sm">选手机里的 index.html，无需联网 / 不依赖 github</span></div></div>
   </div>
@@ -1116,10 +1113,6 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     <div class="pf-field"><label>选择头像</label><div class="pf-ava-pick" id="pfAvaPick"></div><button class="pf-ava-upload" id="pfAvaUpload" type="button">📷 从相册选择</button><input id="pfAvaFileInput" type="file" accept="image/*" hidden /></div>
     <button class="pf-save" id="pfSave">保存资料</button>
   </div>
-  <div class="pf-actions" id="pfActions">
-    <button class="pf-action" id="pfActChat"><span class="pa-ic">💬</span> 发消息</button>
-    <button class="pf-action" id="pfActPk"><span class="pa-ic">⚔️</span> PK 对决</button>
-  </div>
 </aside>
 
 <!-- 学习面板 -->
@@ -1160,52 +1153,119 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
 
 <!-- 动态空间（朋友圈 / QQ空间 风格） -->
 <!-- 社交面板：好友 + 聊天 + PK -->
-<section class="panel" id="panel-social">
-  <div class="panel-head"><h2>社交</h2><button class="back" data-close>收起</button></div>
-  <div class="sub">和好友一起坚持 · 互相 PK</div>
-  <div class="friend-add">
-    <input id="friendInput" placeholder="输入好友ID，如 DC1002" />
-    <button id="friendAdd">搜索</button>
-  </div>
-  <div class="muted" style="font-size:11px;margin:2px 0 4px">游戏内好友添加：输入好友ID即可添加，不走第三方社交平台、不收取任何费用</div>
-  <div class="search-result" id="searchResult" hidden></div>
-  <div class="friend-list" id="friendList"></div>
-  <div class="muted" id="friendEmpty" style="text-align:center;font-size:12px;margin:14px 6px;padding:18px 10px"><div style="font-size:36px;margin-bottom:8px">👋</div><div style="color:var(--ink);font-size:14px;font-weight:700;margin-bottom:4px">还没有好友</div><div>输入上方 ID 搜索添加，一起坚持打卡吧～</div></div>
-  <div class="muted" style="text-align:center;font-size:11px;margin:8px 0 4px">（当前为本地预览，好友与聊天存于本机；联网版后续开放真实好友系统）</div>
 
-  <!-- 聊天子视图 -->
-  <div class="chat-view" id="chatView" hidden>
-    <div class="chat-head"><button class="chat-back" id="chatBack">‹</button><button class="chat-ava" id="chatAva" title="查看资料">🙂</button><div class="chat-title"><div class="chat-name" id="chatName"></div><div class="chat-sub">在线 · 一起打卡</div></div><button class="chat-more" id="chatMore">···</button></div>
-    <div class="chat-body" id="chatBody"></div>
-    <div class="chat-emoji" id="chatEmoji"></div>
-    <div class="chat-input-wrap">
-      <div class="chat-input-row"><button class="chat-emoji-btn" id="chatEmojiBtn" title="表情">😊</button><input id="chatText" placeholder="说点什么…" /><button class="chat-send" id="chatSend">发送</button></div>
+<!-- ===== 火花 · 背诵模式（3.5.0.0 新增，替换原动态空间） ===== -->
+<style id="sparkCss">
+.spark-decks{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.spark-deck{flex:0 0 auto;display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:999px;padding:7px 12px;font:inherit;font-size:13px;cursor:pointer;color:var(--ink)}
+.spark-deck .di{font-size:15px}
+.spark-deck.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.spark-stats{display:flex;gap:10px;margin-bottom:12px}
+.spark-stat{flex:1;background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center}
+.spark-stat b{display:block;font-size:20px;color:var(--accent)}
+.spark-stat span{font-size:11px;color:var(--muted)}
+.spark-btn{width:100%;height:46px;border:0;border-radius:16px;background:linear-gradient(135deg,#ff8a4c,#ffb24c);color:#fff;font:inherit;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 10px 22px rgba(255,138,76,.3);margin-bottom:10px}
+.spark-btn.sec{background:rgba(255,255,255,.85);color:var(--accent);border:1px solid var(--accent);box-shadow:none}
+.spark-btn.ghost{background:transparent;color:var(--muted);box-shadow:none;margin-bottom:0}
+.spark-row{display:flex;gap:10px}
+.spark-row .spark-btn{flex:1}
+.flash-card{background:linear-gradient(160deg,#fff7ee,#ffe9d6);border:2px solid var(--accent);border-radius:22px;padding:26px 20px;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;box-shadow:0 16px 36px rgba(255,138,76,.18);margin-bottom:14px}
+.flash-front{font-size:24px;font-weight:800;color:var(--ink);line-height:1.4;word-break:break-word}
+.flash-back{font-size:20px;color:var(--accent);line-height:1.5;word-break:break-word}
+.flash-hint{font-size:13px;color:var(--muted);margin-top:10px}
+.flash-ex{font-size:12px;color:var(--muted);margin-top:6px;font-style:italic}
+.spark-tip{text-align:center;color:var(--muted);font-size:13px;margin:30px 0}
+.card-list{display:flex;flex-direction:column;gap:8px}
+.card-item{background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:10px}
+.card-item .ci-deck{font-size:18px;flex:0 0 auto}
+.card-item .ci-main{flex:1;min-width:0}
+.card-item .ci-front{font-weight:700;font-size:14px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-item .ci-back{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-item .ci-box{font-size:11px;color:var(--muted);flex:0 0 auto}
+.card-item .ci-act{flex:0 0 auto;display:flex;gap:6px}
+.card-item .ci-del{color:#c0392b;background:transparent;border:0;font-size:16px;cursor:pointer}
+.card-item .ci-edit{color:var(--accent);background:transparent;border:0;font-size:13px;cursor:pointer}
+.editor-field{margin-bottom:12px}
+.editor-field label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+.editor-field input,.editor-field textarea,.editor-field select{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px;font:inherit;outline:none;background:#fff;color:var(--ink)}
+.editor-field input:focus,.editor-field textarea:focus,.editor-field select:focus{border-color:var(--accent)}
+.quiz-q{font-size:20px;font-weight:700;color:var(--ink);margin-bottom:14px;line-height:1.4}
+.quiz-opt{width:100%;text-align:left;background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:8px;font:inherit;font-size:15px;cursor:pointer;color:var(--ink)}
+.quiz-opt.right{background:#d8f0d8;border-color:#5aa75a;color:#1f6b1f}
+.quiz-opt.wrong{background:#f7d8d4;border-color:#c0392b;color:#8a1f17}
+.quiz-input{width:100%;border:1px solid var(--line);border-radius:14px;padding:12px;font:inherit;outline:none;margin-bottom:10px;background:#fff;color:var(--ink)}
+.quiz-score{text-align:center;font-size:18px;color:var(--ink);margin:20px 0}
+.hidden{display:none !important}
+[data-theme="dark"] .flash-card{background:linear-gradient(160deg,#3a2c22,#2c211a)}
+[data-theme="dark"] .spark-deck,[data-theme="dark"] .spark-stat,[data-theme="dark"] .card-item,[data-theme="dark"] .quiz-opt{background:var(--surface-2);color:var(--ink)}
+[data-theme="dark"] .spark-btn.sec{background:var(--surface-2)}
+[data-theme="dark"] .editor-field input,[data-theme="dark"] .editor-field textarea,[data-theme="dark"] .editor-field select,[data-theme="dark"] .quiz-input{background:var(--surface-3);color:var(--ink);border-color:var(--line)}
+[data-theme="dark"] .quiz-opt.right{background:#274d27;color:#bfe9bf}
+[data-theme="dark"] .quiz-opt.wrong{background:#4d2723;color:#f0bcb4}
+</style>
+<section class="panel" id="panel-recite">
+  <div class="panel-head"><h2>火花</h2><button class="back" data-close>收起</button></div>
+  <div class="sub">神经元碰撞出的记忆火花 · 翻转即记住</div>
+  <div id="reciteHome">
+    <div class="spark-decks" id="reciteDecks"></div>
+    <div class="spark-stats">
+      <div class="spark-stat"><b id="reciteDue">0</b><span>待复习</span></div>
+      <div class="spark-stat"><b id="reciteTotal">0</b><span>卡片</span></div>
+      <div class="spark-stat"><b id="reciteMastered">0</b><span>已掌握</span></div>
+    </div>
+    <button class="spark-btn" id="reciteStart">开始背诵</button>
+    <button class="spark-btn sec" id="reciteAdd">＋ 添加卡片</button>
+    <div class="card-list" id="reciteList" style="margin-top:12px"></div>
+  </div>
+  <div id="reciteSession" class="hidden">
+    <div class="flash-card" id="flashCard">
+      <div class="flash-front" id="flashFront"></div>
+      <div class="flash-back hidden" id="flashBack"></div>
+      <div class="flash-hint hidden" id="flashHint"></div>
+      <div class="flash-ex hidden" id="flashEx"></div>
+    </div>
+    <div class="spark-row">
+      <button class="spark-btn ghost" id="flashForget">忘了</button>
+      <button class="spark-btn" id="flashKnow">记得</button>
+    </div>
+    <button class="spark-btn ghost" id="flashExit">退出</button>
+  </div>
+  <div id="reciteEditor" class="hidden">
+    <div class="editor-field"><label>牌组</label><select id="edDeck"></select></div>
+    <div class="editor-field"><label>正面（问题）</label><input id="edFront" placeholder="如：apple / 勾股定理 / 静夜思"></div>
+    <div class="editor-field"><label>背面（答案）</label><textarea id="edBack" placeholder="如：苹果 / a²+b²=c² / 全文"></textarea></div>
+    <div class="editor-field"><label>提示（可选）</label><input id="edHint" placeholder="如：水果"></div>
+    <div class="editor-field"><label>例句（可选）</label><input id="edExample" placeholder="如：An apple a day."></div>
+    <div class="spark-row">
+      <button class="spark-btn ghost" id="edCancel">取消</button>
+      <button class="spark-btn" id="edSave">保存</button>
     </div>
   </div>
-  <!-- PK 弹层 -->
-  <div class="pk-mask" id="pkMask" hidden></div>
-  <div class="pk-modal" id="pkModal" hidden>
-    <h3 id="pkTitle">PK 挑战<button class="pk-x" id="pkX" title="关闭">✕</button></h3>
-    <div class="pk-rows" id="pkRows"></div>
-    <div class="pk-result" id="pkResult"></div>
-    <div class="pk-actions"><button id="pkChallenge">发起 PK</button><button id="pkClose">关闭</button></div>
-  </div>
 </section>
-
-<!-- 动态空间（朋友圈 / QQ空间 风格，由中间的 ＋ 进入） -->
-<section class="panel" id="panel-space">
-  <div class="space-cover">
-    <button class="space-back" data-close>‹ 返回</button>
-    <div class="space-cover-ava">🙂</div>
-    <div class="space-cover-name">打卡人的动态空间</div>
+<section class="panel" id="panel-practice">
+  <div class="panel-head"><h2>练习</h2><button class="back" data-close>收起</button></div>
+  <div class="sub">背完测一测 · 错题自动回流火花</div>
+  <div id="practiceHome">
+    <div class="cardx">
+      <h3>自测方式</h3>
+      <div class="spark-decks" id="practiceModes">
+        <button class="spark-deck on" data-mode="choice">选择题</button>
+        <button class="spark-deck" data-mode="fill">填空题</button>
+        <button class="spark-deck" data-mode="random">随机</button>
+      </div>
+    </div>
+    <button class="spark-btn" id="practiceStart">开始自测</button>
+    <button class="spark-btn sec" id="practiceWrong">错题本（<span id="wrongCount">0</span>）</button>
   </div>
-  <div class="space-compose" id="spaceCompose">
-    <div class="sc-ava">🙂</div>
-    <div class="sc-input">说点什么…（一句鼓励 · 一个进步 · 一个想法）</div>
+  <div id="practiceQuiz" class="hidden">
+    <div class="spark-stat" style="margin-bottom:10px"><b id="quizProgress">0/0</b><span>进度</span></div>
+    <div id="quizBody"></div>
+    <button class="spark-btn ghost" id="quizExit">退出</button>
   </div>
-  <div id="feedList"></div>
-  <div class="empty" id="feedEmpty">这里还空空如也，点中间的 ＋ 发布第一条动态吧 ✨</div>
-  <div class="muted" style="text-align:center;font-size:11px;margin:8px 0 4px">（当前为本地预览，数据仅存本机；联网版后续开放，可与好友互动）</div>
+  <div id="practiceWrongList" class="hidden">
+    <div class="card-list" id="wrongList"></div>
+    <button class="spark-btn ghost" id="wrongBack">返回</button>
+  </div>
 </section>
 
 
@@ -1226,22 +1286,11 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
 <nav class="appnav" id="appnav">
   <button class="nav-btn active" data-tab="today"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="13" r="4"/><path d="M12 3v2.2M4.6 7.2l1.6 1.6M19.4 7.2l-1.6 1.6M3 13h2.2M18.8 13H21"/></svg></span>今日</button>
   <button class="nav-btn" data-tab="study"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 6c-2-1.4-4.5-1.6-7-1v12c2.5-.6 5-.4 7 1 2-1.4 4.5-1.6 7-1V5c-2.5.6-5 .4-7-1z"/><path d="M12 6v13"/></svg></span>学习</button>
-  <div class="nav-fab"><button id="fabPost" title="发动态">＋</button></div>
-  <button class="nav-btn" data-tab="social"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h16v10H9l-4 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></span>社交</button>
+  <div class="nav-fab"><button id="fabRecite" title="火花">✨</button></div>
+  <button class="nav-btn" data-tab="practice"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v4H4z"/><path d="M6 8v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/><path d="M9 12h6M9 15h6"/></svg></span>练习</button>
   <button class="nav-btn" data-tab="leisure"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9h11v5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4z"/><path d="M16 10h2a2 2 0 0 1 0 4h-2"/><path d="M8 3v2M11 3v2"/></svg></span>休闲</button>
 </nav>
 
-<!-- 发布动态 弹层（抖音式） -->
-<div class="composer-mask" id="composerMask"></div>
-<section class="composer" id="composer">
-  <h3>发布动态</h3>
-  <textarea id="composerText" placeholder="今天想分享点什么？一句鼓励、一个进步、一个想法…"></textarea>
-  <div class="emoji-row" id="composerEmoji"></div>
-  <div class="c-actions">
-    <button class="c-cancel" id="composerCancel">取消</button>
-    <button class="c-send" id="composerSend">发布</button>
-  </div>
-</section>
 
 <!-- ===== 多功能工具箱：秒表 / 计时器 / 计算器 / 单位换算 / 元素周期表 =====
      两处入口（我的抽屉「工具箱」、学习页「多功能工具箱」）共用本实例，状态天然同步 -->
@@ -1394,7 +1443,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   byId('appAvatar').addEventListener('click',openMe);
   // 头像仅「今日」主屏且无任何覆盖层时显示；抽屉/面板/弹层打开时自动隐藏，避免压住顶部标题与输入框
   function syncAvatar(){
-    var ids=['panel-study','panel-social','panel-leisure','panel-space'],onToday=true,i,el;
+    var ids=['panel-study','panel-recite','panel-practice','panel-leisure'],onToday=true,i,el;
     for(i=0;i<ids.length;i++){el=byId(ids[i]);if(el&&el.classList.contains('show')){onToday=false;break;}}
     var overlay=(byId('calendar')&&byId('calendar').classList.contains('show'))
       ||(byId('drawer')&&byId('drawer').classList.contains('show'))
@@ -1411,7 +1460,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   if(window.MutationObserver){var _avT=null;var _av=new MutationObserver(function(){if(_avT)return;_avT=setTimeout(function(){_avT=null;syncAvatar();},20);});_av.observe(document.body,{attributes:true,attributeFilter:['class','hidden'],subtree:true});}
   syncAvatar();
   meMask.addEventListener('click',closeMe);
-  meDrawer.querySelectorAll('.me-cell').forEach(function(c){c.addEventListener('click',function(){var mod=c.getAttribute('data-mod');if(mod==='set'){openSettings();return}if(mod==='tools'){closeMe();if(window.Tools)window.Tools.open();else toast('工具箱加载中，请稍候');return}if(mod==='stats'){closeMe();openStats();return}if(mod==='ach'){closeMe();openAch();return}toast('「'+c.querySelector('.wic').nextSibling.textContent.trim()+'」敬请期待 · 已预留')})})
+  meDrawer.querySelectorAll('.me-cell').forEach(function(c){c.addEventListener('click',function(){var mod=c.getAttribute('data-mod');if(mod==='set'){openSettings();return}if(mod==='tools'){closeMe();if(window.Tools)window.Tools.open();else toast('工具箱加载中，请稍候');return}if(mod==='stats'){closeMe();openStats();return}if(mod==='ach'){closeMe();openAch();return}if(mod==='recite'){closeMe();if(window.__activate)window.__activate('recite');return}if(mod==='practice'){closeMe();if(window.__activate)window.__activate('practice');return}toast('「'+c.querySelector('.wic').nextSibling.textContent.trim()+'」敬请期待 · 已预留')})})
   // 设置抽屉
   function openSettings(){byId('settingsDrawer').classList.add('show')}
   function closeSettings(){byId('settingsDrawer').classList.remove('show')}
@@ -1553,13 +1602,13 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   byId('bkCancel').addEventListener('click',function(){byId('bkMask').hidden=true;byId('bkMask')._snap=null});
   byId('bkMask').addEventListener('click',function(e){if(e.target===byId('bkMask')){byId('bkMask').hidden=true;byId('bkMask')._snap=null}});
   // 底部导览
-  var panels={study:byId('panel-study'),social:byId('panel-social'),leisure:byId('panel-leisure'),space:byId('panel-space')};
+  var panels={study:byId('panel-study'),recite:byId('panel-recite'),practice:byId('panel-practice'),leisure:byId('panel-leisure')};
   var navBtns=document.querySelectorAll('#appnav .nav-btn');
   function activate(name){
     navBtns.forEach(function(b){b.classList.toggle('active',b.getAttribute('data-tab')===name)});
     Object.keys(panels).forEach(function(k){panels[k].classList.toggle('show',k===name)});
     if(name!=='today'){closeMe()}syncAvatar();
-    if(window.Guide && ['study','social','leisure','space'].indexOf(name)>=0)window.Guide.auto(name);
+    if(window.Guide && ['study','recite','practice','leisure'].indexOf(name)>=0)window.Guide.auto(name);
   }
   navBtns.forEach(function(b){b.addEventListener('click',function(){activate(b.getAttribute('data-tab'))})});
   document.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',function(){activate('today')})});
@@ -1575,10 +1624,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     if(window.Tools&&window.Tools.isOpen()){window.Tools.close();return true}
     if(byId('settingsDrawer').classList.contains('show')){byId('settingsDrawer').classList.remove('show');return true}
     if(byId('meDrawer').classList.contains('show')){closeMe();return true}
-    if(pkModal && !pkModal.hidden){closePk();return true}
-    if(composer.classList.contains('show')){closeComposer();return true}
-    if(chatView && !chatView.hidden){closeChat();return true}
-    var openPanel=null;['study','social','leisure','space'].forEach(function(k){if(panels[k].classList.contains('show'))openPanel=k});
+    var openPanel=null;['study','recite','practice','leisure'].forEach(function(k){if(panels[k].classList.contains('show'))openPanel=k});
     if(openPanel){activate('today');return true}
     if(byId('calendar').classList.contains('show')){byId('calendar').classList.remove('show');return true}
     if(byId('drawer').classList.contains('show')){byId('drawer').classList.remove('show');return true}
@@ -1599,10 +1645,7 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     if(window.Tools&&window.Tools.isOpen())return true;
     if(byId('settingsDrawer').classList.contains('show'))return true;
     if(byId('meDrawer').classList.contains('show'))return true;
-    if(pkModal && !pkModal.hidden)return true;
-    if(composer && composer.classList.contains('show'))return true;
-    if(chatView && !chatView.hidden)return true;
-    var op=null;['study','social','leisure','space'].forEach(function(k){if(panels[k].classList.contains('show'))op=k});
+    var op=null;['study','recite','practice','leisure'].forEach(function(k){if(panels[k].classList.contains('show'))op=k});
     if(op)return true;
     if(byId('calendar').classList.contains('show'))return true;
     if(byId('drawer').classList.contains('show'))return true;
@@ -1633,97 +1676,6 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     if(c.getAttribute('data-game'))toast('「'+label+'」开发中 · 已预留挂载位');
     else toast('「'+label+'」敬请期待 · 已预留');
   })});
-  // ===== 社交：好友 + 聊天 + PK =====
-  var FRIENDS_KEY='friends';
-  // 游戏内虚拟好友目录（ID 搜索来源）；前 3 位预置为你的虚拟好友
-  var FRIEND_DIR=[
-    {id:'DC1001',name:'小鹿',ava:'🦌',streak:12,points:340,week:5,sign:'微光可成炬，慢慢来比较快 🌟'},
-    {id:'DC1002',name:'阿木',ava:'🌲',streak:7,points:210,week:4,sign:'把今天的小事做完，就很了不起。'},
-    {id:'DC1003',name:'星野',ava:'⭐',streak:15,points:420,week:6,sign:'心向星辰，脚踏实地。'},
-    {id:'DC1004',name:'云朵',ava:'☁️',streak:9,points:280,week:5,sign:'轻盈一点，坚持久一点 ☁️'},
-    {id:'DC1005',name:'阿橙',ava:'🍊',streak:5,points:150,week:3,sign:'酸酸甜甜，也是生活味。'}
-  ];
-  function _seedFriends(){return FRIEND_DIR.slice(0,3).map(function(x){return {id:x.id,name:x.name,ava:x.ava,streak:x.streak,points:x.points,week:x.week,sign:x.sign}})}
-  function _getFriends(){var f=lsGet(FRIENDS_KEY,null);if(!f){f=_seedFriends();lsSet(FRIENDS_KEY,f)}return f}
-  function _myStats(){return {streak:lsGet('streak',0),points:lsGet('points',0),week:lsGet('weekCheckins',0)}}
-  var friendList=byId('friendList'),friendEmpty=byId('friendEmpty'),searchResult=byId('searchResult');
-  function renderFriends(){
-    var fs=_getFriends();
-    friendEmpty.style.display=fs.length?'none':'block';
-    friendList.innerHTML='';
-    fs.forEach(function(f){
-      var el=document.createElement('div');el.className='friend-card';
-      el.innerHTML='<div class="fr-ava"></div><div class="fr-info"><div class="fr-name"></div><div class="fr-meta"></div></div><div class="fr-acts"><button class="fr-chat">聊天</button><button class="fr-pk">PK</button></div>';
-      el.querySelector('.fr-ava').textContent=f.ava;
-      el.querySelector('.fr-name').textContent=f.name;
-      el.querySelector('.fr-meta').textContent='ID '+f.id+' · 连续 '+f.streak+' 天 · 积分 '+f.points;
-      el.querySelector('.fr-ava').addEventListener('click',function(e){e.stopPropagation();openAvatarPreview(f.ava,f.name,false,null)});
-      el.querySelector('.fr-chat').addEventListener('click',function(){openChat(f)});
-      el.querySelector('.fr-pk').addEventListener('click',function(){openPk(f)});
-      friendList.appendChild(el);
-    });
-  }
-  // 游戏内好友添加：按 ID 搜索（不走第三方社交平台、不收费）
-  byId('friendAdd').addEventListener('click',function(){
-    var inp=byId('friendInput');var q=inp.value.trim().toUpperCase();searchResult.hidden=true;
-    if(!q){toast('输入好友ID再搜索～');return}
-    var found=FRIEND_DIR.filter(function(d){return d.id.toUpperCase()===q})[0];
-    if(!found){toast('未找到该ID，请核对后重试');return}
-    var fs=_getFriends();
-    if(fs.some(function(f){return f.id===found.id})){toast('已经是好友啦 🤝');return}
-    searchResult.innerHTML='<div class="sr-ava"></div><div class="sr-info"><div class="sr-name"></div><div class="sr-id"></div></div><button class="sr-add">添加</button>';
-    searchResult.querySelector('.sr-ava').textContent=found.ava;
-    searchResult.querySelector('.sr-name').textContent=found.name;
-    searchResult.querySelector('.sr-id').textContent='ID '+found.id+' · 连续 '+found.streak+' 天';
-    searchResult.hidden=false;
-    searchResult.querySelector('.sr-add').addEventListener('click',function(){
-      var nf={id:found.id,name:found.name,ava:found.ava,streak:found.streak,points:found.points,week:found.week,sign:found.sign};
-      var fs2=_getFriends();fs2.push(nf);lsSet(FRIENDS_KEY,fs2);searchResult.hidden=true;inp.value='';renderFriends();toast('已添加好友 '+found.name+' 👋');
-    });
-  });
-  // 聊天
-  var chatView=byId('chatView'),chatBody=byId('chatBody'),chatName=byId('chatName'),chatAva=byId('chatAva'),curFriend=null;
-  function openChat(f){closeAvatarPreview();curFriend=f;chatName.textContent=f.name;chatAva.textContent=f.ava;chatAva.onclick=function(){openAvatarPreview(f.ava,f.name,false,null)};document.body.classList.add('chat-open');
-    // 关键修复：聊天视图原本嵌在 #panel-social(z-index:44) 内，其 z-index:80 只在面板内部生效，
-    // 而底部导航 .appnav(z-index:50) 在面板之上 → 输入框被导航栏压住看不见。
-    // 把聊天视图临时挂到 <body> 下，使其 z-index:80 与导航栏全局比较，稳稳压在上面。
-    if(chatView.parentNode!==document.body){chatView._home=chatView.parentNode;document.body.appendChild(chatView);}
-    chatView.hidden=false;renderChat();setTimeout(function(){byId('chatText').focus()},200)}
-  function renderChat(){
-    if(!curFriend)return;var key='chat:'+curFriend.id;var msgs=lsGet(key,[]);chatBody.innerHTML='';byId('chatEmoji').classList.remove('show');
-    var t=document.createElement('div');t.className='chat-time';t.textContent=new Date().toLocaleDateString('zh-CN');chatBody.appendChild(t);
-    if(msgs.length===0){
-      var sy=document.createElement('div');sy.className='sys-note';sy.textContent='你和 '+curFriend.name+' 已成为打卡搭子，打个招呼吧 👋';chatBody.appendChild(sy);
-    }
-    msgs.forEach(function(m){
-      var row=document.createElement('div');row.className='msg-row '+(m.me?'me':'them');
-      var ava=document.createElement('div');ava.className='m-ava';ava.textContent=m.me?'🙂':curFriend.ava;
-      var b=document.createElement('div');b.className='m-bubble';b.textContent=m.text;
-      if(m.me){row.appendChild(b);row.appendChild(ava)}else{row.appendChild(ava);row.appendChild(b)}
-      chatBody.appendChild(row);
-    });
-    chatBody.scrollTop=chatBody.scrollHeight;
-  }
-  function closeChat(){chatView.hidden=true;curFriend=null;document.body.classList.remove('chat-open');if(chatView._home){chatView._home.appendChild(chatView);chatView._home=null}}
-  byId('chatBack').addEventListener('click',closeChat);
-  byId('chatMore').addEventListener('click',function(){toast('更多功能敬请期待 · 已预留')});
-  byId('chatSend').addEventListener('click',function(){
-    if(!curFriend)return;var inp=byId('chatText');var v=inp.value.trim();if(!v)return;
-    var key='chat:'+curFriend.id;var msgs=lsGet(key,[]);msgs.push({me:true,text:v});lsSet(key,msgs);inp.value='';renderChat();
-    setTimeout(function(){
-      var replies=['加油！一起打卡 💪','今天我也完成了 ✨','收到～明天继续','哈哈你太棒了 🌟','坚持住，我们可以的！','你这句让我也想动起来了 🙌'];
-      msgs.push({me:false,text:replies[Math.floor(Math.random()*replies.length)]});lsSet(key,msgs);renderChat();
-    },700);
-  });
-  byId('chatText').addEventListener('keydown',function(e){if(e.key==='Enter')byId('chatSend').click()});
-  // 表情面板
-  var chatEmoji=byId('chatEmoji');
-  ['😊','😂','🥰','😎','🤔','👍','🙏','💪','🌟','🔥','❤️','🌈','✨','🍀','😭','😅','🤝','🎉','🌱','☀️','🍃','💡'].forEach(function(e){
-    var sp=document.createElement('span');sp.textContent=e;
-    sp.addEventListener('click',function(){byId('chatText').value+=e;byId('chatText').focus()});
-    chatEmoji.appendChild(sp);
-  });
-  byId('chatEmojiBtn').addEventListener('click',function(){chatEmoji.classList.toggle('show')});
   // 头像放大预览
   function openAvatarPreview(ava,name,isImg,imgData){
     var mask=byId('avaPreviewMask'),img=byId('avaPreviewImg'),nm=byId('avaPreviewName');
@@ -1813,24 +1765,6 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',normalizeAvatarStorage);
   else normalizeAvatarStorage();
-  // 个人资料：好友（只读）
-  var _currentProfileFriend=null;
-  function openFriendProfile(f){
-    closeAvatarPreview();
-    _currentProfileFriend=f;
-    var d=byId('profileDrawer');
-    byId('pfAva').classList.remove('img-mode');byId('pfAva').style.backgroundImage='';byId('pfAva').textContent=f.ava;
-    byId('pfName').textContent=f.name;
-    byId('pfId').textContent='ID '+f.id;
-    byId('pfSign').textContent=f.sign||'这个人很神秘，还没写签名～';
-    byId('pfStat1').textContent=f.streak;byId('pfStat2').textContent=f.points;byId('pfStat3').textContent=f.week;
-    byId('pfStatL1').textContent='连续天';byId('pfStatL2').textContent='积分';byId('pfStatL3').textContent='本周';
-    byId('pfEditArea').style.display='none';
-    byId('pfActions').style.display='';
-    byId('pfAva').onclick=function(){openAvatarPreview(f.ava,f.name,false,null)};
-    d.classList.add('show');byId('profileMask').classList.add('show');
-    byId('pfClose').onclick=closeProfile;
-  }
   // 个人资料：自己（可编辑）
   function readProfile(){try{return JSON.parse(localStorage.getItem(STORE+':profile')||'{}')}catch(e){return{}}}
   function openSelfProfile(){
@@ -1851,7 +1785,6 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     byId('pfStat1').textContent=lsGet('streak',0);byId('pfStat2').textContent=lsGet('points',0);byId('pfStat3').textContent=lsGet('weekCheckins',0);
     byId('pfStatL1').textContent='连续天';byId('pfStatL2').textContent='积分';byId('pfStatL3').textContent='本周';
     byId('pfEditArea').style.display='block';
-    byId('pfActions').style.display='none';
     byId('pfNameInput').value=p.name||'';byId('pfSignInput').value=p.sign||'';
     var pick=byId('pfAvaPick');pick.innerHTML='';
     ['🙂','🌟','🔥','🌱','☀️','🌈','🍀','💪','🐱','🐰','🌸','🦊'].forEach(function(e){
@@ -1901,75 +1834,6 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     byId('meName').textContent=p.name;byId('pfName').textContent=p.name;
     byId('pfSign').textContent=p.sign||'这个人很神秘，还没写签名～';
   }
-  // 名片中的快捷操作按钮
-  byId('pfActChat').addEventListener('click',function(){
-    closeProfile();
-    if(_currentProfileFriend)openChat(_currentProfileFriend);
-    else toast('打开自己的聊天空间 · 敬请期待');
-  });
-  byId('pfActPk').addEventListener('click',function(){
-    closeProfile();
-    if(_currentProfileFriend)openPk(_currentProfileFriend);
-    else toast('不能和自己 PK 哦 😄');
-  });
-  // PK
-  var pkMask=byId('pkMask'),pkModal=byId('pkModal'),curPk=null;
-  function openPk(f){curPk=f;byId('pkTitle').textContent='与 '+f.name+' 的 PK';renderPk();pkModal.hidden=false;pkMask.hidden=false;byId('pkResult').textContent=''}
-  function renderPk(){
-    if(!curPk)return;var m=_myStats();
-    var rows=[['连续天数',m.streak,curPk.streak],['本周打卡',m.week,curPk.week],['积分',m.points,curPk.points]];
-    byId('pkRows').innerHTML=rows.map(function(r){
-      var win=r[1]>r[2]?'me':(r[1]<r[2]?'them':'tie');
-      return '<div class="pk-row"><span class="pk-lab">'+r[0]+'</span><span class="pk-val '+(win==='me'?'win':'')+'">'+r[1]+'</span><span class="pk-vs">VS</span><span class="pk-val '+(win==='them'?'win':'')+'">'+r[2]+'</span></div>';
-    }).join('');
-  }
-  byId('pkChallenge').addEventListener('click',function(){
-    if(!curPk)return;var m=_myStats();var score=0;
-    if(m.streak>curPk.streak)score++;else if(m.streak<curPk.streak)score--;
-    if(m.week>curPk.week)score++;else if(m.week<curPk.week)score--;
-    if(m.points>curPk.points)score++;else if(m.points<curPk.points)score--;
-    byId('pkResult').textContent=score>0?('🎉 你领先 '+curPk.name+'，赢得 PK！'):(score<0?('😮 '+curPk.name+' 更胜一筹，再接再厉！'):('🤝 势均力敌，平局！'));
-    toast('PK 已发起！');
-  });
-  function closePk(){pkModal.hidden=true;pkMask.hidden=true;curPk=null}
-  byId('pkClose').addEventListener('click',closePk);
-  byId('pkX').addEventListener('click',closePk);
-  pkMask.addEventListener('click',closePk);
-  renderFriends();
-  // 发布动态
-  var composer=byId('composer'),composerMask=byId('composerMask'),composerText=byId('composerText');
-  function openComposer(){composer.classList.add('show');composerMask.classList.add('show');setTimeout(function(){composerText.focus()},250)}
-  function closeComposer(){composer.classList.remove('show');composerMask.classList.remove('show')}
-  byId('fabPost').addEventListener('click',function(){activate('space');setTimeout(openComposer,200)});
-  composerMask.addEventListener('click',closeComposer);
-  byId('spaceCompose').addEventListener('click',openComposer);
-  byId('composerCancel').addEventListener('click',closeComposer);
-  var EMO=['✨','🔥','💪','🌱','🌈','☀️','🌟','💡','🍀','❤️','🎯','😊'];
-  var er=byId('composerEmoji');EMO.forEach(function(e){var sp=document.createElement('span');sp.textContent=e;sp.addEventListener('click',function(){composerText.value+=e;composerText.focus()});er.appendChild(sp)});
-  function loadFeed(){
-    var list=lsGet('feed',[]);var box=byId('feedList');box.innerHTML='';
-    byId('feedEmpty').style.display=list.length?'none':'block';
-    list.forEach(function(p){
-      var likes=p.likes||0;
-      var d=document.createElement('div');d.className='feed-card';
-      d.innerHTML='<div class="fc-head"><div class="fc-ava">🙂</div><div><div class="fc-name">打卡人</div><div class="fc-time"></div></div></div><div class="fc-text"></div>'+
-        (likes>0?'<div class="fc-likes-line">❤️ '+likes+' 人觉得很赞</div>':'')+
-        '<div class="fc-bar"><span class="fc-like" data-like>❤️ 赞</span><span class="fc-cmt" data-cmt>💬 评论</span></div>';
-      d.querySelector('.fc-time').textContent=p.t;
-      d.querySelector('.fc-text').textContent=p.text;
-      d.querySelector('[data-like]').addEventListener('click',function(){p.likes=(p.likes||0)+1;lsSet('feed',list);loadFeed();toast('已点赞 ❤️')});
-      d.querySelector('[data-cmt]').addEventListener('click',function(){toast('评论功能联网版开放，敬请期待～')});
-      box.appendChild(d);
-    });
-    byId('meStatPosts').textContent=list.length;
-  }
-  byId('composerSend').addEventListener('click',function(){
-    var v=composerText.value.trim();if(!v){toast('说点什么再发布吧～');return}
-    var list=lsGet('feed',[]);
-    list.unshift({text:v,likes:0,t:new Date().toLocaleString('zh-CN',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})});
-    lsSet('feed',list);composerText.value='';closeComposer();loadFeed();toast('已发布到动态空间 🎉');activate('space');
-  });
-  loadFeed();
   // 专注计时
   var fMin=25,fLeft=fMin*60,fTimer=null,fRunning=false;
   function fmt(sec){var m=Math.floor(sec/60),x=sec%60;return (m<10?'0':'')+m+':'+(x<10?'0':'')+x}
@@ -2015,6 +1879,281 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
       });
     }
   })();
+/* ===== 火花 / 练习 模块（3.5.0.0 新增，替代社交功能） ===== */
+(function(){
+  if(!window.DB)return;
+  var DECK_ICON={word:'🔤',text:'📖',formula:'📐',poem:'📜',qa:'❓',date:'🔢',wrong:'⚠️'};
+  var DECK_NAME={word:'单词',text:'课文',formula:'公式要点',poem:'诗词文言文',qa:'问答卡',date:'年表数字',wrong:'错题'};
+  var SEED_DECKS=['word','text','formula','poem','qa','date'];
+  var BOX_DAYS=[0,1,3,7,16]; // Leitner 间隔（天）
+  var cards=DB.ns('cards'), wrong=DB.ns('wrong');
+  var reciteDeck='all', editingId=null;
+  var sessionQueue=[], sessionIdx=0, sessionWrong=0;
+  var practiceMode='choice', quiz=null, qi=0;
+
+  function now(){return Date.now();}
+  function uid(){return 'c'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
+  function findIdx(a,fn){for(var i=0;i<a.length;i++){if(fn(a[i]))return i;}return -1;}
+  function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  function getCards(){var o=cards.raw();return (o&&o.items)||[];}
+  function setCards(arr){cards.save({items:arr});updateStatPosts();}
+  function getWrong(){var o=wrong.raw();return (o&&o.items)||[];}
+  function setWrong(arr){wrong.save({items:arr});var w=byId('wrongCount');if(w)w.textContent=getWrong().length;}
+  function dueCards(list){var n=now();return list.filter(function(c){return (c.due||0)<=n;});}
+  function masteredCount(list){return list.filter(function(c){return (c.box||1)>=5}).length;}
+  function deckList(){var s={};getCards().forEach(function(c){s[c.deck]=1});return Object.keys(s);}
+  function updateStatPosts(){var t=byId('meStatPosts');if(t)t.textContent=getCards().length;}
+
+  // 首次播种示例库（仅一次）
+  function seedIfEmpty(){
+    if(cards.raw())return;
+    var seed=[
+      mk('word','apple','苹果'),mk('word','ambition','雄心；抱负'),mk('word','perseverance','坚持不懈；毅力'),
+      mk('word','ephemeral','短暂的；瞬息的'),mk('word','serendipity','机缘巧合；意外好运'),mk('word','lucid','清晰的；清醒的'),
+      mk('formula','勾股定理','a² + b² = c²'),mk('formula','牛顿第二定律','F = m·a'),
+      mk('formula','圆的面积','S = π·r²'),mk('formula','一元二次方程求根公式','x = (-b ± √(b²-4ac)) / 2a'),mk('formula','欧拉恒等式','e^(iπ) + 1 = 0'),
+      mk('poem','「床前明月光」下一句','疑是地上霜'),mk('poem','《论语》「学而时习之」下一句','不亦说乎'),
+      mk('poem','「不积跬步」下一句','无以至千里'),mk('poem','「无边落木萧萧下」下一句','不尽长江滚滚来'),
+      mk('qa','光在真空中的速度约为多少？','约 30 万千米/秒（3×10⁸ m/s）'),
+      mk('qa','人体正常体温约为多少？','约 36.5–37℃'),mk('qa','水在一个标准大气压下的沸点约为？','100℃'),
+      mk('date','中华人民共和国成立年份','1949 年'),mk('date','中国改革开放起始年份','1978 年'),mk('date','第一次世界大战爆发年份','1914 年'),
+      mk('text','《岳阳楼记》中表达作者旷达胸襟的名句','不以物喜，不以己悲'),mk('text','「先天下之忧而忧」的下一句','后天下之乐而乐')
+    ];
+    setCards(seed);
+    function mk(deck,front,back){return {id:uid(),deck:deck,type:deck,front:front,back:back,hint:'',example:'',box:1,due:now(),reps:0,lapses:0,created:now(),source:'seed'};}
+  }
+
+  /* ---------- 火花：首页 ---------- */
+  function renderReciteHome(){
+    var all=getCards();
+    byId('reciteDue').textContent=dueCards(all).length;
+    byId('reciteTotal').textContent=all.length;
+    byId('reciteMastered').textContent=masteredCount(all);
+    var wrap=byId('reciteDecks');wrap.innerHTML='';
+    var chip=function(key,label,on){var b=document.createElement('button');b.className='spark-deck'+(on?' on':'');b.textContent=label;b.addEventListener('click',function(){reciteDeck=key;renderReciteHome();});return b;};
+    wrap.appendChild(chip('all','全部',reciteDeck==='all'));
+    deckList().forEach(function(d){wrap.appendChild(chip(d,DECK_NAME[d]||d,reciteDeck===d));});
+    var list=byId('reciteList');list.innerHTML='';
+    var shown=reciteDeck==='all'?all:all.filter(function(c){return c.deck===reciteDeck;});
+    shown.slice().reverse().forEach(function(c){
+      var it=document.createElement('div');it.className='card-item';
+      it.innerHTML='<div class="ci-deck"></div><div class="ci-main"><div class="ci-front"></div><div class="ci-back"></div></div><div class="ci-box"></div><div class="ci-act"><button class="ci-edit">改</button><button class="ci-del">🗑</button></div>';
+      it.querySelector('.ci-deck').textContent=DECK_ICON[c.deck]||'📝';
+      it.querySelector('.ci-front').textContent=c.front;
+      it.querySelector('.ci-back').textContent=c.back;
+      it.querySelector('.ci-box').textContent='L'+(c.box||1);
+      it.querySelector('.ci-del').addEventListener('click',function(){delCard(c.id);});
+      it.querySelector('.ci-edit').addEventListener('click',function(){openEditor(c.id);});
+      list.appendChild(it);
+    });
+  }
+  function delCard(id){
+    var all=getCards().filter(function(x){return x.id!==id;});
+    setCards(all);renderReciteHome();toast('已删除 ✂️');
+  }
+  /* ---------- 火花：背诵会话 ---------- */
+  function startSession(){
+    var all=getCards();
+    var pool=reciteDeck==='all'?all:all.filter(function(c){return c.deck===reciteDeck;});
+    var due=dueCards(pool);var use=due.length?due:pool;
+    if(!use.length){toast('还没有卡片，先添加一张吧 ✨');return;}
+    sessionQueue=use.slice();sessionIdx=0;sessionWrong=0;
+    byId('reciteHome').classList.add('hidden');
+    byId('reciteEditor').classList.add('hidden');
+    byId('reciteSession').classList.remove('hidden');
+    renderCard();
+  }
+  function renderCard(){
+    var c=sessionQueue[sessionIdx];
+    if(!c){endSession(true);return;}
+    byId('flashFront').textContent=c.front;
+    byId('flashBack').textContent=c.back;
+    byId('flashHint').textContent=c.hint?('提示：'+c.hint):'';
+    byId('flashEx').textContent=c.example?('例句：'+c.example):'';
+    byId('flashBack').classList.add('hidden');
+    byId('flashHint').classList.add('hidden');
+    byId('flashEx').classList.add('hidden');
+  }
+  function grade(know){
+    var c=sessionQueue[sessionIdx];if(!c)return;
+    var all=getCards();var idx=findIdx(all,function(x){return x.id===c.id;});
+    if(idx<0){sessionIdx++;renderCard();return;}
+    if(know){c.box=Math.min(5,(c.box||1)+1);c.reps=(c.reps||0)+1;}
+    else{c.box=1;c.lapses=(c.lapses||0)+1;sessionWrong++;}
+    c.due=now()+BOX_DAYS[(c.box||1)-1]*86400000;
+    all[idx]=c;setCards(all);sessionIdx++;renderCard();
+  }
+  function endSession(done){
+    byId('reciteSession').classList.add('hidden');
+    byId('reciteHome').classList.remove('hidden');
+    renderReciteHome();
+    if(done)toast(sessionWrong>0?('本次结束 · 忘了 '+sessionWrong+' 张，明天再来 💡'):'全部记住啦，火花更亮了 ✨');
+  }
+  /* ---------- 火花：卡片编辑器 ---------- */
+  function fillDeckSelect(){
+    var sel=byId('edDeck');if(!sel)return;
+    var custom=deckList().filter(function(d){return SEED_DECKS.indexOf(d)<0;});
+    var all=SEED_DECKS.concat(custom);sel.innerHTML='';
+    all.forEach(function(d){var o=document.createElement('option');o.value=d;o.textContent=DECK_NAME[d]||d;sel.appendChild(o);});
+    var no=document.createElement('option');no.value='__new';no.textContent='＋ 新建牌组';sel.appendChild(no);
+  }
+  function openEditor(id){
+    editingId=id||null;fillDeckSelect();
+    var ni=byId('edNewDeck');if(ni)ni.remove();
+    if(id){
+      var c=getCards().filter(function(x){return x.id===id;})[0];
+      if(c){byId('edDeck').value=c.deck;byId('edFront').value=c.front;byId('edBack').value=c.back;byId('edHint').value=c.hint||'';byId('edExample').value=c.example||'';}
+    }else{byId('edFront').value='';byId('edBack').value='';byId('edHint').value='';byId('edExample').value='';}
+    byId('reciteHome').classList.add('hidden');
+    byId('reciteSession').classList.add('hidden');
+    byId('reciteEditor').classList.remove('hidden');
+  }
+  function saveEditor(){
+    var sel=byId('edDeck');var deck=sel.value;
+    if(deck==='__new'){var ni=byId('edNewDeck');deck=ni?ni.value.trim():'';if(!deck){toast('请输入牌组名');return;}}
+    var front=byId('edFront').value.trim(),back=byId('edBack').value.trim();
+    if(!front||!back){toast('正面和背面都要填哦');return;}
+    var all=getCards();
+    if(editingId){
+      var idx=findIdx(all,function(x){return x.id===editingId;});
+      if(idx>=0){all[idx].front=front;all[idx].back=back;all[idx].deck=deck;all[idx].hint=byId('edHint').value.trim();all[idx].example=byId('edExample').value.trim();}
+    }else{
+      all.push({id:uid(),deck:deck,type:deck,front:front,back:back,hint:byId('edHint').value.trim(),example:byId('edExample').value.trim(),box:1,due:now(),reps:0,lapses:0,created:now(),source:'user'});
+    }
+    setCards(all);
+    byId('reciteEditor').classList.add('hidden');
+    byId('reciteHome').classList.remove('hidden');
+    renderReciteHome();toast(editingId?'已更新 ✏️':'已添加卡片 ✨');
+  }
+  /* ---------- 练习：自测 ---------- */
+  function renderPracticeHome(){
+    var m=byId('practiceModes');
+    if(m)m.querySelectorAll('.spark-deck').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-mode')===practiceMode);});
+    var w=byId('wrongCount');if(w)w.textContent=getWrong().length;
+  }
+  function startQuiz(){
+    var all=getCards().filter(function(c){return c.front&&c.back;});
+    if(all.length<1){toast('题库空空，先去火花加几张卡吧');return;}
+    var n=Math.min(10,all.length);
+    var picks=shuffle(all).slice(0,n);
+    quiz=picks.map(function(c){
+      var mode=practiceMode==='random'?(Math.random()<0.5?'choice':'fill'):practiceMode;
+      var q={card:c,mode:mode,answered:false,correct:false};
+      if(mode==='choice'){
+        var opts=[c.back];var pool=all.filter(function(x){return x.back!==c.back;}).map(function(x){return x.back;});
+        pool=shuffle(pool);for(var i=0;i<3&&i<pool.length;i++)opts.push(pool[i]);
+        q.opts=shuffle(opts);
+      }
+      return q;
+    });
+    qi=0;
+    byId('practiceHome').classList.add('hidden');
+    byId('practiceWrongList').classList.add('hidden');
+    byId('practiceQuiz').classList.remove('hidden');
+    renderQuiz();
+  }
+  function renderQuiz(){
+    var q=quiz[qi];byId('quizProgress').textContent=(qi+1)+'/'+quiz.length;
+    var body=byId('quizBody');body.innerHTML='';
+    var h=document.createElement('div');h.className='quiz-q';h.textContent=q.card.front;body.appendChild(h);
+    if(q.mode==='choice'){
+      q.opts.forEach(function(opt){
+        var b=document.createElement('button');b.className='quiz-opt';b.textContent=opt;
+        b.addEventListener('click',function(){answerChoice(q,b);});body.appendChild(b);
+      });
+    }else{
+      var inp=document.createElement('input');inp.className='quiz-input';inp.placeholder='输入答案';body.appendChild(inp);
+      var sb=document.createElement('button');sb.className='spark-btn';sb.textContent='提交';sb.style.marginBottom='0';
+      sb.addEventListener('click',function(){answerFill(q,inp.value);});body.appendChild(sb);
+      setTimeout(function(){inp.focus()},200);
+    }
+  }
+  function answerChoice(q,btn){
+    if(q.answered)return;q.answered=true;
+    q.correct=(btn.textContent===q.card.back);
+    byId('quizBody').querySelectorAll('.quiz-opt').forEach(function(b){
+      if(b.textContent===q.card.back)b.classList.add('right');
+      else if(b===btn)b.classList.add('wrong');
+    });
+    afterAnswer(q);
+  }
+  function answerFill(q,val){
+    if(q.answered)return;q.answered=true;
+    var v=(val||'').trim().toLowerCase(),r=(q.card.back||'').trim().toLowerCase();
+    q.correct=(v===r);
+    if(!q.correct)toast('正确答案：'+q.card.back);
+    afterAnswer(q);
+  }
+  function afterAnswer(q){
+    if(!q.correct)registerWrong(q.card);
+    setTimeout(function(){qi++;if(qi>=quiz.length)endQuiz();else renderQuiz();},q.correct?500:1100);
+  }
+  function registerWrong(card){
+    var w=getWrong();var ex=w.filter(function(x){return x.front===card.front&&x.back===card.back;})[0];
+    if(ex){ex.count=(ex.count||0)+1;ex.last=now();}else{w.push({id:uid(),front:card.front,back:card.back,hint:card.hint||'',example:card.example||'',deck:card.deck,type:card.type,count:1,last:now()});}
+    setWrong(w);
+    // 回流火花：确保该卡存在于主库并以 box1 立即复习
+    var all=getCards();var ex2=all.filter(function(x){return x.front===card.front&&x.back===card.back;})[0];
+    if(ex2){if((ex2.box||1)>1)ex2.box=1;ex2.due=now();var i=all.indexOf(ex2);all[i]=ex2;setCards(all);}
+    else{all.push({id:uid(),deck:card.deck,type:card.type,front:card.front,back:card.back,hint:card.hint||'',example:card.example||'',box:1,due:now(),reps:0,lapses:0,created:now(),source:'wrong'});setCards(all);}
+  }
+  function endQuiz(){
+    byId('practiceQuiz').classList.add('hidden');
+    byId('practiceHome').classList.remove('hidden');
+    renderPracticeHome();
+    var right=quiz.filter(function(q){return q.correct;}).length;
+    toast('自测完成：'+right+'/'+quiz.length+' 答对 · 错题已回流火花 🔥');quiz=null;
+  }
+  function openWrongList(){
+    var w=getWrong();var list=byId('wrongList');list.innerHTML='';
+    if(!w.length){list.innerHTML='<div class="spark-tip">还没有错题，继续保持 💪</div>';}
+    w.forEach(function(x){
+      var it=document.createElement('div');it.className='card-item';
+      it.innerHTML='<div class="ci-deck"></div><div class="ci-main"><div class="ci-front"></div><div class="ci-back"></div></div><div class="ci-box"></div>';
+      it.querySelector('.ci-deck').textContent=DECK_ICON[x.deck]||'⚠️';
+      it.querySelector('.ci-front').textContent=x.front;
+      it.querySelector('.ci-back').textContent=x.back;
+      it.querySelector('.ci-box').textContent='×'+(x.count||1);
+      list.appendChild(it);
+    });
+    byId('practiceHome').classList.add('hidden');
+    byId('practiceQuiz').classList.add('hidden');
+    byId('practiceWrongList').classList.remove('hidden');
+  }
+  /* ---------- 初始化与事件绑定 ---------- */
+  function initSpark(){
+    seedIfEmpty();
+    var fab=byId('fabRecite');if(fab)fab.addEventListener('click',function(){window.__activate('recite');});
+    byId('reciteStart').addEventListener('click',startSession);
+    byId('reciteAdd').addEventListener('click',function(){openEditor(null);});
+    byId('edCancel').addEventListener('click',function(){byId('reciteEditor').classList.add('hidden');byId('reciteHome').classList.remove('hidden');});
+    byId('edSave').addEventListener('click',saveEditor);
+    byId('flashKnow').addEventListener('click',function(){grade(true);});
+    byId('flashForget').addEventListener('click',function(){grade(false);});
+    byId('flashExit').addEventListener('click',function(){endSession(false);});
+    byId('flashCard').addEventListener('click',function(){byId('flashBack').classList.toggle('hidden');byId('flashHint').classList.toggle('hidden');byId('flashEx').classList.toggle('hidden');});
+    byId('edDeck').addEventListener('change',function(){
+      var ni=byId('edNewDeck');
+      if(this.value==='__new'){if(!ni){var inp=document.createElement('input');inp.id='edNewDeck';inp.placeholder='输入新牌组名';inp.style.marginTop='8px';inp.style.width='100%';inp.style.border='1px solid var(--line)';inp.style.borderRadius='12px';inp.style.padding='10px';inp.style.font='inherit';inp.style.outline='none';this.parentNode.appendChild(inp);setTimeout(function(){inp.focus()},50);}}
+      else if(ni){ni.remove();}
+    });
+    byId('practiceStart').addEventListener('click',startQuiz);
+    byId('practiceWrong').addEventListener('click',openWrongList);
+    byId('quizExit').addEventListener('click',function(){byId('practiceQuiz').classList.add('hidden');byId('practiceHome').classList.remove('hidden');quiz=null;});
+    byId('wrongBack').addEventListener('click',function(){byId('practiceWrongList').classList.add('hidden');byId('practiceHome').classList.remove('hidden');renderPracticeHome();});
+    byId('practiceModes').querySelectorAll('.spark-deck').forEach(function(b){b.addEventListener('click',function(){practiceMode=b.getAttribute('data-mode');renderPracticeHome();});});
+    window.__activate=activate; // 供「我的」抽屉导航
+    // 面板显示即刷新（替代 confirm/prompt，兼容 WebView）
+    if(window.MutationObserver){
+      byId('panel-recite')._sp=new MutationObserver(function(){if(byId('panel-recite').classList.contains('show'))renderReciteHome();});
+      byId('panel-recite')._sp.observe(byId('panel-recite'),{attributes:true,attributeFilter:['class']});
+      byId('panel-practice')._pp=new MutationObserver(function(){if(byId('panel-practice').classList.contains('show'))renderPracticeHome();});
+      byId('panel-practice')._pp.observe(byId('panel-practice'),{attributes:true,attributeFilter:['class']});
+    }
+    renderReciteHome();renderPracticeHome();
+  }
+  initSpark();
+})();
 })();
 </script>
 <script>
