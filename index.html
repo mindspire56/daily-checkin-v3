@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f7efe8">
-<meta name="app-version" content="3.2.2.7">
+<meta name="app-version" content="3.2.2.8">
 <title>每日打卡</title>
 <style>
 :root{--accent:#df7951;--accent-soft:#fff4ec;--ink:#332a28;--muted:#967d74;--line:rgba(92,69,58,.1)}
@@ -226,6 +226,19 @@
 .ava-preview-img{width:180px;height:180px;border-radius:50%;background:linear-gradient(135deg,#df7951,#e9b15e);color:#fff;font-size:90px;display:grid;place-items:center;box-shadow:0 20px 60px rgba(0,0,0,.35);border:4px solid rgba(255,255,255,.25)}
 .ava-preview-img.img-mode{background-size:cover;background-position:center;background-repeat:no-repeat;color:transparent;font-size:0}
 .ava-preview-name{margin-top:18px;color:#fff;font-size:18px;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+/* 头像裁剪编辑器 */
+.ava-crop-mask{position:fixed;inset:0;background:rgba(0,0,0,.82);opacity:0;pointer-events:none;transition:opacity .2s;z-index:215;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:20px}
+.ava-crop-mask.show{opacity:1;pointer-events:auto}
+.ava-crop-title{color:#fff;font-size:16px;font-weight:600;margin-bottom:14px;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+.ava-crop-stage{position:relative;width:240px;height:240px;border-radius:50%;overflow:hidden;background:#222;box-shadow:0 12px 40px rgba(0,0,0,.5);touch-action:none}
+.ava-crop-stage img{position:absolute;left:50%;top:50%;max-width:none;transform-origin:center center;will-change:transform;user-select:none;-webkit-user-drag:none}
+.ava-crop-ring{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(255,255,255,.6);pointer-events:none}
+.ava-crop-zoom{width:240px;margin-top:18px;accent-color:#df7951}
+.ava-crop-hint{color:rgba(255,255,255,.7);font-size:12px;margin-top:8px;text-align:center}
+.ava-crop-btns{display:flex;gap:12px;margin-top:16px}
+.ava-crop-btns button{border:0;border-radius:14px;height:42px;padding:0 22px;font:inherit;font-size:15px;cursor:pointer}
+.ava-crop-cancel{background:rgba(255,255,255,.18);color:#fff}
+.ava-crop-ok{background:linear-gradient(135deg,#df7951,#e9b15e);color:#fff;font-weight:600}
 </style>
 <style id="appNavCss">
 /* ===== App 适配层（不改动原有布局与功能） ===== */
@@ -696,7 +709,7 @@ body.tools-open .app-avatar{display:none!important}
 <div class="toast" id="toast"></div>
 <script>
 (function(){
-var STORE='daily-checkin-v30',OLD='daily-checkin-v1',APP_VERSION='3.2.2.7',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
+var STORE='daily-checkin-v30',OLD='daily-checkin-v1',APP_VERSION='3.2.2.8',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
 var quotes=[{text:'种一棵树最好的时间是十年前，其次是现在。',icon:'🌱'},{text:'不经一番寒彻骨，怎得梅花扑鼻香。',icon:'🌸'},{text:'表扬你的坚持',icon:'🏅'},{text:'生命必须有裂缝，阳光才能照进来',icon:'🌄'},{text:'功不唐捐，玉汝于成。',icon:'✨'},{text:'道阻且长，行则将至。',icon:'🚶'},{text:'长风破浪会有时。',icon:'🌊'},{text:'今天也比昨天多了一点点。',icon:'☀️'},{text:'小小坚持，大大改变。',icon:'🌟'},{text:'自律即自由。',icon:'🕊️'},{text:'不积跬步，无以至千里。',icon:'👣'},{text:'你比想象中更强大。',icon:'💪'},{text:'把目标拆小，把坚持变成日常。',icon:'🎯'},{text:'完成一次，就多一点底气。',icon:'🔥'},{text:'认真生活的人，会被时间奖励。',icon:'⏳'},{text:'锲而不舍，金石可镂。',icon:'🪨'},{text:'天行健，君子以自强不息。',icon:'🌞'},{text:'宝剑锋从磨砺出。',icon:'🌺'},{text:'坚持不是口号，是今天这一勾。',icon:'✓'},{text:'慢慢来，比较快。',icon:'🍃'},{text:'做完这一步，世界就亮一点。',icon:'💡'},{text:'给今天一个温柔但坚定的答案。',icon:'🤲'},{text:'哪怕只完成一点，也算向前。',icon:'📍'},{text:'每一次打卡都在替未来铺路。',icon:'🛤️'},{text:'稳住，节奏比速度更重要。',icon:'🎵'},{text:'今天的小胜利值得被记住。',icon:'🏆'},{text:'一日一进，月月不同。',icon:'📈'},{text:'你正在成为更可靠的自己。',icon:'🧭'},{text:'先开始，再变好。',icon:'🚀'},{text:'春有百花秋有月，日日坚持皆风景。',icon:'🌙'}];
 var defaultHabits=[
  {id:'read',name:'阅读20分钟',emoji:'📖',modeIds:['focus','learn','create'],energy:'low',category:'learn',weekendBonus:true,history:{}},
@@ -1716,13 +1729,79 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wireAvatarPreviewClose);
   else wireAvatarPreviewClose();
+  // ===== 头像裁剪编辑器 =====
+  // 注意：裁剪弹窗元素在脚本之后才解析，故所有 addEventListener 必须放到 DOM 就绪后绑定
+  // （否则 byId 为 null 抛错，整段 IIFE 中断，头像相关功能全失效）
+  var avaCropModal,avaCropImg,avaCropZoom,avaCropStage;
+  var _cropImg=null,_cropIW=0,_cropIH=0,_cropScale=1,_cropMin=1,_cropTx=0,_cropTy=0,_cropDrag=false,_cropPX=0,_cropPY=0;
+  function openAvaCrop(dataUrl){
+    var im=new Image();
+    im.onload=function(){
+      _cropImg=im;_cropIW=im.naturalWidth;_cropIH=im.naturalHeight;
+      var S=240;_cropMin=S/Math.min(_cropIW,_cropIH);_cropScale=_cropMin;_cropTx=0;_cropTy=0;
+      avaCropImg.src=dataUrl;avaCropImg.style.width=_cropIW+'px';avaCropImg.style.height=_cropIH+'px';
+      avaCropImg.style.marginLeft=(-_cropIW/2)+'px';avaCropImg.style.marginTop=(-_cropIH/2)+'px';
+      avaCropZoom.min=_cropMin;avaCropZoom.max=_cropMin*3;avaCropZoom.step=0.01;avaCropZoom.value=_cropMin;
+      _applyCropTransform();avaCropModal.classList.add('show');
+    };
+    im.src=dataUrl;
+  }
+  function _applyCropTransform(){avaCropImg.style.transform='translate('+_cropTx+'px,'+_cropTy+'px) scale('+_cropScale+')';}
+  function _clampCrop(){
+    var S=240,s=_cropScale,maxTx=(_cropIW*s-S)/2,maxTy=(_cropIH*s-S)/2;
+    if(maxTx<0)maxTx=0;if(maxTy<0)maxTy=0;
+    if(_cropTx>maxTx)_cropTx=maxTx;if(_cropTx<-maxTx)_cropTx=-maxTx;
+    if(_cropTy>maxTy)_cropTy=maxTy;if(_cropTy<-maxTy)_cropTy=-maxTy;
+  }
+  function closeAvaCrop(){avaCropModal.classList.remove('show');_cropImg=null;}
+  function wireAvaCrop(){
+    avaCropModal=byId('avaCropModal');avaCropImg=byId('avaCropImg');avaCropZoom=byId('avaCropZoom');avaCropStage=byId('avaCropStage');
+    avaCropZoom.addEventListener('input',function(){_cropScale=parseFloat(avaCropZoom.value);_clampCrop();_applyCropTransform();});
+    avaCropStage.addEventListener('pointerdown',function(e){_cropDrag=true;_cropPX=e.clientX;_cropPY=e.clientY;try{avaCropStage.setPointerCapture(e.pointerId);}catch(_){}});
+    avaCropStage.addEventListener('pointermove',function(e){if(!_cropDrag)return;_cropTx+=(e.clientX-_cropPX);_cropTy+=(e.clientY-_cropPY);_cropPX=e.clientX;_cropPY=e.clientY;_clampCrop();_applyCropTransform();});
+    avaCropStage.addEventListener('pointerup',function(){_cropDrag=false;});
+    avaCropStage.addEventListener('pointercancel',function(){_cropDrag=false;});
+    byId('avaCropOk').addEventListener('click',function(){
+      if(!_cropImg)return;
+      var S=240,O=200,k=O/S;
+      var cv=document.createElement('canvas');cv.width=O;cv.height=O;
+      var cx=cv.getContext('2d');
+      cx.translate(O/2+_cropTx*k,O/2+_cropTy*k);cx.scale(_cropScale*k,_cropScale*k);
+      cx.drawImage(_cropImg,-_cropIW/2,-_cropIH/2,_cropIW,_cropIH);
+      var out=cv.toDataURL('image/jpeg',0.85);
+      closeAvaCrop();_pendingAvaImg=out;
+      var el=byId('pfAva');el.style.backgroundImage='url('+out+')';el.classList.add('img-mode');el.textContent='';
+      byId('pfAvaPick').querySelectorAll('span').forEach(function(x){x.classList.remove('on')});
+      byId('pfAvaUpload').style.borderColor='var(--accent)';byId('pfAvaUpload').style.color='var(--accent)';
+    });
+    byId('avaCropCancel').addEventListener('click',closeAvaCrop);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wireAvaCrop);
+  else wireAvaCrop();
+  // 启动时归一化：把过大的头像压缩为 200px 小图，避免 localStorage 配额与渲染空白
+  function normalizeAvatarStorage(){
+    try{
+      var p=readProfile();if(!p||!p.avaImg||p.avaImg.length<600000)return;
+      var im=new Image();
+      im.onload=function(){
+        var O=200,cv=document.createElement('canvas');cv.width=O;cv.height=O,side=Math.min(im.naturalWidth,im.naturalHeight);
+        cv.getContext('2d').drawImage(im,(im.naturalWidth-side)/2,(im.naturalHeight-side)/2,side,side,0,0,O,O);
+        p.avaImg=cv.toDataURL('image/jpeg',0.85);
+        try{localStorage.setItem(STORE+':profile',JSON.stringify(p));}catch(_){}
+        _applyAvatar(p);
+      };
+      im.src=p.avaImg;
+    }catch(e){}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',normalizeAvatarStorage);
+  else normalizeAvatarStorage();
   // 个人资料：好友（只读）
   var _currentProfileFriend=null;
   function openFriendProfile(f){
     closeAvatarPreview();
     _currentProfileFriend=f;
     var d=byId('profileDrawer');
-    byId('pfAva').textContent=f.ava;
+    byId('pfAva').classList.remove('img-mode');byId('pfAva').style.backgroundImage='';byId('pfAva').textContent=f.ava;
     byId('pfName').textContent=f.name;
     byId('pfId').textContent='ID '+f.id;
     byId('pfSign').textContent=f.sign||'这个人很神秘，还没写签名～';
@@ -1787,20 +1866,9 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   byId('pfAvaUpload').addEventListener('click',function(){byId('pfAvaFileInput').click()});
   byId('pfAvaFileInput').addEventListener('change',function(e){
     var f=e.target.files&&e.target.files[0];if(!f)return;
-    if(f.size>3*1024*1024){toast('图片不能超过 3MB');return}
+    if(f.size>8*1024*1024){toast('图片不能超过 8MB');return}
     var reader=new FileReader();
-    reader.onload=function(ev){
-      _pendingAvaImg=ev.target.result;
-      // 预览到 pfAva
-      var el=byId('pfAva');
-      el.style.backgroundImage='url('+_pendingAvaImg+')';
-      el.classList.add('img-mode');el.textContent='';
-      // 取消 emoji 选中
-      byId('pfAvaPick').querySelectorAll('span').forEach(function(x){x.classList.remove('on')});
-      // 高亮上传按钮
-      byId('pfAvaUpload').style.borderColor='var(--accent)';
-      byId('pfAvaUpload').style.color='var(--accent)';
-    };
+    reader.onload=function(ev){ openAvaCrop(ev.target.result); };
     reader.readAsDataURL(f);
     e.target.value='';
   });
@@ -2437,6 +2505,20 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
 </script>
 
 <!-- 头像放大预览 -->
+<!-- 头像裁剪编辑器 -->
+<div class="ava-crop-mask" id="avaCropModal">
+  <div class="ava-crop-title">拖动调整 · 缩放选择头像</div>
+  <div class="ava-crop-stage" id="avaCropStage">
+    <img id="avaCropImg" alt="">
+    <div class="ava-crop-ring"></div>
+  </div>
+  <input class="ava-crop-zoom" id="avaCropZoom" type="range" min="1" max="3" step="0.01" value="1">
+  <div class="ava-crop-hint">拖动滑块缩放，手指/鼠标拖动图片调整位置</div>
+  <div class="ava-crop-btns">
+    <button class="ava-crop-cancel" id="avaCropCancel" type="button">取消</button>
+    <button class="ava-crop-ok" id="avaCropOk" type="button">确定</button>
+  </div>
+</div>
 <div class="ava-preview-mask" id="avaPreviewMask">
   <div class="ava-preview" id="avaPreview">
     <button class="ava-preview-close" id="avaPreviewClose" type="button" aria-label="关闭">×</button>
