@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f7efe8">
-<meta name="app-version" content="3.2.2.6">
+<meta name="app-version" content="3.2.2.7">
 <title>每日打卡</title>
 <style>
 :root{--accent:#df7951;--accent-soft:#fff4ec;--ink:#332a28;--muted:#967d74;--line:rgba(92,69,58,.1)}
@@ -696,7 +696,7 @@ body.tools-open .app-avatar{display:none!important}
 <div class="toast" id="toast"></div>
 <script>
 (function(){
-var STORE='daily-checkin-v30',OLD='daily-checkin-v1',APP_VERSION='3.2.2.6',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
+var STORE='daily-checkin-v30',OLD='daily-checkin-v1',APP_VERSION='3.2.2.7',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
 var quotes=[{text:'种一棵树最好的时间是十年前，其次是现在。',icon:'🌱'},{text:'不经一番寒彻骨，怎得梅花扑鼻香。',icon:'🌸'},{text:'表扬你的坚持',icon:'🏅'},{text:'生命必须有裂缝，阳光才能照进来',icon:'🌄'},{text:'功不唐捐，玉汝于成。',icon:'✨'},{text:'道阻且长，行则将至。',icon:'🚶'},{text:'长风破浪会有时。',icon:'🌊'},{text:'今天也比昨天多了一点点。',icon:'☀️'},{text:'小小坚持，大大改变。',icon:'🌟'},{text:'自律即自由。',icon:'🕊️'},{text:'不积跬步，无以至千里。',icon:'👣'},{text:'你比想象中更强大。',icon:'💪'},{text:'把目标拆小，把坚持变成日常。',icon:'🎯'},{text:'完成一次，就多一点底气。',icon:'🔥'},{text:'认真生活的人，会被时间奖励。',icon:'⏳'},{text:'锲而不舍，金石可镂。',icon:'🪨'},{text:'天行健，君子以自强不息。',icon:'🌞'},{text:'宝剑锋从磨砺出。',icon:'🌺'},{text:'坚持不是口号，是今天这一勾。',icon:'✓'},{text:'慢慢来，比较快。',icon:'🍃'},{text:'做完这一步，世界就亮一点。',icon:'💡'},{text:'给今天一个温柔但坚定的答案。',icon:'🤲'},{text:'哪怕只完成一点，也算向前。',icon:'📍'},{text:'每一次打卡都在替未来铺路。',icon:'🛤️'},{text:'稳住，节奏比速度更重要。',icon:'🎵'},{text:'今天的小胜利值得被记住。',icon:'🏆'},{text:'一日一进，月月不同。',icon:'📈'},{text:'你正在成为更可靠的自己。',icon:'🧭'},{text:'先开始，再变好。',icon:'🚀'},{text:'春有百花秋有月，日日坚持皆风景。',icon:'🌙'}];
 var defaultHabits=[
  {id:'read',name:'阅读20分钟',emoji:'📖',modeIds:['focus','learn','create'],energy:'low',category:'learn',weekendBonus:true,history:{}},
@@ -1708,8 +1708,14 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     mask.classList.add('show');
   }
   function closeAvatarPreview(){byId('avaPreviewMask').classList.remove('show');}
-  byId('avaPreviewMask').addEventListener('click',closeAvatarPreview);
-  byId('avaPreviewClose').addEventListener('click',function(e){e.stopPropagation();closeAvatarPreview();});
+  // 头像预览关闭：avaPreviewMask / avaPreviewClose 在脚本之后才解析，必须在 DOM 就绪后绑定，
+  // 否则 byId 为 null 导致 addEventListener 抛错、监听失效，放大头像点哪都关不掉
+  function wireAvatarPreviewClose(){
+    byId('avaPreviewMask').addEventListener('click',closeAvatarPreview);
+    byId('avaPreviewClose').addEventListener('click',function(e){e.stopPropagation();closeAvatarPreview();});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wireAvatarPreviewClose);
+  else wireAvatarPreviewClose();
   // 个人资料：好友（只读）
   var _currentProfileFriend=null;
   function openFriendProfile(f){
