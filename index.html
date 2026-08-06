@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f7efe8">
-<meta name="app-version" content="3.2.2.5">
+<meta name="app-version" content="3.2.2.6">
 <title>每日打卡</title>
 <style>
 :root{--accent:#df7951;--accent-soft:#fff4ec;--ink:#332a28;--muted:#967d74;--line:rgba(92,69,58,.1)}
@@ -116,7 +116,6 @@
 [data-theme="dark"] .chat-input-row input{background:var(--surface-3);border-color:var(--line);color:var(--ink)}
 [data-theme="dark"] .chat-emoji span{background:var(--surface-2)}
 [data-theme="dark"] .chat-emoji span:active{background:var(--accent-soft);border-color:var(--accent)}
-[data-theme="dark"] .pf-cover:before,[data-theme="dark"] .pf-cover:after{background:rgba(255,255,255,.08)}
 [data-theme="dark"] .pf-sign,[data-theme="dark"] .pf-stat{background:var(--surface);border-color:var(--line);color:var(--ink)}
 [data-theme="dark"] .pf-field input,[data-theme="dark"] .pf-field textarea{background:var(--surface-3);border-color:var(--line);color:var(--ink)}
 [data-theme="dark"] .pf-ava-upload{background:var(--surface-2);color:var(--muted)}
@@ -219,7 +218,7 @@
 #pkChallenge{background:var(--accent);color:#fff}
 #pkClose{background:var(--bg);color:var(--muted);border:1px solid var(--line)!important}
 /* 头像放大预览 */
-.ava-preview-mask{position:fixed;inset:0;background:rgba(0,0,0,.78);opacity:0;pointer-events:none;transition:opacity .25s;z-index:90;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.ava-preview-mask{position:fixed;inset:0;background:rgba(0,0,0,.82);opacity:0;pointer-events:none;transition:opacity .25s;z-index:210;display:flex;align-items:center;justify-content:center;flex-direction:column;cursor:pointer}
 .ava-preview-mask.show{opacity:1;pointer-events:auto}
 .ava-preview{position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;width:100%;padding:20px}
 .ava-preview-close{position:absolute;right:18px;top:calc(env(safe-area-inset-top,0px) + 18px);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.2);color:#fff;font-size:26px;line-height:1;display:grid;place-items:center;cursor:pointer;transition:.15s;z-index:2;box-shadow:0 4px 12px rgba(0,0,0,.25)}
@@ -489,10 +488,7 @@ body.chat-open .app-avatar{display:none!important}
 .profile-drawer{position:fixed;top:0;right:0;height:100vh;height:100dvh;width:min(86%,340px);max-width:100%;background:linear-gradient(165deg,#fffaf5,#fdeede);z-index:67;transform:translateX(100%);transition:transform .3s cubic-bezier(.22,.61,.36,1),visibility 0s linear .3s;box-shadow:-14px 0 40px rgba(45,35,31,.22);display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top,0px) + 16px) 18px calc(env(safe-area-inset-bottom,0px) + 18px);overflow:auto;overflow-x:hidden;visibility:hidden}
 .profile-drawer.show{transform:translateX(0);visibility:visible}
 .pf-head{padding:0 0 6px;display:flex;justify-content:flex-end}
-.pf-cover{height:96px;border-radius:18px;background:linear-gradient(135deg,#f3b07a,#df7951);position:relative;overflow:hidden}
-.pf-cover:before{content:"";position:absolute;right:-20px;top:-24px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.12)}
-.pf-cover:after{content:"";position:absolute;left:-16px;bottom:-30px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,.08)}
-.pf-ava{width:72px;height:72px;border-radius:50%;border:3px solid #fff;background:linear-gradient(135deg,#df7951,#e9b15e);color:#fff;font-size:36px;display:grid;place-items:center;margin:-36px 0 6px 14px;box-shadow:0 8px 18px rgba(0,0,0,.14)}
+.pf-ava{width:72px;height:72px;border-radius:50%;border:3px solid #fff;background:linear-gradient(135deg,#df7951,#e9b15e);color:#fff;font-size:36px;display:grid;place-items:center;margin:6px 0 6px 14px;box-shadow:0 8px 18px rgba(0,0,0,.14)}
 .pf-name{font-size:20px;font-weight:800;color:#4a362d}
 .pf-id{font-size:12px;color:var(--muted);margin:2px 0 10px}
 .pf-sign{background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:14px;padding:12px;font-size:14px;color:#4a3b35;min-height:44px;white-space:pre-wrap;word-break:break-word}
@@ -700,7 +696,7 @@ body.tools-open .app-avatar{display:none!important}
 <div class="toast" id="toast"></div>
 <script>
 (function(){
-var STORE='daily-checkin-v30',OLD='daily-checkin-v1',APP_VERSION='3.2.2.5',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
+var STORE='daily-checkin-v30',OLD='daily-checkin-v1',APP_VERSION='3.2.2.6',week=['日','一','二','三','四','五','六'],activeDate=null,viewMonth=new Date(),calendarOpen=false,celebratedKey='',selectedModeInSheet=null,arrangeModes=false,activePanel='',panelDepth=0,suppressPop=false,edgeSwipe=null;
 var quotes=[{text:'种一棵树最好的时间是十年前，其次是现在。',icon:'🌱'},{text:'不经一番寒彻骨，怎得梅花扑鼻香。',icon:'🌸'},{text:'表扬你的坚持',icon:'🏅'},{text:'生命必须有裂缝，阳光才能照进来',icon:'🌄'},{text:'功不唐捐，玉汝于成。',icon:'✨'},{text:'道阻且长，行则将至。',icon:'🚶'},{text:'长风破浪会有时。',icon:'🌊'},{text:'今天也比昨天多了一点点。',icon:'☀️'},{text:'小小坚持，大大改变。',icon:'🌟'},{text:'自律即自由。',icon:'🕊️'},{text:'不积跬步，无以至千里。',icon:'👣'},{text:'你比想象中更强大。',icon:'💪'},{text:'把目标拆小，把坚持变成日常。',icon:'🎯'},{text:'完成一次，就多一点底气。',icon:'🔥'},{text:'认真生活的人，会被时间奖励。',icon:'⏳'},{text:'锲而不舍，金石可镂。',icon:'🪨'},{text:'天行健，君子以自强不息。',icon:'🌞'},{text:'宝剑锋从磨砺出。',icon:'🌺'},{text:'坚持不是口号，是今天这一勾。',icon:'✓'},{text:'慢慢来，比较快。',icon:'🍃'},{text:'做完这一步，世界就亮一点。',icon:'💡'},{text:'给今天一个温柔但坚定的答案。',icon:'🤲'},{text:'哪怕只完成一点，也算向前。',icon:'📍'},{text:'每一次打卡都在替未来铺路。',icon:'🛤️'},{text:'稳住，节奏比速度更重要。',icon:'🎵'},{text:'今天的小胜利值得被记住。',icon:'🏆'},{text:'一日一进，月月不同。',icon:'📈'},{text:'你正在成为更可靠的自己。',icon:'🧭'},{text:'先开始，再变好。',icon:'🚀'},{text:'春有百花秋有月，日日坚持皆风景。',icon:'🌙'}];
 var defaultHabits=[
  {id:'read',name:'阅读20分钟',emoji:'📖',modeIds:['focus','learn','create'],energy:'low',category:'learn',weekendBonus:true,history:{}},
@@ -1074,7 +1070,6 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
 <aside class="profile-mask" id="profileMask"></aside>
 <aside class="profile-drawer" id="profileDrawer" aria-hidden="true">
   <div class="pf-head"><button class="icon close-strong" id="pfClose">×</button></div>
-  <div class="pf-cover"></div>
   <div class="pf-ava" id="pfAva">🙂</div>
   <div class="pf-name" id="pfName">打卡人</div>
   <div class="pf-id" id="pfId">ID: DC-2026</div>
@@ -1721,7 +1716,6 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
     closeAvatarPreview();
     _currentProfileFriend=f;
     var d=byId('profileDrawer');
-    d.querySelector('.pf-cover').style.background='linear-gradient(135deg,#7eaf99,#df7951)';
     byId('pfAva').textContent=f.ava;
     byId('pfName').textContent=f.name;
     byId('pfId').textContent='ID '+f.id;
@@ -1739,7 +1733,6 @@ window.Guide={enabled:guideEnabled,setEnabled:function(on){setGuideEnabled(on)},
   function openSelfProfile(){
     closeAvatarPreview();
     var d=byId('profileDrawer'),p=readProfile();
-    d.querySelector('.pf-cover').style.background='linear-gradient(135deg,#f3b07a,#df7951)';
     // 头像：优先显示上传的图片，否则用 emoji
     var pfAvaEl=byId('pfAva');
     if(p.avaImg){
